@@ -87,12 +87,10 @@
 					
 					auth: <%= request.getParameter("auth") %>
 					
-					 -->
-					 
-					 <%session.getAttribute("auth"); %>
+					 -->			
 					 
 					<%
-				    if (auth != null) {
+				    if (session.getAttribute("auth") != null) {
 				    %>
 				
 				   <li class="login">

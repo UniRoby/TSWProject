@@ -7,8 +7,6 @@
 
 
 
-<!--  -->
-
 <%
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 Collection<?> occhiali = (Collection<?>) request.getAttribute("occhiali");
