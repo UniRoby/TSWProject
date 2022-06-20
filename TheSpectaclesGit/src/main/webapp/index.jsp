@@ -5,6 +5,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+
+
 <!--  -->
 
 <%
@@ -27,11 +29,16 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 
 <body id="body">
  
+<% session.setAttribute("auth",(OcchialeBean) request.getSession().getAttribute("auth")); %>
+
+<%@ include file="header.html"%>
+ 
+<!--  
 <jsp:include page="header.jsp">
-<jsp:param name="auth" value="false"/>
+<jsp:param name="auth" value="<%request.getSession().getAttribute("auth");%>"/>
 </jsp:include>
 
-
+-->
 
 
 

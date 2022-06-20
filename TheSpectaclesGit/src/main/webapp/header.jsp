@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+   pageEncoding="ISO-8859-1"%>
 
 <!-- Start Top Header Bar -->
 <section class="top-header">
@@ -78,6 +79,18 @@
 					</li><!-- / Search -->
 
 					<!-- Languages -->
+					
+					<!--
+					
+					<a href="<%= request.getParameter("auth") %>">
+					</a>
+					
+					auth: <%= request.getParameter("auth") %>
+					
+					 -->
+					 
+					 <%session.getAttribute("auth"); %>
+					 
 					<%
 				    if (auth != null) {
 				    %>
