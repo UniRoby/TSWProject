@@ -78,16 +78,7 @@
 						</ul>
 					</li><!-- / Search -->
 
-					<!-- Languages -->
-					
-					<!--
-					
-					<a href="<%= request.getParameter("auth") %>">
-					</a>
-					
-					auth: <%= request.getParameter("auth") %>
-					
-					 -->			
+					<!-- Languages -->			
 					 
 					<%
 				    if (session.getAttribute("auth") != null) {
