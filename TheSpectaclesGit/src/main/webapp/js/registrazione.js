@@ -6,9 +6,9 @@ var formValid = {
 	email: false
 }
 
-/*function onBlurUser() {
-	userExists("formReg", "email", "infoUser", " già esistente", " accettato", formValid);
-}*/
+function onBlurUser() {
+	userExists("formReg", "email", " già esistente", " accettato", formValid);
+}
 
 
 
@@ -45,7 +45,7 @@ function passwordValidator() {
 	}
 }
 
-/*function buttonNext() {
+function buttonNext() {
 	var el = document.getElementById("infoNextButton");
 	var el2 = document.getElementById("info");
 	var nodes = document.getElementById("progressBar").childNodes;
@@ -93,27 +93,27 @@ function passwordValidator() {
 
 		default: break;
 	}
-}*/
-/*
-function userExists(formId, inputId, infoId, msgTrue, msgFalse, obj) {
-	obj.user = false;
-	var user = document.forms[formId][inputId].value;
+}
+
+function userExists(formId, inputId, msgTrue, msgFalse, obj) {
+	obj.email = false;
+	var email = document.forms[formId][inputId].value;
 	var info = document.getElementById(infoId);
-	info.innerHTML = "controllo unicità nome utente...";
+	info.innerHTML = "controllo unicità email utente...";
 	$.ajax({
-		url: "./accesso", type: "POST", data: { userName: user, mode: "userExists" }, timeout: 4000, success: function(result) {
+		url: "./accesso", type: "POST", data: { email: email, mode: "userExists" }, timeout: 4000, success: function(result) {
 			if (result == "true") {
 				info.style.color = errorColor;
-				info.innerHTML = "nome utente" + msgTrue;
+				info.innerHTML = "email utente" + msgTrue;
 			}
 			else {
 				obj.user = true;
 				info.style.color = successColor;
-				info.innerHTML = "nome utente" + msgFalse;
+				info.innerHTML = "email utente" + msgFalse;
 			}
 		}, error: function(xhr, status, error) {
 			info.style.color = errorColor;
 			info.innerHTML = "riprova più tardi";
 		}
 	});
-}*/
+}
