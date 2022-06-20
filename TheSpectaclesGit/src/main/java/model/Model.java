@@ -9,7 +9,7 @@ public interface Model<T, J> {
 	
 	public T doRetrieveByKey(String ...key) throws SQLException;
 	
-	public Collection<T> doRetrieveAll(String order, String ...key) throws SQLException;
+	public Collection<T> doRetrieveAll(String order) throws SQLException;
 	
 	public void doSave(T bean) throws SQLException;
 	

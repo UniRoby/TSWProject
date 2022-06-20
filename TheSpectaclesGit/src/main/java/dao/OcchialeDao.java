@@ -60,7 +60,7 @@ import model.*;
 		}
 
 		@Override
-		public Collection<OcchialeBean> doRetrieveAll(String order, String... key) throws SQLException {
+		public Collection<OcchialeBean> doRetrieveAll(String order) throws SQLException {
 			Collection<OcchialeBean> occhiali = new ArrayList<OcchialeBean>();
 			Connection con = null;
 			PreparedStatement prep = null;
