@@ -33,15 +33,6 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 
 <%@ include file="header.html"%>
  
-<!--  
-<jsp:include page="header.jsp">
-<jsp:param name="auth" value="<%request.getSession().getAttribute("auth");%>"/>
-</jsp:include>
-
--->
-
-
-
 
 <div class="hero-slider">
   <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/theSpectacles.jpg);">
