@@ -21,7 +21,7 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 <html lang="en">
 <head>
 
- <%@ include file="meta.html"%>
+<%@ include file="meta.html"%>
 
 </head>
 
