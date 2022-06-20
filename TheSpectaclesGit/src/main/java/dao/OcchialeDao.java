@@ -84,7 +84,10 @@ import model.*;
 				occhiali.add(bean);
 		}
 		 } finally {
-				rs.close();
+			 if(rs!=null) {
+				 rs.close();
+			 }
+				rs = null;
 				prep.close();
 				con.close();
 			}
