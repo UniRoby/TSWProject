@@ -17,7 +17,7 @@ UtenteBean bean = (UtenteBean) request.getAttribute("utenteBean");
  
   <meta charset="utf-8">
   <meta name="description" content="Registrazione">
-  <title>The Spectacles | E-commerce </title>
+  <title>The Spectacles  E-commerce </title>
 
  <%@ include file="meta.html"%>
 
