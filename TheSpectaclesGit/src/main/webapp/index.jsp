@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<!--  -->
+
 
 <%
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
@@ -27,11 +27,10 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 
 <body id="body">
  
-<%@ include file="header.jsp"%>
+<% session.setAttribute("auth",(OcchialeBean) request.getSession().getAttribute("auth")); %>
 
-
-
-
+<%@ include file="header.html"%>
+ 
 
 <div class="hero-slider">
   <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/theSpectacles.jpg);">

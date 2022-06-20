@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 
 import model.*;
 
-//CIAO A TUTTI
+
 @WebServlet("/registrazione")
 public class Registrazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
