@@ -65,10 +65,10 @@ import model.*;
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
-			String sql = "SELECT nomeOcchiale, prezzo, img FROM " + OcchialeDao.TABLE_NAME;
-			if(order !=null && !order.equals("")) {
+			String sql = "SELECT nomeOcchiale, prezzo, img FROM " + OcchialeDao.TABLE_NAME+" ORDER BY ?";
+			/*if(order !=null && !order.equals("")) {
 				sql += " ORDER BY " + order;
-			}
+			}*/
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(sql);

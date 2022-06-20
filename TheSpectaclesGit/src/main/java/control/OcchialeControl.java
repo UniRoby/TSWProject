@@ -20,8 +20,7 @@ import model.*;
 public class OcchialeControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	// OcchialeModelDS usa il DataSource
-	// OcchialeDao usa il DriverManager	
+
 	static boolean isDataSource = true;
 	
 	static Model model;

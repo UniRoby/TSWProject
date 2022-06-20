@@ -23,7 +23,7 @@ public class ServletContListener implements ServletContextListener {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
 
-			ds = (DataSource) envCtx.lookup("jdbc/TheSpectacles");
+			ds = (DataSource) envCtx.lookup("jdbc/ecommerce");
 
 		} catch (NamingException e) {
 			System.out.println("Error:" + e.getMessage());
