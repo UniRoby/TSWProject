@@ -27,7 +27,7 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 
 <body id="body">
  
-<%@ include file="header.html"%>
+<%@ include file="header.jsp"%>
 
 
 
