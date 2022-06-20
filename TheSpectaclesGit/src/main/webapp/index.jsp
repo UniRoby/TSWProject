@@ -27,7 +27,10 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 
 <body id="body">
  
-<%@ include file="header.jsp"%>
+<jsp:include page="header.jsp">
+<jsp:param name="auth" value="false"/>
+</jsp:include>
+
 
 
 
