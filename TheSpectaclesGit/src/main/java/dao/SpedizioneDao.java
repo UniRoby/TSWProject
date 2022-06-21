@@ -128,7 +128,7 @@ import model.*;
 			Connection con = null;
 			PreparedStatement prep = null;
 		
-			String insertSQL = "INSERT INTO " + SpedizioneDao.TABLE_NAME + " (idShipment, dateShipment, idOrder, shipmentType) VALUES (?, ?, ?)";
+			String insertSQL = "INSERT INTO " + SpedizioneDao.TABLE_NAME + " (idShipment, dateShipment, idOrder, shipmentType) VALUES (?, ?, ?, ?)";
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(insertSQL);
