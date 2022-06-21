@@ -18,7 +18,7 @@ import model.*;
 
 		@Override
 		public void setDB(DataSource obj) {
-			// TODO Auto-generated method stub
+			
 			this.ds=obj;
 		}
 
@@ -29,11 +29,11 @@ import model.*;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
 			
-	 		String selectSQL = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE CODE = ?";
+	 		String sql = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE CODE = ?";
 
 	 		try {
 	 			con = ds.getConnection();
-				prep = con.prepareStatement(selectSQL);
+				prep = con.prepareStatement(sql);
 				prep.setString(1, key[0]);
 				rs = prep.executeQuery();
 
@@ -84,6 +84,7 @@ import model.*;
 				occhiali.add(bean);
 		}
 		 } finally {
+			 
 				rs.close();
 				prep.close();
 				con.close();

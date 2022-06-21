@@ -27,7 +27,7 @@ public class OcchialeControl extends HttpServlet {
 	
 	public void init() throws ServletException {
 		super.init();
-		modelOcchiale .setDB((DataSource) getServletContext().getAttribute("DataSource"));
+		modelOcchiale.setDB((DataSource) getServletContext().getAttribute("DataSource"));
 		
 	}
 	
