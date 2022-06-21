@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
 import dao.OcchialeDao;
 import model.*;
@@ -22,9 +23,13 @@ public class OcchialeControl extends HttpServlet {
 
 
 	static boolean isDataSource = true;
+	private static Model<OcchialeBean, DataSource> modelOcchiale = new OcchialeDao();
 	
-	static Model model;
-	
+	public void init() throws ServletException {
+		super.init();
+		modelOcchiale .setDB((DataSource) getServletContext().getAttribute("DataSource"));
+		
+	}
 	
 	public OcchialeControl() {
 		super();
@@ -33,40 +38,13 @@ public class OcchialeControl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		/*String action = request.getParameter("action");
-
-		try {
-			if (action != null) {
-				if (action.equalsIgnoreCase("read")) {
-					int id = Integer.parseInt(request.getParameter("id"));
-					request.removeAttribute("product");
-					request.setAttribute("product", model.doRetrieveByKey(id));
-				} else if (action.equalsIgnoreCase("delete")) {
-					int id = Integer.parseInt(request.getParameter("id"));
-					model.doDelete(id);
-				} else if (action.equalsIgnoreCase("insert")) {
-					String name = request.getParameter("name");
-					String description = request.getParameter("description");
-					int price = Integer.parseInt(request.getParameter("price"));
-					int quantity = Integer.parseInt(request.getParameter("quantity"));
-
-					OcchialeBean bean = new OcchialeBean();
-					bean.setName(name);
-					bean.setDescription(description);
-					bean.setPrice(price);
-					bean.setQuantity(quantity);
-					model.doSave(bean);
-				}
-			}
-		} catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
-		}
-         */
+		
 		String sort = request.getParameter("sort");
-       model=  new OcchialeDao();
+      
 		try {
 			request.removeAttribute("occhiali");
-			request.setAttribute("occhiali", model.doRetrieveAll(sort));
+			//request.setAttribute("occhiali", model.doRetrieveAll(sort));
+			request.setAttribute("occhiali", modelOcchiale.doRetrieveAll(null));
 		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
 		}
