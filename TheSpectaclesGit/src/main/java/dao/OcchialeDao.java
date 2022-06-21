@@ -16,20 +16,26 @@ import model.*;
 
 	 	private DataSource ds;
 
-		@Override
 		public void setDB(DataSource obj) {
+<<<<<<< HEAD
 			
+=======
+>>>>>>> branch 'master' of https://github.com/UniRoby/TSWProject.git
 			this.ds=obj;
 		}
 
-		@Override
 		public OcchialeBean doRetrieveByKey(String... key) throws SQLException {
 			OcchialeBean bean = new OcchialeBean();
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
+<<<<<<< HEAD
 			
 	 		String sql = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE CODE = ?";
+=======
+	
+	 		String selectSQL = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE CODE = ?";
+>>>>>>> branch 'master' of https://github.com/UniRoby/TSWProject.git
 
 	 		try {
 	 			con = ds.getConnection();
@@ -58,8 +64,7 @@ import model.*;
 	 		}
 	 		return bean;
 		}
-
-		@Override
+	
 		public Collection<OcchialeBean> doRetrieveAll(String order) throws SQLException {
 			Collection<OcchialeBean> occhiali = new ArrayList<OcchialeBean>();
 			Connection con = null;
@@ -89,11 +94,9 @@ import model.*;
 				prep.close();
 				con.close();
 			}
-
 			return occhiali;
 		}
-
-		@Override
+		
 		public void doUpdate(OcchialeBean bean) throws SQLException {
 			Connection con = null;
 			PreparedStatement prep = null;
@@ -121,10 +124,8 @@ import model.*;
 				prep.close();
 				con.close();
 			}
-			
 		}
 
-		@Override
 		public void doDelete(OcchialeBean bean) throws SQLException {
 			Connection con = null;
 			PreparedStatement prep = null;
@@ -144,7 +145,6 @@ import model.*;
 			}
 		}
 
-		@Override
 		public void doSave(OcchialeBean occhiale) throws SQLException {
 			Connection con = null;
 			PreparedStatement prep = null;
@@ -173,5 +173,4 @@ import model.*;
 				con.close();
 			}
 		}
-
 	 }
