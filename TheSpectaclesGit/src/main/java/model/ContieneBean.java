@@ -8,6 +8,11 @@ public class ContieneBean  implements Serializable{
 	String idGlasses;
 	int quantity;
 	
+
+	public ContieneBean() {
+		
+	}
+
 	public ContieneBean(int idOrder, String idGlasses, int quantity) {
 		super();
 		this.idOrder = idOrder;
