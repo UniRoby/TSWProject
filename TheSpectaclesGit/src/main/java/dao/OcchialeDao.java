@@ -87,26 +87,26 @@ import model.*;
 			return occhiali;
 		}
 		
-		public void doUpdate(OcchialeBean bean) throws SQLException {
+		public void doUpdate(OcchialeBean occhiale) throws SQLException {
 			Connection con = null;
 			PreparedStatement prep = null;
-			String sql = "UPDATE occchiali SET idOcchiale=?, nomeOcchiale=?, marca=?,prezzo=?, disponibilità=?, "
+			String sql = "UPDATE occhiale SET idOcchiale=?, nomeOcchiale=?, marca=?,prezzo=?, disponibilità=?, "
 					+ "tipo=?, colore=?, idCategoria=? ,img=? ,descrizione=?";
 
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(sql);
 
-				prep.setString(1, bean.getIdGlasses());
-				prep.setString(2, bean.getNameGlasses());
-				prep.setString(3, bean.getBrand());
-				prep.setInt(4, bean.getPrice());
-				prep.setInt(5, bean.getAvailability());
-				prep.setLong(6, bean.getType());
-				prep.setString(7, bean.getColor());
-				prep.setInt(8, bean.getIdCategory());
-				prep.setString(9, bean.getImage());
-				prep.setString(10, bean.getDescription());
+				prep.setString(1, occhiale.getIdGlasses());
+				prep.setString(2, occhiale.getNameGlasses());
+				prep.setString(3, occhiale.getBrand());
+				prep.setInt(4, occhiale.getPrice());
+				prep.setInt(5, occhiale.getAvailability());
+				prep.setLong(6, occhiale.getType());
+				prep.setString(7, occhiale.getColor());
+				prep.setInt(8, occhiale.getIdCategory());
+				prep.setString(9, occhiale.getImage());
+				prep.setString(10, occhiale.getDescription());
 				
 				prep.executeUpdate();
 
@@ -116,7 +116,7 @@ import model.*;
 			}
 		}
 
-		public void doDelete(OcchialeBean bean) throws SQLException {
+		public void doDelete(OcchialeBean occhiale) throws SQLException {
 			Connection con = null;
 			PreparedStatement prep = null;
 			String deleteSQL = "DELETE FROM " + OcchialeDao.TABLE_NAME + " WHERE CODE = ?";
@@ -125,7 +125,7 @@ import model.*;
 				con = ds.getConnection();
 				prep = con.prepareStatement(deleteSQL);
 
-				prep.setString(1, bean.getIdGlasses());
+				prep.setString(1, occhiale.getIdGlasses());
 
 				prep.executeUpdate();
 
