@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class TelefonoBean implements Serializable {
   
 	
-	int numPhone;
+	long numPhone;
 	String email;
 	
 	public TelefonoBean(int numPhone, String email) {
@@ -14,11 +14,11 @@ public class TelefonoBean implements Serializable {
 		this.email = email;
 	}
 
-	public int getNumPhone() {
+	public long getNumPhone() {
 		return numPhone;
 	}
 
-	public void setNumPhone(int numPhone) {
+	public void setNumPhone(long numPhone) {
 		this.numPhone = numPhone;
 	}
 
