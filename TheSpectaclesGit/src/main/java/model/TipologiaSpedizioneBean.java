@@ -15,6 +15,10 @@ public class TipologiaSpedizioneBean implements Serializable {
 		this.shipmentCost = shipmentCost;
 	}
 
+	public TipologiaSpedizioneBean() {
+		
+	}
+
 	public int getIdShipmentType() {
 		return idShipmentType;
 	}
