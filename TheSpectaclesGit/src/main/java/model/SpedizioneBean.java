@@ -9,6 +9,11 @@ public class SpedizioneBean implements Serializable {
 	int idOrder;
 	int shipmentType;
 	
+
+	public SpedizioneBean() {
+		
+	}
+	
 	public SpedizioneBean(int idShipment, Date dateShipment, int idOrder, int shipmentType) {
 		this.idShipment = idShipment;
 		this.dateShipment = dateShipment;

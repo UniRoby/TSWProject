@@ -101,7 +101,7 @@ import model.*;
 		public void doDelete(TipologiaPagamentoBean tipologiaPagamento) throws SQLException {
 			Connection con = null;
 			PreparedStatement prep = null;
-			String deleteSQL = "DELETE idPaymentType FROM " + TipologiaPagamentoDao.TABLE_NAME + " WHERE CODE = ?";
+			String deleteSQL = "DELETE FROM " + TipologiaPagamentoDao.TABLE_NAME + " WHERE CODE = ?";
 			
 			try {
 				con = ds.getConnection();

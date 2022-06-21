@@ -101,7 +101,7 @@ import model.*;
 		public void doDelete(TelefonoBean telefono) throws SQLException {
 			Connection con = null;
 			PreparedStatement prep = null;
-			String deleteSQL = "DELETE numPhone FROM " + TelefonoDao.TABLE_NAME + " WHERE CODE = ?";
+			String deleteSQL = "DELETE FROM " + TelefonoDao.TABLE_NAME + " WHERE CODE = ?";
 			
 			try {
 				con = ds.getConnection();
