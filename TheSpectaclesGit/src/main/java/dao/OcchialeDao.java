@@ -16,19 +16,16 @@ import model.*;
 
 	 	private DataSource ds;
 
-		@Override
 		public void setDB(DataSource obj) {
-			// TODO Auto-generated method stub
 			this.ds=obj;
 		}
 
-		@Override
 		public OcchialeBean doRetrieveByKey(String... key) throws SQLException {
 			OcchialeBean bean = new OcchialeBean();
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
-			
+	
 	 		String selectSQL = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE CODE = ?";
 
 	 		try {
@@ -58,8 +55,7 @@ import model.*;
 	 		}
 	 		return bean;
 		}
-
-		@Override
+	
 		public Collection<OcchialeBean> doRetrieveAll(String order) throws SQLException {
 			Collection<OcchialeBean> occhiali = new ArrayList<OcchialeBean>();
 			Connection con = null;
@@ -88,11 +84,9 @@ import model.*;
 				prep.close();
 				con.close();
 			}
-
 			return occhiali;
 		}
-
-		@Override
+		
 		public void doUpdate(OcchialeBean bean) throws SQLException {
 			Connection con = null;
 			PreparedStatement prep = null;
@@ -120,10 +114,8 @@ import model.*;
 				prep.close();
 				con.close();
 			}
-			
 		}
 
-		@Override
 		public void doDelete(OcchialeBean bean) throws SQLException {
 			Connection con = null;
 			PreparedStatement prep = null;
@@ -143,7 +135,6 @@ import model.*;
 			}
 		}
 
-		@Override
 		public void doSave(OcchialeBean occhiale) throws SQLException {
 			Connection con = null;
 			PreparedStatement prep = null;
@@ -172,5 +163,4 @@ import model.*;
 				con.close();
 			}
 		}
-
 	 }
