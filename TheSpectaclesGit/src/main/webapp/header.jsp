@@ -166,7 +166,7 @@
 						
 					<li class="dropdown dropdown-slide">
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-							role="button" aria-haspopup="true" aria-expanded="false">Shop <span
+							role="button" aria-haspopup="true" aria-expanded="false">Profilo <span
 								class="tf-ion-ios-arrow-down"></span></a>
 						<div class="dropdown-menu">
 							<div >
