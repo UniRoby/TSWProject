@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-   pageEncoding="ISO-8859-1"%>
+
 
 <!-- Start Top Header Bar -->
 <section class="top-header">
@@ -131,7 +130,7 @@
 
 					<!-- Home -->
 					<li class="dropdown ">
-						<a href="index.html">Home</a>
+						<a href="index.jsp">Home</a>
 					</li><!-- / Home -->
 
 
@@ -171,18 +170,8 @@
 						<div class="dropdown-menu">
 							<div class="row">
 
-								<!-- Introduction -->
-								<div class="col-sm-3 col-xs-12">
-									<ul>
-										<li class="dropdown-header">Introduction</li>
-										<li role="separator" class="divider"></li>
-										<li><a href="contact.html">Contact Us</a></li>
-										<li><a href="about.html">About Us</a></li>
-										<li><a href="404.html">404 Page</a></li>
-										<li><a href="coming-soon.html">Coming Soon</a></li>
-										<li><a href="faq.html">FAQ</a></li>
-									</ul>
-								</div>
+								
+								
 
 								<!-- Contact -->
 								<div class="col-sm-3 col-xs-12">
@@ -196,16 +185,7 @@
 									</ul>
 								</div>
 
-								<!-- Utility -->
-								<div class="col-sm-3 col-xs-12">
-									<ul>
-										<li class="dropdown-header">Utility</li>
-										<li role="separator" class="divider"></li>
-										<li><a href="login.html">Login Page</a></li>
-										<li><a href="signin.html">Signin Page</a></li>
-										<li><a href="forget-password.html">Forget Password</a></li>
-									</ul>
-								</div>
+								
 
 								<!-- Mega Menu -->
 								<div class="col-sm-3 col-xs-12">

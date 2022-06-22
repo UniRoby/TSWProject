@@ -43,8 +43,8 @@ public class OcchialeControl extends HttpServlet {
       
 		try {
 			request.removeAttribute("occhiali");
-			//request.setAttribute("occhiali", model.doRetrieveAll(sort));
-			request.setAttribute("occhiali", modelOcchiale.doRetrieveAll(null));
+			request.setAttribute("occhiali", modelOcchiale.doRetrieveAll(sort));
+			
 		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
 		}
