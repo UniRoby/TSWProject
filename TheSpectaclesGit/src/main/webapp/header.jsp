@@ -7,7 +7,7 @@
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<div class="contact-number">
 					<i class="tf-ion-ios-telephone"></i>
-					<span>numero telefono</span>
+					<span>0823123456</span>
 				</div>
 			</div>
 			<div class="col-md-4 col-xs-12 col-sm-4">
@@ -21,7 +21,7 @@
 								font-family="AustinBold, Austin" font-weight="bold">
 								<g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
 									<text id="Spectacles">
-										<tspan x="30.94" y="325">The Spectacles</tspan>
+										<tspan x="10.94" y="325">The Spectacles</tspan>
 									</text>
 								</g>
 							</g>
@@ -161,47 +161,46 @@
 						</div><!-- / .dropdown-menu -->
 					</li><!-- / Elements -->
 
-
-					<!-- Pages -->
-					<li class="dropdown full-width dropdown-slide">
+						
+						
+						
+					<li class="dropdown dropdown-slide">
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
-							role="button" aria-haspopup="true" aria-expanded="false">Profilo<span
+							role="button" aria-haspopup="true" aria-expanded="false">Shop <span
 								class="tf-ion-ios-arrow-down"></span></a>
 						<div class="dropdown-menu">
-							<div class="row">
+							<div >
 
-								
-								
-
-								<!-- Contact -->
-								<div class="col-sm-3 col-xs-12">
+								<!-- Basic -->
+								<div>
 									<ul>
-										<li class="dropdown-header">Dashboard</li>
+									<li class="dropdown-header">Dashboard</li>
 										<li role="separator" class="divider"></li>
 										<li><a href="dashboard.html">User Interface</a></li>
 										<li><a href="order.html">Orders</a></li>
 										<li><a href="address.html">Address</a></li>
 										<li><a href="profile-details.html">Profile Details</a></li>
+
 									</ul>
 								</div>
 
-								
 
-								<!-- Mega Menu -->
-								<div class="col-sm-3 col-xs-12">
-									<a href="shop.html">
-										<img class="img-responsive" src="images/shop/header-img.jpg" alt="menu image" />
-									</a>
-								</div>
+
+
 							</div><!-- / .row -->
 						</div><!-- / .dropdown-menu -->
-					</li><!-- / Pages -->
+					</li><!-- / Elements -->
+						
+						
+						
+						
+					
 
 
 
 
 
-					<!-- Shop -->
+				
 
 				</ul><!-- / .nav .navbar-nav -->
 

@@ -62,7 +62,7 @@ import model.*;
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(sql);
-				prep.setString(1, order);
+				
 				rs = prep.executeQuery();
 			
 			while (rs.next()) {
