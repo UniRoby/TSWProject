@@ -6,16 +6,25 @@
 	<%@page import="servlet.*"%>
 	<%@page import="java.util.*"%>
 <%
-	List<String> errorsFound = (List<String>) request.getAttribute("errorsFound");
+	
     UtenteBean bean = (UtenteBean) request.getAttribute("utenteBean");
+    String errorClassAccess = "error";
+    String user = "", pass = "";
+    List<String> errorsFoundAccess = (List<String>) request.getAttribute("errorsFound");
+    if (errorsFoundAccess != null) {
+    	if (errorsFoundAccess.contains("user"))
+    		user = errorClassAccess;
+    	if (errorsFoundAccess.contains("pass"))
+    		pass = errorClassAccess;
+    }
+    List<String> errorsFound = (List<String>) request.getAttribute("errorsFound");
 %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
-  <!-- Basic Page Needs
-  ================================================== -->
+
   <meta charset="utf-8">
   <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
  <script type="text/javascript" src="js/functions.js"></script>
@@ -54,25 +63,34 @@
       <div class="col-md-6 col-md-offset-3">
         <div class="block text-center">
           <a class="logo" href="index.html">
-            <img src="images/logo.png" alt="">
+            <img src="images/logo.jpg" alt="">
           </a>
-          <h2 class="text-center">Welcome Back</h2>
-          <form class="text-left clearfix" action="index.html" >
+          <h2 class="text-center">Ben Tornato</h2>
+          
+          
+          
+          <form class="text-left clearfix" action="<%=response.encodeURL("Login")%>" name="formLog" method="post">
             <div class="form-group">
               <input type="email" class="form-control"  name="email"  placeholder="email@esempio.it" required="required"
               <%=(bean == null || bean.getEmail() == null) ? "" : String.format("value=\"%s\"", bean.getEmail())%>
 						onkeyup="emailValidator()">
+			  <p id="infoEmail">seguire il formato indicato</p>
             </div>
+            
             <div class="form-group">
               <input type="password" class="form-control" <%=(bean == null || bean.getPass() == null) ? "": String.format("value=\"%s\"", bean.getPass())%>
 		        name="pass" placeholder="Password123" required="required"
 		        onblur="passwordValidator()">
 		        <p id="infoPass">inserire almeno una lettera maiuscola e un numero</p>
             <div class="text-center">
+            
               <button id="sendInfo" type="button" class="btn btn-main text-center" onclick="send()">Login</button>
+              <p id="infoNextButton"></p>
             </div>
           </form>
-          <p class="mt-20">New in this site ?<a href="signin.jsp"> Create New Account</a></p>
+          
+          
+          <p class="mt-20">Nuovo sul sito?<a href="signin.jsp"> Crea un nuovo Account</a></p>
         </div>
       </div>
     </div>

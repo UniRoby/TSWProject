@@ -1,6 +1,6 @@
 function passwordValidator() {
 	formValid.pass = false;
-	var text = document.forms["formReg"]["pass"].value;
+	var text = document.forms["formLog"]["pass"].value;
 	var el = document.getElementById("infoPass");
 
 	if (text.match(/[A-Z]/) == null) {
