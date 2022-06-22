@@ -14,7 +14,7 @@
   <display-name>TheSpectacles</display-name>
   <welcome-file-list>
     
-    <welcome-file>OcchialeControl</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
     
   </welcome-file-list>
   

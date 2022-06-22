@@ -1,9 +1,15 @@
+<%@page import="dao.*"%>
+<%@page import="model.*"%>
+<%@page import="servlet.*"%>
+<%@page import="java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <%
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 Collection<?> occhiali = (Collection<?>) request.getAttribute("occhiali");
 if(occhiali == null) {
-	response.sendRedirect("./OcchialeControl");	
+	response.sendRedirect("./ShopControl");	
 	return;
 }
 OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
