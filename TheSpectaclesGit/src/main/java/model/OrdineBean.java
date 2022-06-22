@@ -9,6 +9,11 @@ public class OrdineBean implements Serializable {
 	Date date;
 	String email;
 	
+
+	public OrdineBean() {
+		
+	}
+
 	public OrdineBean(int idOrder, Date date, String email) {
 		super();
 		this.idOrder = idOrder;

@@ -10,6 +10,11 @@ public class PagamentoBean implements Serializable {
 	int idOrder;
 	int amount;
 	
+
+	public PagamentoBean() {
+		
+	}
+	
 	public PagamentoBean(int idPayment, Date date, int idPaymentType, int idOrder, int amount) {
 		
 		this.idPayment = idPayment;

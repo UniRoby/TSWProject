@@ -8,6 +8,11 @@ public class TelefonoBean implements Serializable {
 	long numPhone;
 	String email;
 	
+
+	public TelefonoBean() {
+		
+	}
+	
 	public TelefonoBean(int numPhone, String email) {
 		super();
 		this.numPhone = numPhone;

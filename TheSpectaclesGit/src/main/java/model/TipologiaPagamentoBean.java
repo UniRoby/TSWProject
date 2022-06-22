@@ -2,18 +2,21 @@ package model;
 
 import java.io.Serializable;
 
-public class tipologiaPagamentoBean implements Serializable {
+public class TipologiaPagamentoBean implements Serializable {
  
 	int idPaymentType;
 	String paymentName;
 	
-	public tipologiaPagamentoBean(int idPaymentType, String paymentName) {
+	public TipologiaPagamentoBean() {
+		
+	}
+	
+	public TipologiaPagamentoBean(int idPaymentType, String paymentName) {
 		super();
 		this.idPaymentType = idPaymentType;
 		this.paymentName = paymentName;
 	}
 
-	@Override
 	public String toString() {
 		return "tipologiaPagamento [idPaymentType=" + idPaymentType + ", paymentName=" + paymentName + "]";
 	}
@@ -32,8 +35,5 @@ public class tipologiaPagamentoBean implements Serializable {
 
 	public void setPaymentName(String paymentName) {
 		this.paymentName = paymentName;
-	}
-	
-	
-	
+	}	
 }
