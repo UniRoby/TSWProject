@@ -1,15 +1,9 @@
 <%@page import="model.UtenteBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
 
-String errorClass = "error";
-String role = "", nome = "", cognome = "", data = "", email = "";
-UtenteBean bean = (UtenteBean) request.getAttribute("utenteBean");
-%>
-<script type="text/javascript" src="JS/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="JS/functions.js"></script>
-<script type="text/javascript" src="JS/registrazione.js"></script>
+
+<script src="/resources/Ajax.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,39 +33,35 @@ UtenteBean bean = (UtenteBean) request.getAttribute("utenteBean");
           <h2 class="text-center">Create Your Account</h2>
           <form class="text-left clearfix" action="<%=response.encodeURL("registrazione")%>" method ="post" name="formReg" id="form" >
             <div class="form-group">
-              <input type="text" class="form-control" name="nome" placeholder="nome"  required="required">
+              <input type="text" class="form-control" name="nome" placeholder="Inserisci nome" id="nome"  required="required">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="cognome" placeholder="cognome"  required="required">
+              <input type="text" class="form-control" name="cognome" placeholder="Inserisci cognome" id="cognome" required="required">
             </div>
             <div class="form-group">
-              <input type="data" class="form-control" name="data"  placeholder="data di nascita" required="required"
-              <%=(bean == null || bean.getBirthday() == null) ? "" : String.format("value=\"%s\"", bean.getBirthday())%>
-						onchange="formValid.birthday=true">
+              <input type="data" class="form-control" name="data" id="data" placeholder="dd-mm-yyyy" required="required"min="1920-01-01" max="2030-12-31">
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" name="email"  placeholder="email@esempio.it" required="required"
-              <%=(bean == null || bean.getEmail() == null) ? "" : String.format("value=\"%s\"", bean.getEmail())%>
-						onkeyup="emailValidator()">
+              <input type="email" class="form-control" name="email" id="email" placeholder="email@esempio.it" required="required">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control"
-              <%=(bean == null || bean.getPass() == null) ? "": String.format("value=\"%s\"", bean.getPass())%>
-		        name="pass" placeholder="Password123" required="required"
-		        onblur="passwordValidator()">
+              <input type="password" class="form-control"name="new password" id="password" placeholder="Password123" required="required" >
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control"name="rip password" id="ripPassword" placeholder="Conferma Password" required="required" >
             </div>
             <div class="text-center">
-              <button id="sendInfo" type="button" class="btn btn-main text-center" onclick="buttonNext()">Sign In</button>
+              <button type="button" class="btn btn-main text-center"id="submit">Sign In</button>
             </div>
           </form>
-          <p class="mt-20">Already have an account ?<a href="login.html"> Login</a></p>
-          <p><a href="forget-password.html"> Forgot your password?</a></p>
+          <p class="mt-20">Hai già un account?<a href="login.jsp"> Login</a></p>
+         
         </div>
       </div>
     </div>
   </div>
 </section>
-
+   <script src="./resources/ajaxRegistrazione.js"></script>
    <%@ include file="footer.html"%>
 
    <%@ include file="script.html"%>
