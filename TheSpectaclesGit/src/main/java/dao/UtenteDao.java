@@ -27,12 +27,14 @@ import model.*;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
 			
-	 		String selectSQL = "SELECT * FROM " + UtenteDao.TABLE_NAME + " WHERE CODE = ?";
+			String selectSQL = "SELECT * FROM " + UtenteDao.TABLE_NAME + " WHERE email = ? AND pass= ?";
+
 
 	 		try {
 	 			con = ds.getConnection();
 				prep = con.prepareStatement(selectSQL);
 				prep.setString(1, key[0]);
+				prep.setString(2, key[1]);
 				rs = prep.executeQuery();
 
 	 			while (rs.next()) {
@@ -52,6 +54,7 @@ import model.*;
 	 		}
 	 		return bean;
 		}
+		
 
 		public Collection<UtenteBean> doRetrieveAll(String order) throws SQLException {
 			Collection<UtenteBean> occhiali = new ArrayList<UtenteBean>();
@@ -65,7 +68,7 @@ import model.*;
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(sql);
-				prep.setString(1, order);
+				
 				rs = prep.executeQuery();
 			
 			while (rs.next()) {
