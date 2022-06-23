@@ -5,7 +5,7 @@ var formValid = {
 
 function send() {
 	if (formValid.user && formValid.pass)
-		document.formReg.submit();
+		document.formLog.submit();
 	else {
 		let el = document.getElementById("infoNextButton");
 		el.style.color = errorColor;

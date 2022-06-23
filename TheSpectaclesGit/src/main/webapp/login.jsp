@@ -70,7 +70,11 @@
           
           
           <form class="text-left clearfix" action="<%=response.encodeURL("Login")%>" name="formLog" method="post">
+           
+           
+           
             <div class="form-group">
+             <div id="userPass">
               <input type="email" class="form-control"  name="email"  placeholder="email@esempio.it" required="required"
               <%=(bean == null || bean.getEmail() == null) ? "" : String.format("value=\"%s\"", bean.getEmail())%>
 						onkeyup="emailValidator()">
@@ -86,6 +90,7 @@
             
               <button id="sendInfo" type="button" class="btn btn-main text-center" onclick="send()">Login</button>
               <p id="infoNextButton"></p>
+              </div>
             </div>
           </form>
           
