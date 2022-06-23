@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		    System.out.println("Sono nella Servlet\n");
+		   
 			String email = request.getParameter("email");
 			String pw = request.getParameter("password");
 			PrintWriter out= response.getWriter();
@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 			try{
 				UtenteBean cerca= utenteModel.doRetrieveByKey(value);
 				
-				System.out.println(cerca.getEmail());
+				
 				if(cerca.getEmail() == null) {
 					out.print("Nulla");
 				}

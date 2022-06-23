@@ -22,7 +22,7 @@ import model.*;
 			
 		}
 
-		public OcchialeBean doRetrieveByKey(String... key) throws SQLException {
+		public OcchialeBean doRetrieveByKey(ArrayList<String> keys) throws SQLException {
 			OcchialeBean bean = new OcchialeBean();
 			Connection con = null;
 			PreparedStatement prep = null;
@@ -35,7 +35,7 @@ import model.*;
 	 		try {
 	 			con = ds.getConnection();
 				prep = con.prepareStatement(sql);
-				prep.setString(1, key[0]);
+				prep.setString(1,keys.get(0));
 				rs = prep.executeQuery();
 
 	 			while (rs.next()) {
