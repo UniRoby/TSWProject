@@ -28,7 +28,7 @@
   <meta charset="utf-8">
   <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
  <script type="text/javascript" src="js/functions.js"></script>
- <script type="text/javascript" src=webapp/js/accesso.js"></script>
+ <script type="text/javascript" src="js/accesso.js"></script>
  <script type="text/javascript" src="js/login.js"></script>
   <script type="text/javascript" src="js/registrazione.js"></script>
   <title>The Spectacles | E-commerce</title>

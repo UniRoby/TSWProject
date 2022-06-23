@@ -15,7 +15,7 @@ function onBlurUser() {
 function emailValidator() {
 	formValid.email = false;
 	var el = document.getElementById("infoEmail");
-	if (document.forms["formReg"]["email"].value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+	if (document.forms["formLog"]["email"].value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
 		el.style.color = successColor;
 		el.innerHTML = "email accettata";
 		formValid.email = true;
