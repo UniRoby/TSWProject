@@ -115,7 +115,6 @@ public class OcchialeBean implements Serializable  {
 		this.description = description;
 	}
 
-	@Override
 	public String toString() {
 		return "OcchialeBean [idGlasses=" + idGlasses + ", nameGlasses=" + nameGlasses + ", brand=" + brand + ", price="
 				+ price + ", availability=" + availability + ", type=" + type + ", color=" + color + ", idCategory="
