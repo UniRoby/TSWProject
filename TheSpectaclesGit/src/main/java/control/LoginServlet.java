@@ -24,8 +24,6 @@ public class LoginServlet extends HttpServlet {
 	private static Model<UtenteBean, DataSource> utenteModel = new UtenteDao();
 	private ArrayList<String> value= new ArrayList<String>();
 	
-	
-
 	public void init() throws ServletException {
 		super.init();
 		utenteModel.setDB((DataSource) getServletContext().getAttribute("DataSource"));
@@ -35,10 +33,12 @@ public class LoginServlet extends HttpServlet {
 	public LoginServlet() {
 		super();
 	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.sendRedirect(response.encodeRedirectURL("error.jsp"));
 	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		   
@@ -71,6 +71,5 @@ public class LoginServlet extends HttpServlet {
 			}
 		
 		}
-
 	
 }
