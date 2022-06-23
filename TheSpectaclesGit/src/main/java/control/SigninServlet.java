@@ -49,6 +49,7 @@ public class SigninServlet extends HttpServlet {
 		Date data = Date.valueOf(request.getParameter("data"));
 		
 		System.out.println(data);
+		
 		String email= request.getParameter("email");
 		String newPassword= request.getParameter("password");
 		int ruolo= 0;
