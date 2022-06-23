@@ -20,7 +20,7 @@ import model.*;
 			this.ds=obj;
 		}
 
-		public TelefonoBean doRetrieveByKey(String... key) throws SQLException {
+		public TelefonoBean doRetrieveByKey(ArrayList<String> keys) throws SQLException {
 			TelefonoBean bean = new TelefonoBean();
 			Connection con = null;
 			PreparedStatement prep = null;
@@ -31,7 +31,7 @@ import model.*;
 	 		try {
 	 			con = ds.getConnection();
 				prep = con.prepareStatement(selectSQL);
-				prep.setString(1, key[0]);
+				prep.setString(1, keys.get(0));
 				rs = prep.executeQuery();
 
 	 			while (rs.next()) {

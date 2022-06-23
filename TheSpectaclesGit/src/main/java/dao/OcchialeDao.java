@@ -27,10 +27,8 @@ import model.*;
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
-
 			
 	 		String sql = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE CODE = ?";
-
 
 	 		try {
 	 			con = ds.getConnection();

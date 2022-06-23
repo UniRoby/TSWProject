@@ -44,12 +44,8 @@ public class ContieneBean  implements Serializable{
 		this.quantity = quantity;
 	}
 
-	@Override
 	public String toString() {
 		return "Contiene [idOrder=" + idOrder + ", idGlasses=" + idGlasses + ", quantity=" + quantity + "]";
 	}
-	
-	
-	
 	
 }

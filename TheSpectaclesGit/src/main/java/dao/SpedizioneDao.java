@@ -21,7 +21,7 @@ import model.*;
 			this.ds=obj;
 		}
 
-		public SpedizioneBean doRetrieveByKey(String... key) throws SQLException {
+		public SpedizioneBean doRetrieveByKey(ArrayList<String> keys) throws SQLException {
 			SpedizioneBean bean = new SpedizioneBean();
 			Connection con = null;
 			PreparedStatement prep = null;
@@ -32,7 +32,7 @@ import model.*;
 	 		try {
 	 			con = ds.getConnection();
 				prep = con.prepareStatement(selectSQL);
-				prep.setString(1, key[0]);
+				prep.setString(1, keys.get(0));
 				rs = prep.executeQuery();
 
 	 			while (rs.next()) {

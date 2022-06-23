@@ -8,15 +8,15 @@ public class TipologiaSpedizioneBean implements Serializable {
 	String shipmentName;
 	int shipmentCost;
 	
+	public TipologiaSpedizioneBean() {
+		
+	}
+
 	public TipologiaSpedizioneBean(int idShipmentType, String shipmentName, int shipmentCost) {
 		super();
 		this.idShipmentType = idShipmentType;
 		this.shipmentName = shipmentName;
 		this.shipmentCost = shipmentCost;
-	}
-
-	public TipologiaSpedizioneBean() {
-		
 	}
 
 	public int getIdShipmentType() {

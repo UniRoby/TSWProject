@@ -53,11 +53,9 @@ public class SpedizioneBean implements Serializable {
 		this.shipmentType = shipmentType;
 	}
 
-	@Override
 	public String toString() {
 		return "Spedizione [idShipment=" + idShipment + ", dateShipment=" + dateShipment + ", idOrder=" + idOrder
 				+ ", shipmentType=" + shipmentType + "]";
 	}
-	
 	
 }

@@ -10,7 +10,6 @@ public class PagamentoBean implements Serializable {
 	int idOrder;
 	int amount;
 	
-
 	public PagamentoBean() {
 		
 	}
@@ -64,14 +63,9 @@ public class PagamentoBean implements Serializable {
 		this.amount = amount;
 	}
 
-	@Override
 	public String toString() {
 		return "Pagamento [idPayment=" + idPayment + ", date=" + date + ", idPaymentType=" + idPaymentType
 				+ ", idOrder=" + idOrder + ", amount=" + amount + "]";
 	}
-	
-	
-	
-	
 	
 }

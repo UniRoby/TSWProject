@@ -8,7 +8,6 @@ public class TelefonoBean implements Serializable {
 	long numPhone;
 	String email;
 	
-
 	public TelefonoBean() {
 		
 	}
@@ -35,10 +34,7 @@ public class TelefonoBean implements Serializable {
 		this.email = email;
 	}
 
-	@Override
 	public String toString() {
 		return "Telefono [numPhone=" + numPhone + ", email=" + email + "]";
 	}
-	
-	
 }

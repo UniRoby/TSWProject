@@ -78,4 +78,5 @@ public class UtenteBean implements Serializable, Cloneable {
 		return "UtenteBean [pass=" + pass + ", role=" + role + ", email=" + email + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", birthday=" + birthday+ "]";
 	}
+	
 }

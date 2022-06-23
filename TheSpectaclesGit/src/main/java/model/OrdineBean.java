@@ -45,11 +45,8 @@ public class OrdineBean implements Serializable {
 		this.email = email;
 	}
 
-	@Override
 	public String toString() {
 		return "Ordine [idOrder=" + idOrder + ", date=" + date + ", email=" + email + "]";
 	}
-	
-	
 	
 }

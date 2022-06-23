@@ -120,13 +120,5 @@ public class OcchialeBean implements Serializable  {
 				+ price + ", availability=" + availability + ", type=" + type + ", color=" + color + ", idCategory="
 				+ idCategory + ", image=" + image + ", description=" + description + "]";
 	}
-
-
-	
-   
-	
-
-	
-	
 	
 }

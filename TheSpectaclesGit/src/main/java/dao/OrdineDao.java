@@ -21,7 +21,7 @@ import model.*;
 			this.ds=obj;
 		}
 
-		public OrdineBean doRetrieveByKey(String... key) throws SQLException {
+		public OrdineBean doRetrieveByKey(ArrayList<String> keys) throws SQLException {
 			OrdineBean bean = new OrdineBean();
 			Connection con = null;
 			PreparedStatement prep = null;
@@ -32,7 +32,7 @@ import model.*;
 	 		try {
 	 			con = ds.getConnection();
 				prep = con.prepareStatement(selectSQL);
-				prep.setString(1, key[0]);
+				prep.setString(1, keys.get(0));
 				rs = prep.executeQuery();
 
 	 			while (rs.next()) {
