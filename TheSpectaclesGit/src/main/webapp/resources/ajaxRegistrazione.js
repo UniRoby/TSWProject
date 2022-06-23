@@ -11,20 +11,17 @@ $(document).ready(function(){
 	$('#submit').click(function(){
 		var nome = $('#nome').val();
 		var cognome = $('#cognome').val();
-		var data= $('#data').val();
+		var data=  new Date($('#data').val()).toString();
 		var email = $('#email').val();
 		var password = $('#password').val();
 		var ripPassword = $('#ripPassword').val();
 	    
 		var expNomeCognome= /^[A-Za-z]+$/;
 		var expEmail= /^([a-z1-9.-])*@([a-z])+(.com)$/;
-		//var expTelefono= /^([0-9]{3} [0-9]{3} [0-9]{4})$/;
-		//var expCodice= /^([A-Z0-9])+$/;
-		//var expProvincia= /^[A-Za-z]+$/;
-		//var expCap= /^([0-9]{5})$/;
-		//var expCitta= /^[A-Za-z]+$/;
-		//var expVia= /^[A-Za-z0-9\W]+$/;
+		var expPassword= /^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{7,}$/;
 		var expData=/^([0-9]{1,2})-([0-9]{1,2})-([0-9]{4})$/;
+		
+		
 		
 		if (!(nome.match(expNomeCognome)) && errNome < 1){
 		errNome= errNome + 1;
@@ -43,7 +40,15 @@ $(document).ready(function(){
 	}
 	if (!(data.match(expData)) && errData< 1){
 		errData= errData + 1;
-		$('#email').after("<b><p id=erroreEmail style='color: red;'>Errore nell'inserimento della Data</p></b> <br>");
+		$('#data').after("<b><p id=erroreEmail style='color: red;'>Errore nell'inserimento della Data</p></b> <br>");
+	}
+	if (!(password.match(expPassword)) && errPassword< 1){
+		errPassword= errPassword + 1;
+		$('#password').after("<b><p id=errorePassword style='color: red;'>Errore nell'inserimento della Password</p></b> <br>");
+	}
+	if (!(password.match(ripPassowrd)) && errRipPassword< 1){
+		errRipPassword= errRipPassword + 1;
+		$('#ripPassword').after("<b><p id=erroreRipPassword style='color: red;'>Errore Password diversa</p></b> <br>");
 	}
 	
 	
@@ -71,13 +76,13 @@ $(document).ready(function(){
 	}
 	
 	if (password.match(expEmail)){
-		errrrPassword= errrrPassword + 1;
-		$('#errorerrPassword').remove();
+		errPassword= errPassword + 1;
+		$('#errorePassword').remove();
 	}
 	
-	if (password.match(expEmail)){
-		errrrPassword= errrrPassword + 1;
-		$('#errorerrPassword').remove();
+	if (ripPassword.match(password)){
+		errRipPassword= errRipPassword + 1;
+		$('#erroreRipPassword').remove();
 	}
 	
 	
@@ -87,7 +92,7 @@ $(document).ready(function(){
 	if ((nome.match(expNomeCognome)) && (cognome.match(expNomeCognome)) && (data.match(expData)) && (email.match(expEmail))){
 		$.ajax({
 			type: 'POST',
-			data: {nome: nome, cognome: cognome, data: data, email: email, password: password, ripPassword: ripPassword},
+			data: {nome: nome, cognome: cognome, data: data, email: email, password: password},
 			url: 'Signin',
 			success: function(result){
 				window.location.href= result;

@@ -3,10 +3,12 @@ package control;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
-
+import java.text.ParseException;
+import java.sql.Date;  
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,26 +46,26 @@ public class SigninServlet extends HttpServlet {
 		
 		String nome= request.getParameter("nome");
 		String cognome= request.getParameter("cognome");
-		Date data= request.getParameter("data");
+		Date data = Date.valueOf(request.getParameter("data"));
+		
+		System.out.println(data);
 		String email= request.getParameter("email");
 		String newPassword= request.getParameter("password");
-		String ripPassword= request.getParameter("ripPassword");
-		int
+		int ruolo= 0;
 		PrintWriter out= response.getWriter();
-		
-		if (newPassword.equals(ripPassword)) {
+		value.add(email);
+		value.add(newPassword);
+		UtenteBean newUtente= new UtenteBean(email,newPassword,nome,cognome,data,ruolo);
 		try {
-			user.registraUtente(nome, cognome, username, email, ripPassword, telefono, cf, via, citta, provincia, cap);
-			ClienteBean client = user.cercaUtente(email, ripPassword) ;
+			
+			utenteModel.doSave(newUtente);
+			UtenteBean client = utenteModel.doRetrieveByKey(value);
 			request.getSession().setAttribute("accedi", client);
-			out.print("ProdottiView.jsp");
+			out.print("shop.jsp");
 		} catch (SQLException e) {
-			System.out.println ("Errore nella registrazione: " + e.getMessage());
+			System.out.println ("Errore nella signin: " + e.getMessage());
 		}
-		}
-		else {
-			request.getSession().setAttribute("accedi", false);
-		}
+		
 		
 	}
 

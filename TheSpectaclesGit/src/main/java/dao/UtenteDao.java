@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import javax.sql.DataSource;
+import java.sql.Date;
 import model.*;
 
 
@@ -73,7 +74,6 @@ import model.*;
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(sql);
-				
 				rs = prep.executeQuery();
 			
 			while (rs.next()) {
@@ -103,17 +103,19 @@ import model.*;
 			PreparedStatement prep = null;
 		
 			String insertSQL = "INSERT INTO " + UtenteDao.TABLE_NAME
-					+ " (pass, role, email, firstName, lastName, birthday) VALUES (?, ?, ?, ?, ?, ?)";
+					+ " (firstName, lastName, birthday, email,pass, role) VALUES (?, ?, ?, ?, ?, ?)";
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(insertSQL);
 
-				prep.setString(1, utente.getPass());
-				prep.setInt(2, utente.getRole());
-				prep.setString(3, utente.getEmail());
-				prep.setString(4, utente.getFirstName());
-				prep.setString(5, utente.getLastName());
-				prep.setDate(7, utente.getBirthday(), Calendar.getInstance());
+				prep.setString(1, utente.getFirstName());
+				prep.setString(2, utente.getLastName());
+				prep.setDate(3, utente.getBirthday(), Calendar.getInstance());
+				prep.setString(4, utente.getEmail());
+				prep.setString(5, utente.getPass());
+				prep.setInt(6, utente.getRole());
+				
+			
 				
 				prep.executeUpdate();
 
