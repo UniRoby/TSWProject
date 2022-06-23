@@ -22,7 +22,8 @@ import model.*;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Model<UtenteBean, DataSource> utenteModel = new UtenteDao();
-	private UtenteDao uDao= new UtenteDao();
+	private ArrayList<String> value= new ArrayList<String>();
+	
 	
 
 	public void init() throws ServletException {
@@ -36,18 +37,21 @@ public class LoginServlet extends HttpServlet {
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.sendRedirect(response.encodeRedirectURL("/webapp/error.jsp"));
+		response.sendRedirect(response.encodeRedirectURL("error.jsp"));
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		    System.out.println("Sono nella Servlet\n");
 			String email = request.getParameter("email");
 			String pw = request.getParameter("password");
 			PrintWriter out= response.getWriter();
+			value.add(email);
+			value.add(pw);
 			
 			try{
-				UtenteBean cerca= utenteModel.doRetrieveByKey(email,pw);
+				UtenteBean cerca= utenteModel.doRetrieveByKey(value);
 				
+				System.out.println(cerca.getEmail());
 				if(cerca.getEmail() == null) {
 					out.print("Nulla");
 				}
@@ -63,7 +67,7 @@ public class LoginServlet extends HttpServlet {
 				
 			}
 		catch(Exception e) {
-			System.out.println("Error ServletLogin: " + e.getMessage());	
+			System.out.println("Error Login Servlet: " + e.getMessage());	
 			}
 		
 		}

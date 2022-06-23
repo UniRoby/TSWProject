@@ -21,20 +21,20 @@ import model.*;
 			this.ds=obj;
 		}
 
-		public UtenteBean doRetrieveByKey(String... key) throws SQLException {
+		public UtenteBean doRetrieveByKey(ArrayList<String> keys) throws SQLException {
 			UtenteBean bean = new UtenteBean();
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
 			
-			String selectSQL = "SELECT * FROM " + UtenteDao.TABLE_NAME + " WHERE email = ? AND pass= ?";
+			String selectSQL = "SELECT * FROM " + UtenteDao.TABLE_NAME + " WHERE email = ? AND pass= ? ";
 
 
 	 		try {
 	 			con = ds.getConnection();
 				prep = con.prepareStatement(selectSQL);
-				prep.setString(1, key[0]);
-				prep.setString(2, key[1]);
+				prep.setString(1, keys.get(0));
+				prep.setString(2, keys.get(1));
 				rs = prep.executeQuery();
 
 	 			while (rs.next()) {
@@ -47,7 +47,12 @@ import model.*;
 	            	bean.setBirthday(rs.getDate("birthday"));
 	 			}
 
-	 		} finally {
+	 		} 
+	 		catch(Exception e) {
+	 			e.printStackTrace();
+	 		}
+	 		finally {
+	 			
 	 			rs.close();
 				prep.close();
 				con.close();
@@ -61,10 +66,10 @@ import model.*;
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
-			String sql = "SELECT email FROM" + UtenteDao.TABLE_NAME+" ORDER BY ?";
-			/*if(order !=null && !order.equals("")) {
+			String sql = "SELECT email FROM" + UtenteDao.TABLE_NAME;
+		    if(order !=null && !order.equals("")) {
 				sql += " ORDER BY " + order;
-			}*/
+			}
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(sql);

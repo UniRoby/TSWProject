@@ -1,13 +1,13 @@
 package model;
 
 import java.sql.SQLException;
-import java.util.Collection;
+import java.util.*;
 
 public interface Model<T, J> {
 	
 	public void setDB(J obj);
 	
-	public T doRetrieveByKey(String ...key) throws SQLException;
+	public T doRetrieveByKey(ArrayList<String> keys) throws SQLException;
 	
 	public Collection<T> doRetrieveAll(String order) throws SQLException;
 	
