@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 import model.*;
 
 
-	 public class OcchialeDao implements Model<OcchialeBean, DataSource> {
+	 public class OcchialeDao {
 
 	 	private static final String TABLE_NAME = "occhiale";
 
@@ -22,13 +22,14 @@ import model.*;
 			
 		}
 
-		public OcchialeBean doRetrieveByKey(ArrayList<String> keys) throws SQLException {
+		public Collection<OcchialeBean> doRetrieveByKey(ArrayList<String> keys) throws SQLException {
 			OcchialeBean bean = new OcchialeBean();
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
-			
-	 		String sql = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE CODE = ?";
+			Collection<OcchialeBean> occhiali = new ArrayList<OcchialeBean>();
+	 		String sql = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE categoria = ?";
+	 		System.out.println(keys.get(0));
 
 	 		try {
 	 			con = ds.getConnection();
@@ -45,17 +46,22 @@ import model.*;
 	            	bean.setAvailability(rs.getInt("disponibilita"));
 	            	bean.setType(rs.getString("tipo").charAt(0));
 	            	bean.setColor(rs.getString("colore"));
-	            	bean.setIdCategory(rs.getInt("idCategoria"));
-	            	bean.setImage(rs.getString("image"));
+	            	bean.setCategory(rs.getString("categoria"));
+	            	bean.setImage(rs.getString("img"));
 	            	bean.setDescription(rs.getString("descrizione"));
+	            	
+	            	occhiali.add(bean);
 	 			}
 
-	 		} finally {
+	 		} 
+		    catch(Exception e){
+			  e.printStackTrace();
+			} finally {
 	 			rs.close();
 				prep.close();
 				con.close();
 	 		}
-	 		return bean;
+	 		return occhiali;
 		}
 	
 		public Collection<OcchialeBean> doRetrieveAll(String order) throws SQLException {
@@ -111,7 +117,7 @@ import model.*;
 				prep.setInt(5, occhiale.getAvailability());
 				prep.setLong(6, occhiale.getType());
 				prep.setString(7, occhiale.getColor());
-				prep.setInt(8, occhiale.getIdCategory());
+				prep.setString(8, occhiale.getCategory());
 				prep.setString(9, occhiale.getImage());
 				prep.setString(10, occhiale.getDescription());
 				
@@ -159,7 +165,7 @@ import model.*;
 				prep.setInt(5, occhiale.getAvailability() );
 				//prep.setString(6, occhiale.getType());
 				prep.setString(7, occhiale.getColor());
-				prep.setInt(8, occhiale.getIdCategory());
+				prep.setString(8, occhiale.getCategory());
 				prep.setString(9, occhiale.getImage());
 				prep.setString(10, occhiale.getDescription());
 

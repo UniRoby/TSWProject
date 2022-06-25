@@ -23,8 +23,8 @@ public class ShopControl extends HttpServlet {
 
 
 	static boolean isDataSource = true;
-	private static Model<OcchialeBean, DataSource> modelOcchiale = new OcchialeDao();
-	
+	//private static Model<OcchialeBean, DataSource> modelOcchiale = new OcchialeDao();
+	private OcchialeDao modelOcchiale = new OcchialeDao();
 	public void init() throws ServletException {
 		super.init();
 		modelOcchiale.setDB((DataSource) getServletContext().getAttribute("DataSource"));

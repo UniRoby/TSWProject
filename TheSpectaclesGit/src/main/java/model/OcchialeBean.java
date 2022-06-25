@@ -12,7 +12,7 @@ public class OcchialeBean implements Serializable  {
 	int availability;
 	char type;
 	String color;
-	int idCategory;
+    String category;
 	String image;
 	String description;
 	
@@ -21,7 +21,7 @@ public class OcchialeBean implements Serializable  {
 	}
 
 	public OcchialeBean(String idGlasses, String nameGlasses, String brand, int price, int availability, char type,
-			String color, int idCategory, String image, String description) {
+			String color, String category, String image, String description) {
 		super();
 		this.idGlasses = idGlasses;
 		this.nameGlasses = nameGlasses;
@@ -30,7 +30,7 @@ public class OcchialeBean implements Serializable  {
 		this.availability = availability;
 		this.type = type;
 		this.color = color;
-		this.idCategory = idCategory;
+		this.category = category;
 		this.image = image;
 		this.description = description;
 	}
@@ -91,12 +91,12 @@ public class OcchialeBean implements Serializable  {
 		this.color = color;
 	}
 
-	public int getIdCategory() {
-		return idCategory;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setIdCategory(int idCategory) {
-		this.idCategory = idCategory;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getImage() {
@@ -118,7 +118,7 @@ public class OcchialeBean implements Serializable  {
 	public String toString() {
 		return "OcchialeBean [idGlasses=" + idGlasses + ", nameGlasses=" + nameGlasses + ", brand=" + brand + ", price="
 				+ price + ", availability=" + availability + ", type=" + type + ", color=" + color + ", idCategory="
-				+ idCategory + ", image=" + image + ", description=" + description + "]";
+				+ category + ", image=" + image + ", description=" + description + "]";
 	}
 	
 }

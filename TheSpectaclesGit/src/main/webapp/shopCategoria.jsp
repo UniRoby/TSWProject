@@ -6,13 +6,10 @@
     pageEncoding="UTF-8"%>
 
 <%
-UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
-Collection<?> occhiali = (Collection<?>) request.getAttribute("occhiali");
-if(occhiali == null) {
-	response.sendRedirect("./ShopControl");	
-	return;
-}
-OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
+	UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
+	Collection<?> occhiali = (Collection<?>) request.getAttribute("occhiali");
+	
+	OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 
  %>
 
@@ -28,9 +25,11 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 <% session.setAttribute("auth",(OcchialeBean) request.getSession().getAttribute("auth")); %>
 
 <%@ include file="header.jsp"%>
+
+
 <%@ include file="shopHeader.jsp" %>
 
-
+			
 			<div class="col-md-9">		
 				<div class="row">				
 					<% 
@@ -69,7 +68,7 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 					<%
 					}
 					} else {
-					out.println("There is no proucts");
+					out.println("Non ci sono Prodotti");
 					}
 					%>
 				</div>				

@@ -50,7 +50,7 @@
             <div class="text-center">
             
               <button  type="button" class="btn btn-main text-center" id="submit" value="Accedi">Login</button>
-              <p id="infoNextButton"></p>
+             
               </div>
             </div>
           </form>

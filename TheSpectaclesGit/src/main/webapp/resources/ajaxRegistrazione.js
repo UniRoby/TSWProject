@@ -93,7 +93,7 @@ $(document).ready(function(){
 				data: {nome: nome, cognome: cognome, data: data, email: email, password: password},
 				url: 'Signin',
 				success: function(result){
-					window.location.href= result;
+					window.location.href= shop.jsp;
 				}
 			})
 		}
