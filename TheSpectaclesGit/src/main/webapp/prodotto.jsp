@@ -7,10 +7,11 @@
 
 
 <%
+/*ArrayList<OcchialeBean> occhiali = (ArrayList<OcchialeBean>) request.getAttribute("descrizione");
+OcchialeBean bean = (OcchialeBean) occhiali.get(0);
+System.out.println("----------------------------------------------------------------------\n"+bean+"\n");*/
 
-
-OcchialeBean bean = (OcchialeBean) request.getAttribute("descrizione");
-System.out.println("----------------------------------------------------------------------\n"+bean+"\n");
+Collection<?> occhiali = (Collection<?>) request.getAttribute("descrizione");
 
  %>
 <!DOCTYPE html>
@@ -28,7 +29,11 @@ System.out.println("------------------------------------------------------------
 
 
 
-
+<% 
+		if (occhiali != null && occhiali .size() != 0) {
+			Iterator<?> it = occhiali .iterator();
+			while (it.hasNext()) {
+				OcchialeBean bean = (OcchialeBean) it.next();%>
 
 <section class="single-product">
 	<div class="container">
@@ -81,47 +86,49 @@ System.out.println("------------------------------------------------------------
 							</a>
 						</div>
 						
-						<!--  
+					
 						
 						<ol class='carousel-indicators mCustomScrollbar meartlab'>
 							<li data-target='#carousel-custom' data-slide-to='0' class='active'>
-								<img src='images/shop/single-products/product-1.jpg' alt='' />
+								<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' />
 							</li>
 							<li data-target='#carousel-custom' data-slide-to='1'>
-								<img src='images/shop/single-products/product-2.jpg' alt='' />
+								<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' />
 							</li>
 							<li data-target='#carousel-custom' data-slide-to='2'>
-								<img src='images/shop/single-products/product-3.jpg' alt='' />
+								<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' />
 							</li>
 							<li data-target='#carousel-custom' data-slide-to='3'>
-								<img src='images/shop/single-products/product-4.jpg' alt='' />
+								<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' />
 							</li>
 							<li data-target='#carousel-custom' data-slide-to='4'>
-								<img src='images/shop/single-products/product-5.jpg' alt='' />
+								<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' />
 							</li>
 							<li data-target='#carousel-custom' data-slide-to='5'>
-								<img src='images/shop/single-products/product-6.jpg' alt='' />
+								<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' />
 							</li>
 							<li data-target='#carousel-custom' data-slide-to='6'>
-								<img src='images/shop/single-products/product-7.jpg' alt='' />
+								<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' />
 							</li>
 						</ol>
-						-->
+						
 					</div>
 				</div>
 			</div>
 			<div class="col-md-7">
 				<div class="single-product-details">
 					<h2><%=bean.getBrand()%></h2>
-					<p class="product-price"><%=bean.getPrice%>€</p>
+					<p class="product-price"><%=bean.getPrice%> &euro;</p>
 					
 					<p class="product-description mt-20">
 						<%=bean.getNameGlasses%>
 					</p>
 					<p> Categoria: <%=bean.getNameCategory%> </p>
+					
+						<!--  
 					<div class="color-swatches">
 						<span>color:</span>
-						<!--  
+					
 						
 						<ul>
 							<li>
@@ -134,9 +141,9 @@ System.out.println("------------------------------------------------------------
 								<a href="#!" class="swatch-cream"></a>
 							</li>
 						</ul>
-						-->
+						
 					</div>
-					<!--  
+					 
 					<div class="product-size">
 						<span>Size:</span>
 						<select class="form-control">
@@ -215,7 +222,12 @@ System.out.println("------------------------------------------------------------
 	</div>
 </section>
 
-
+	<%
+			}
+			} else {
+			out.println("There is no proucts");
+			}
+			%>
 
 <!-- Modal -->
 <div class="modal product-modal fade" id="product-modal">

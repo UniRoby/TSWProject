@@ -35,7 +35,7 @@ public class ServletProdotti extends HttpServlet {
 		super();
 	}	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Sono nella servletProdotti");
+		
 		
 		HttpSession session= request.getSession();
 		/*Carrello car= (Carrello) session.getAttribute("carrello");
@@ -44,22 +44,23 @@ public class ServletProdotti extends HttpServlet {
 			session.setAttribute("carrello", car);
 		}*/
 		valori.add(request.getParameter("id"));
-		System.out.println("ID: "+ valori.get(0));
+	
 		synchronized (session) {
 		try {
 			//request.setAttribute("occhiali", modelOcchiale.doRetriveAll());
+			request.removeAttribute("descrizione");
 			request.setAttribute("descrizione", modelOcchiale.doRetrieveByKey(valori));
 			//request.setAttribute("id", Integer.parseInt(request.getParameter("id")));
 			//session.setAttribute("carrello", car);
 		
 		String azione= request.getParameter("action");
 		
-		
+		System.out.println("Action value: "+ azione);
 			
-		if (azione != null && azione.equalsIgnoreCase("dettagli")) {
+		if (azione != null && azione.equals("dettagli")) {
 			
-			RequestDispatcher dis= getServletContext().getRequestDispatcher("/prodotto.jsp");
-			dis.forward(request, response);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/prodotto.jsp");
+			dispatcher.forward(request, response);
 		}
 		
 		/*if (azione != null && azione.equalsIgnoreCase("aggiungi")) {
