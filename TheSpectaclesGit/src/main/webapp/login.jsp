@@ -27,7 +27,7 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="block text-center">
-          <a class="logo" href="index.html">
+          <a class="logo" href="index.jsp">
             <img src="images/logo.jpg" alt="">
           </a>
           <h2 class="text-center">Ben Tornato</h2>
