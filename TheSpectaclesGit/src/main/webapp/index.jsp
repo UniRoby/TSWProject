@@ -99,13 +99,13 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 			</div>
 		</div>
 		<div class="row">
-		
+
 		<% 
 		if (occhiali != null && occhiali .size() != 0) {
 			Iterator<?> it = occhiali .iterator();
 			while (it.hasNext()) {
 				OcchialeBean bean = (OcchialeBean) it.next();%>
-
+	
 			<div class="col-md-4">
 				<div class="product-item">
 					<div class="product-thumb">

@@ -113,12 +113,12 @@ System.out.println("------------------------------------------------------------
 			<div class="col-md-7">
 				<div class="single-product-details">
 					<h2><%=bean.getBrand()%></h2>
-					<p class="product-price"><%=bean.getPrice%>€</p>
+					<p class="product-price"><%=bean.getPrice()%>€</p>
 					
 					<p class="product-description mt-20">
-						<%=bean.getNameGlasses%>
+						<%=bean.getNameGlasses()%>
 					</p>
-					<p> Categoria: <%=bean.getNameCategory%> </p>
+					<p> Categoria: <%=bean.getNameCategory()%> </p>
 					<div class="color-swatches">
 						<span>color:</span>
 						<!--  
