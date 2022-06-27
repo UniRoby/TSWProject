@@ -14,9 +14,7 @@ import javax.sql.DataSource;
 import dao.OcchialeDao;
 import model.*;
 
-/**
- * Servlet implementation class ProductControl
- */
+
  @WebServlet("/OcchialeControl")
 public class OcchialeControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
