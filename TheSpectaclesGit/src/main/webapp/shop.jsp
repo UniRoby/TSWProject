@@ -48,11 +48,12 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 									<ul>
 										<li>
 											<span  data-toggle="modal" data-target="#product-modal">
-												<i class="tf-ion-ios-search-strong"></i>
+											
+												<a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-ios-search-strong"></i></a>
 											</span>
 										</li>
 										<li>
-					                        <a href="#!" ><i class="tf-ion-ios-heart"></i></a>
+					                        <a href="" ><i class="tf-ion-ios-heart"></i></a>
 										</li>
 										<li>
 											<a href="#!"><i class="tf-ion-android-cart"></i></a>
@@ -63,6 +64,7 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 							<div class="product-content">
 								<h4><a href="product-single.html"><%=bean.getNameGlasses() %></a></h4>
 								<p class="price"><%=bean.getPrice() %></p>
+								<p class="price"><%=bean.getIdGlasses() %></p>
 							</div>
 						</div>
 					</div>

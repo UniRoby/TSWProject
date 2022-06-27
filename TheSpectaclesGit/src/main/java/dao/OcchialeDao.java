@@ -69,7 +69,7 @@ import model.*;
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
-			String sql = "SELECT nomeOcchiale, prezzo, img FROM " + OcchialeDao.TABLE_NAME;
+			String sql = "SELECT * FROM " + OcchialeDao.TABLE_NAME;
 			if(order !=null && !order.equals("")) {
 				sql += " ORDER BY " + order;
 			}
@@ -80,9 +80,17 @@ import model.*;
 			
 			while (rs.next()) {
 				OcchialeBean bean = new OcchialeBean();
-				bean.setNameGlasses(rs.getString("nomeOcchiale"));
-				bean.setPrice(rs.getInt("prezzo"));
-				bean.setImage(rs.getString("img"));
+
+            	bean.setIdGlasses(rs.getString("idOcchiale"));
+            	bean.setNameGlasses(rs.getString("nomeOcchiale"));
+            	bean.setBrand(rs.getString("marca"));
+            	bean.setPrice(rs.getInt("prezzo"));
+            	bean.setAvailability(rs.getInt("disponibilita"));
+            	bean.setType(rs.getString("tipo").charAt(0));
+            	bean.setColor(rs.getString("colore"));
+            	bean.setCategory(rs.getString("categoria"));
+            	bean.setImage(rs.getString("img"));
+            	bean.setDescription(rs.getString("descrizione"));
 
 				occhiali.add(bean);
 		}
