@@ -14,7 +14,7 @@ if(occhiali == null) {
 	response.sendRedirect("./OcchialeControl");	
 	return;
 }
-OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
+//OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 
  %>
 <!DOCTYPE html>
@@ -129,17 +129,11 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 					</div>
 					<div class="product-content">
 						<h4><a href="product-single.html"><%=bean.getNameGlasses() %></a></h4>
-						<p class="price"><%=bean.getPrice() %></p>
+						<p class="price"><%=bean.getPrice() %>€</p>
 					</div>
 				</div>
 			</div>
-			<%
-			}
-			} else {
-			out.println("There is no proucts");
-			}
-			%>
-			
+		
 			
 			
 			
@@ -159,18 +153,18 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 			        	<div class="row">
 			        		<div class="col-md-8 col-sm-6 col-xs-12">
 			        			<div class="modal-image">
-				        			<img class="img-responsive" src="images/shop/products/modal-product.jpg" alt="product-img" />
+				        			<img class="img-responsive" src="images/shop/products/<%=bean.getImage()%>" alt="product-img" />
 			        			</div>
 			        		</div>
 			        		<div class="col-md-4 col-sm-6 col-xs-12">
 			        			<div class="product-short-details">
-			        				<h2 class="product-title">GM Pendant, Basalt Grey</h2>
-			        				<p class="product-price">$200</p>
+			        				<h2 class="product-title"><%=bean.getNameGlasses() %></h2>
+			        				<p class="product-price"><%=bean.getPrice() %>€</p>
 			        				<p class="product-short-description">
-			        					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
+			        					<%=bean.getDescription() %>
 			        				</p>
-			        				<a href="cart.html" class="btn btn-main">Add To Cart</a>
-			        				<a href="product-single.html" class="btn btn-transparent">View Product Details</a>
+			        				<a href="Prodotto?action=aggiungi&id=<%= bean.getIdGlasses() %>" class="btn btn-main">Add To Cart</a>
+			        				<a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>" class="btn btn-transparent">View Product Details</a>
 			        			</div>
 			        		</div>
 			        	</div>
@@ -182,6 +176,13 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 		</div>
 	</div>
 </section>
+	<%
+			}
+			} else {
+			out.println("There is no proucts");
+			}
+			%>
+			
 
 
 <!--

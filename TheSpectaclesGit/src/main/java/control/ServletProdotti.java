@@ -47,13 +47,14 @@ public class ServletProdotti extends HttpServlet {
 	
 		synchronized (session) {
 		try {
-			//request.setAttribute("occhiali", modelOcchiale.doRetriveAll());
+			
 			request.removeAttribute("descrizione");
-			request.setAttribute("descrizione", modelOcchiale.doRetrieveByKey(valori));
+			request.setAttribute("descrizione", modelOcchiale.singleProduct(valori));
 			request.setAttribute("id", request.getParameter("id"));
 			session.setAttribute("carrello", car);
 		
 		String azione= request.getParameter("action");
+		
 		
 		System.out.println("Action value: "+ azione);
 			
@@ -64,18 +65,22 @@ public class ServletProdotti extends HttpServlet {
 		}
 		
 		if (azione != null && azione.equalsIgnoreCase("aggiungi")) {
+			
+			System.out.println("Sono nell'if aggiungi ");
 			OcchialeBean occhiale= (OcchialeBean) request.getAttribute("descrizione");
 			if (!car.searchProdotto(occhiale.getIdGlasses())) {
 			car.addCarrello(occhiale);
+			car.getPrezzoTotale(1, valori.get(0));
+			
 			}
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/carrello.jsp");
 				dispatcher.forward(request, response);
 			}
 		
-		/*if (Integer.parseInt(request.getParameter("scelta")) >= 1) {
-			RequestDispatcher dis= getServletContext().getRequestDispatcher("/ProdottiCarrello.jsp");
+		if (Integer.parseInt(request.getParameter("scelta"))>= 1) {
+			RequestDispatcher dis= getServletContext().getRequestDispatcher("/carello.jsp");
 			dis.forward(request, response);
-		}*/
+		}
 		
 		}
 		catch (Exception e) {
@@ -84,9 +89,9 @@ public class ServletProdotti extends HttpServlet {
 		
 		}
 		
-		/*RequestDispatcher dis= getServletContext().getRequestDispatcher("/shop.jsp");
-		dis.forward(request, response);*/
-		
+		/*RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/shop.jsp");
+		dispatcher.forward(request, response);*/
+	
 }
 
 	

@@ -1,4 +1,6 @@
 
+<%@page import="dao.*"%>
+<%@page import="model.*"%>
 
 <!-- Start Top Header Bar -->
 <section class="top-header">
@@ -31,38 +33,69 @@
 			</div>
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- Cart -->
+				
+				<%
+					Carrello car= (Carrello) session.getAttribute("carrello");
+					float totale=0;
+					
+				%>
 				<ul class="top-menu text-right list-inline">
 					<li class="dropdown cart-nav dropdown-slide">
 						<a href="cart.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
 								class="tf-ion-android-cart"></i>Carrello</a>
+						
+						<% if ((car==null) || (car.getDimensione()==0)) { %>
+							<div class="dropdown-menu cart-dropdown">
+							
+								<div class="media">
+									<div class="media-body">
+										<h4 class="media-heading"><a href="#!">Nessun prodotto nel carrello</a></h4>
+									</div>
+								</div>
+							</div>
+						
+							 <%
+								}
+								else {
+									for (int i=0; i<car.getDimensione(); i++) {
+							%>
 						<div class="dropdown-menu cart-dropdown">
 							<!-- Cart Item -->
 							<div class="media">
 								<a class="pull-left" href="#!">
-									<img class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
+									<img class="media-object" src="images/shop/products<%=car.getCarrello().get(i).getImage()%>" alt="image" />
 								</a>
 								<div class="media-body">
-									<h4 class="media-heading"><a href="#!">Visualizzare qui il prodotto aggiunto </a></h4>
+									<h4 class="media-heading"><a href="#!"><%=car.getCarrello().get(i).getNameGlasses()%></a></h4>
 									<div class="cart-price">
-										<span>quantità x</span>
-										<span>prezzo</span>
+										<span><%=car.getCarrello().get(i).getQuantity()%> x</span>
+										<span><%=car.getCarrello().get(i).getPrice()%>&#8364;</span>
 									</div>
-									<h5><strong>$totale dello specifico prodotto</strong></h5>
+									<h5><strong><%=car.getCarrello().get(i).getTotPrezzo()%>&#8364;</strong></h5>
+									    
 								</div>
-								<a href="#!" class="remove"><i class="tf-ion-close"></i></a>
+								<a href="EliminaProdotto?id=<%= car.getCarrello().get(i).getIdGlasses() %>" class="remove"><i class="tf-ion-close"></i></a>
 							</div><!-- / Cart Item -->
-							<!-- Cart Item -->
+						
 
-
+                           <%
+                             totale=totale + car.getCarrello().get(i).getTotPrezzo();
+							}
+							%>
+							
+							
 							<div class="cart-summary">
 								<span>Total</span>
-								<span class="total-price">$1799.00</span>
+								<span class="total-price"><%=totale%>&#8364;</span>
 							</div>
 							<ul class="text-center cart-buttons">
-								<li><a href="cart.html" class="btn btn-small">Carrello</a></li>
-								<li><a href="checkout.html" class="btn btn-small btn-solid-border">Pagamento</a></li>
+								<li><a href="cart.jsp" class="btn btn-small">Carrello</a></li>
+								<li><a href="checkout.jsp" class="btn btn-small btn-solid-border">Pagamento</a></li>
 							</ul>
 						</div>
+						<%
+						}
+						%>
 
 					</li><!-- / Cart -->
 

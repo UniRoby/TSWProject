@@ -29,49 +29,6 @@ import model.*;
 			ResultSet rs = null;
 			Collection<OcchialeBean> occhiali = new ArrayList<OcchialeBean>();
 	 		String sql = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE categoria = ?";
-	 		System.out.println("Sono nel metodo del dAO"+ keys.get(0));
-
-	 		try {
-	 			con = ds.getConnection();
-				prep = con.prepareStatement(sql);
-				prep.setString(1,keys.get(0));
-				rs = prep.executeQuery();
-
-	 			while (rs.next()) {
-	 				
-	            	bean.setIdGlasses(rs.getString("idOcchiale"));
-	            	bean.setNameGlasses(rs.getString("nomeOcchiale"));
-	            	bean.setBrand(rs.getString("marca"));
-	            	bean.setPrice(rs.getInt("prezzo"));
-	            	bean.setAvailability(rs.getInt("disponibilita"));
-	            	bean.setType(rs.getString("tipo").charAt(0));
-	            	bean.setColor(rs.getString("colore"));
-	            	bean.setCategory(rs.getString("categoria"));
-	            	bean.setImage(rs.getString("img"));
-	            	bean.setDescription(rs.getString("descrizione"));
-	            	
-	            	occhiali.add(bean);
-	 			}
-
-	 		} 
-		    catch(Exception e){
-			  e.printStackTrace();
-			} finally {
-	 			rs.close();
-				prep.close();
-				con.close();
-	 		}
-	 		return occhiali;
-		}
-		
-		public ArrayList<OcchialeBean> singleProduct (ArrayList<String> keys) throws SQLException {
-			OcchialeBean bean = new OcchialeBean();
-			Connection con = null;
-			PreparedStatement prep = null;
-			ResultSet rs = null;
-			ArrayList<OcchialeBean> occhiali = new ArrayList<OcchialeBean>();
-	 		String sql = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE categoria = ?";
-	 		System.out.println("Sono nel metodo del dAO"+ keys.get(0));
 	 		
 
 	 		try {
@@ -92,7 +49,7 @@ import model.*;
 	            	bean.setCategory(rs.getString("categoria"));
 	            	bean.setImage(rs.getString("img"));
 	            	bean.setDescription(rs.getString("descrizione"));
-	            	
+	            	System.out.println("\nSono nel while: "+ bean);
 	            	occhiali.add(bean);
 	 			}
 
@@ -105,6 +62,50 @@ import model.*;
 				con.close();
 	 		}
 	 		return occhiali;
+		}
+		
+		public OcchialeBean singleProduct (ArrayList<String> keys) throws SQLException {
+			OcchialeBean bean = new OcchialeBean();
+			Connection con = null;
+			PreparedStatement prep = null;
+			ResultSet rs = null;
+			
+	 		String sql = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE idOcchiale = ?";
+	 		
+	 		System.out.println("Sono nel metodo del dao: "+ keys.get(0));
+	 		
+
+	 		try {
+	 			con = ds.getConnection();
+				prep = con.prepareStatement(sql);
+				prep.setString(1,keys.get(0));
+				rs = prep.executeQuery();
+
+	 			while (rs.next()) {
+	 				
+	            	bean.setIdGlasses(rs.getString("idOcchiale"));
+	            	bean.setNameGlasses(rs.getString("nomeOcchiale"));
+	            	bean.setBrand(rs.getString("marca"));
+	            	bean.setPrice(rs.getInt("prezzo"));
+	            	bean.setAvailability(rs.getInt("disponibilita"));
+	            	bean.setType(rs.getString("tipo").charAt(0));
+	            	bean.setColor(rs.getString("colore"));
+	            	bean.setCategory(rs.getString("categoria"));
+	            	bean.setImage(rs.getString("img"));
+	            	bean.setDescription(rs.getString("descrizione"));
+	            	System.out.println("\nSono nel while: "+ bean);
+	 			}
+
+	 		} 
+		    catch(Exception e){
+			  e.printStackTrace();
+			} finally {
+	 			rs.close();
+				prep.close();
+				con.close();
+	 		}
+	 		System.out.println("OCchiale: \n "+ bean+ "\n");
+	 		return bean;
 		}
 		
 

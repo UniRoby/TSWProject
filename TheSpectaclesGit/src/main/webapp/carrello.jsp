@@ -28,7 +28,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="content">
-					<h1 class="page-name">Carrello</h1>
+					<h1 class="page-name">carrello</h1>
 					<ol class="breadcrumb">
 						<li><a href="index.jsp">Home</a></li>
 						<li class="active">carrello</li>
@@ -39,9 +39,9 @@
 	</div>
 </section>
 	<%
-		Carrello car= (Carrello) session.getAttribute("carrello");
+		Carrello cart= (Carrello) session.getAttribute("carrello");
 						
-		if ((car==null) || (car.getDimensione()==0)) {
+		if ((cart==null) || (cart.getDimensione()==0)) {
 	%>
 <section class="empty-cart page-wrapper">
   <div class="container">
@@ -51,7 +51,7 @@
         	<i class="tf-ion-ios-cart-outline"></i>
           	<h2 class="text-center">Il tuo carrello è vuoto</h2>
           	<p>Visita il nostro catalogo per aggiunger i prodotti</p>
-          	<a href="shop.jsp" class="btn btn-main mt-20">torna al negozio</a>
+          	<a href="shop.jsp" class="btn btn-main mt-20">Torna al negozio</a>
       </div>
     </div>
   </div>
@@ -76,8 +76,9 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th class="">Nometh>
+                      <th class="">Nome</th>
                       <th class="">Prezzo</th>
+                      <th class="">Codice</th>
                       <th class="">Quantità</th>
                       <th class=""></th>
                     </tr>
@@ -89,25 +90,26 @@
                     <tr class="">
                       <td class="">
                         <div class="product-info">
-                          <img width="80" src="images/shop/cart/<%=car.getCarrello().get(i).getImage()%>" alt="" />
-                          <a href="#!"><%=car.getCarrello().get(i).getNameGlasses()%></a>
-                           <p><%=car.getCarrello().get(i).getIdGlasses()%></p>
-                           <p><%=car.getCarrello().get(i).getDescription()%></p>
+                          <img width="80" src="images/shop/products/<%=cart.getCarrello().get(i).getImage()%>" alt="" />
+                          <a href="#!"><%=cart.getCarrello().get(i).getNameGlasses()%></a>
+                         
+                           
                         </div>
                       </td>
-                      <td class=""><%=car.getCarrello().get(i).getPrice()%>&euro</td>
+                      <td class=""><%=cart.getCarrello().get(i).getPrice()%>€</td>
+                       <td class=""><%=cart.getCarrello().get(i).getIdGlasses()%></td>
                       <td class="">
                       
                       <form action="Prodotto2" method="get">
                         <div class="product-quantity-slider">
-                        	<input type="hidden" value="<%= car.getCarrello().get(i).getIdGlasses() %>" name="nascosto">
-							<input id="product-quantity" type="text" value="<%= car.getCarrello().get(i).getQuantity() %>" name="scelta">
+                        	<input type="hidden" value="<%= cart.getCarrello().get(i).getIdGlasses() %>" name="nascosto">
+							<input id="product-quantity" type="text" value="<%= cart.getCarrello().get(i).getQuantity() %>" name="scelta">
 							<input type="submit"  value="Aggiorna" >
 						</div>
                       </form>
                       </td>
                       <td class="">
-                        <a class="product-remove" href="EliminaProdotto?id=<%= car.getCarrello().get(i).getIdGlasses() %>">Remove</a> 
+                        <a class="product-remove" href="EliminaProdotto?id=<%= cart.getCarrello().get(i).getIdGlasses() %>">Remove</a> 
                       </td>
                     </tr>
                    <%
@@ -124,10 +126,10 @@
     </div>
   </div>
 </div>
+	<%
+		}
+	%>
 
-<%
-}
-%>
 
  <%@ include file="footer.html"%>
 

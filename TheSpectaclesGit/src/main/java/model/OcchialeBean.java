@@ -15,11 +15,12 @@ public class OcchialeBean implements Serializable  {
     String category;
 	String image;
 	String description;
-	int quantity;
+	int quantity=1;
 	float totalPrice;
 	
 	public OcchialeBean() {
-		
+		quantity=1;
+		totalPrice=0;
 	}
 
 	public OcchialeBean(String idGlasses, String nameGlasses, String brand, int price, int availability, char type,

@@ -47,21 +47,21 @@
 									<ul>
 										<li>
 											<span  data-toggle="modal" data-target="#product-modal">
-												<i class="tf-ion-ios-search-strong"></i>
+												<a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-ios-search-strong"></i></a>
 											</span>
 										</li>
 										<li>
 					                        <a href="#!" ><i class="tf-ion-ios-heart"></i></a>
 										</li>
 										<li>
-											<a href="#!"><i class="tf-ion-android-cart"></i></a>
+											<a href="Prodotto?action=aggiungi&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-android-cart"></i></a>
 										</li>
 									</ul>
 		                      	</div>
 							</div>
 							<div class="product-content">
-								<h4><a href="product-single.html"><%=bean.getNameGlasses() %></a></h4>
-								<p class="price"><%=bean.getPrice() %></p>
+								<h4><a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>"><%=bean.getNameGlasses() %></a></h4>
+								<p class="price"><%=bean.getPrice() %>€</p>
 							</div>
 						</div>
 					</div>

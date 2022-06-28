@@ -62,7 +62,7 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 		                      	</div>
 							</div>
 							<div class="product-content">
-								<h4><a href="product-single.html"><%=bean.getNameGlasses() %></a></h4>
+								<h4><a href=""><%=bean.getNameGlasses() %></a></h4>
 								<p class="price"><%=bean.getPrice() %></p>
 								<p class="price"><%=bean.getIdGlasses() %></p>
 							</div>

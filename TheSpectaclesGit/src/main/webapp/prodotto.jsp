@@ -7,11 +7,11 @@
 
 
 <%
-/*ArrayList<OcchialeBean> occhiali = (ArrayList<OcchialeBean>) request.getAttribute("descrizione");
-OcchialeBean bean = (OcchialeBean) occhiali.get(0);
+/*ArrayList<OcchialeBean> occhiale = (ArrayList<OcchialeBean>) request.getAttribute("descrizione");
+OcchialeBean bean = (OcchialeBean) occhiale.get(0);
 System.out.println("----------------------------------------------------------------------\n"+bean+"\n");*/
 
-Collection<?> occhiali = (Collection<?>) request.getAttribute("descrizione");
+OcchialeBean bean = (OcchialeBean) request.getAttribute("descrizione");
 
  %>
 <!DOCTYPE html>
@@ -30,10 +30,9 @@ Collection<?> occhiali = (Collection<?>) request.getAttribute("descrizione");
 
 
 <% 
-		if (occhiali != null && occhiali .size() != 0) {
-			Iterator<?> it = occhiali .iterator();
-			while (it.hasNext()) {
-				OcchialeBean bean = (OcchialeBean) it.next();	
+		if (bean != null) {
+			
+			
 				%>
 
 <section class="single-product">
@@ -60,22 +59,8 @@ Collection<?> occhiali = (Collection<?>) request.getAttribute("descrizione");
 									<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' data-zoom-image="images/shop/single-products/product-1.jpg" />
 								</div>
 								<div class='item'>
-									<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' data-zoom-image="images/shop/single-products/product-2.jpg" />
+									<img src='images/shop/products/<%=bean.getImage()%>' alt='' data-zoom-image="images/shop/single-products/product-2.jpg" />
 								</div>
-								
-								<div class='item'>
-									<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' data-zoom-image="images/shop/single-products/product-3.jpg" />
-								</div>
-								<div class='item'>
-									<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' data-zoom-image="images/shop/single-products/product-4.jpg" />
-								</div>
-								<div class='item'>
-									<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' data-zoom-image="images/shop/single-products/product-5.jpg" />
-								</div>
-								<div class='item'>
-									<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' data-zoom-image="images/shop/single-products/product-6.jpg" />
-								</div>
-								
 							</div>
 							
 							<!-- sag sol -->
@@ -91,26 +76,12 @@ Collection<?> occhiali = (Collection<?>) request.getAttribute("descrizione");
 						
 						<ol class='carousel-indicators mCustomScrollbar meartlab'>
 							<li data-target='#carousel-custom' data-slide-to='0' class='active'>
-								<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' />
+								<img src='images/shop/products/<%=bean.getImage()%>' alt='' />
 							</li>
 							<li data-target='#carousel-custom' data-slide-to='1'>
-								<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' />
+								<img src='images/shop/products/<%=bean.getImage()%>' alt='' />
 							</li>
-							<li data-target='#carousel-custom' data-slide-to='2'>
-								<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' />
-							</li>
-							<li data-target='#carousel-custom' data-slide-to='3'>
-								<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' />
-							</li>
-							<li data-target='#carousel-custom' data-slide-to='4'>
-								<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' />
-							</li>
-							<li data-target='#carousel-custom' data-slide-to='5'>
-								<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' />
-							</li>
-							<li data-target='#carousel-custom' data-slide-to='6'>
-								<img src='images/shop/single-products/<%=bean.getImage()%>' alt='' />
-							</li>
+							
 						</ol>
 						
 					</div>
@@ -132,8 +103,7 @@ Collection<?> occhiali = (Collection<?>) request.getAttribute("descrizione");
 					
 
 					
-					 
-					<div class="product-size">
+					 <!-- <div class="product-size">
 						<span>Size:</span>
 						<select class="form-control">
 							<option>S</option>
@@ -141,8 +111,9 @@ Collection<?> occhiali = (Collection<?>) request.getAttribute("descrizione");
 							<option>L</option>
 							<option>XL</option>
 						</select>
-					</div>
-					-->
+					</div> -->
+					
+				
 					<div class="product-quantity">
 						<span>Quantity: <%=bean.getAvailability()%></span>
 						<div class="product-quantity-slider">
@@ -150,7 +121,7 @@ Collection<?> occhiali = (Collection<?>) request.getAttribute("descrizione");
 						</div>
 					</div>
 					
-					<a href="cart.html" class="btn btn-main mt-20">Add To Cart</a>
+					<a href="Prodotto?action=aggiungi&id=<%= bean.getIdGlasses() %>" class="btn btn-main mt-20">Add To Cart</a>
 				</div>
 			</div>
 		</div>
@@ -161,7 +132,7 @@ Collection<?> occhiali = (Collection<?>) request.getAttribute("descrizione");
 				<div class="tabCommon mt-20">
 					<ul class="nav nav-tabs">
 						<li class="active"><a data-toggle="tab" href="#details" aria-expanded="true">Details</a></li>
-						<li class=""><a data-toggle="tab" href="#reviews" aria-expanded="false">Reviews (3)</a></li>
+						
 					</ul>
 					<div class="tab-content patternbg">
 						<div id="details" class="tab-pane fade active in">
@@ -180,42 +151,13 @@ Collection<?> occhiali = (Collection<?>) request.getAttribute("descrizione");
 </section>
 
 	<%
-			}
+			
 			} else {
 			out.println("There is no proucts");
 			}
 			%>
 
-<!-- Modal -->
-<div class="modal product-modal fade" id="product-modal">
-	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		<i class="tf-ion-close"></i>
-	</button>
-  	<div class="modal-dialog " role="document">
-    	<div class="modal-content">
-	      	<div class="modal-body">
-	        	<div class="row">
-	        		<div class="col-md-8">
-	        			<div class="modal-image">
-		        			<img class="img-responsive" src="images/shop/products/modal-product.jpg" />
-	        			</div>
-	        		</div>
-	        		<div class="col-md-3">
-	        			<div class="product-short-details">
-	        				<h2 class="product-title">GM Pendant, Basalt Grey</h2>
-	        				<p class="product-price">$200</p>
-	        				<p class="product-short-description">
-	        					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
-	        				</p>
-	        				<a href="#!" class="btn btn-main">Add To Cart</a>
-	        				<a href="#!" class="btn btn-transparent">View Product Details</a>
-	        			</div>
-	        		</div>
-	        	</div>
-	        </div>
-    	</div>
-  	</div>
-</div>
+
 
     
 	 <%@ include file="footer.html"%>
