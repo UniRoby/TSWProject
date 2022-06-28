@@ -38,11 +38,11 @@ public class ServletProdotti extends HttpServlet {
 		
 		
 		HttpSession session= request.getSession();
-		/*Carrello car= (Carrello) session.getAttribute("carrello");
+		Carrello car= (Carrello) session.getAttribute("carrello");
 		if (car == null) {
 			car= new Carrello();
 			session.setAttribute("carrello", car);
-		}*/
+		}
 		valori.add(request.getParameter("id"));
 	
 		synchronized (session) {
@@ -50,29 +50,29 @@ public class ServletProdotti extends HttpServlet {
 			//request.setAttribute("occhiali", modelOcchiale.doRetriveAll());
 			request.removeAttribute("descrizione");
 			request.setAttribute("descrizione", modelOcchiale.doRetrieveByKey(valori));
-			//request.setAttribute("id", Integer.parseInt(request.getParameter("id")));
-			//session.setAttribute("carrello", car);
+			request.setAttribute("id", request.getParameter("id"));
+			session.setAttribute("carrello", car);
 		
 		String azione= request.getParameter("action");
 		
 		System.out.println("Action value: "+ azione);
 			
-		if (azione != null && azione.equals("dettagli")) {
+		if (azione != null && azione.equalsIgnoreCase("dettagli")) {
 			
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/prodotto.jsp");
 			dispatcher.forward(request, response);
 		}
 		
-		/*if (azione != null && azione.equalsIgnoreCase("aggiungi")) {
-			ProdottiBean pr= (ProdottiBean) request.getAttribute("descrizione");
-			if (!car.searchProdotto(pr.getId())) {
-			car.addCarrello(pr);
+		if (azione != null && azione.equalsIgnoreCase("aggiungi")) {
+			OcchialeBean occhiale= (OcchialeBean) request.getAttribute("descrizione");
+			if (!car.searchProdotto(occhiale.getIdGlasses())) {
+			car.addCarrello(occhiale);
 			}
-				RequestDispatcher dis= getServletContext().getRequestDispatcher("/ProdottiCarrello.jsp");
-				dis.forward(request, response);
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/carrello.jsp");
+				dispatcher.forward(request, response);
 			}
 		
-		if (Integer.parseInt(request.getParameter("scelta")) >= 1) {
+		/*if (Integer.parseInt(request.getParameter("scelta")) >= 1) {
 			RequestDispatcher dis= getServletContext().getRequestDispatcher("/ProdottiCarrello.jsp");
 			dis.forward(request, response);
 		}*/

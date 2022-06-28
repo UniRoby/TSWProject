@@ -33,7 +33,8 @@ Collection<?> occhiali = (Collection<?>) request.getAttribute("descrizione");
 		if (occhiali != null && occhiali .size() != 0) {
 			Iterator<?> it = occhiali .iterator();
 			while (it.hasNext()) {
-				OcchialeBean bean = (OcchialeBean) it.next();%>
+				OcchialeBean bean = (OcchialeBean) it.next();	
+				%>
 
 <section class="single-product">
 	<div class="container">
@@ -118,39 +119,19 @@ Collection<?> occhiali = (Collection<?>) request.getAttribute("descrizione");
 			<div class="col-md-7">
 				<div class="single-product-details">
 					<h2><%=bean.getBrand()%></h2>
-<<<<<<< HEAD
-					<p class="product-price"><%=bean.getPrice()%>€</p>
-=======
-					<p class="product-price"><%=bean.getPrice%> &euro;</p>
->>>>>>> branch 'master' of https://github.com/UniRoby/TSWProject
+
+					<p class="product-price"><%=bean.getPrice()%> &euro;</p>
+
 					
 					<p class="product-description mt-20">
 						<%=bean.getNameGlasses()%>
 					</p>
-<<<<<<< HEAD
-					<p> Categoria: <%=bean.getNameCategory()%> </p>
-=======
-					<p> Categoria: <%=bean.getNameCategory%> </p>
+			       <p> Categoria: <%=bean.getCategory()%> </p>
+
+					 					
 					
-						<!--  
->>>>>>> branch 'master' of https://github.com/UniRoby/TSWProject
-					<div class="color-swatches">
-						<span>color:</span>
+
 					
-						
-						<ul>
-							<li>
-								<a href="#!" class="swatch-violet"></a>
-							</li>
-							<li>
-								<a href="#!" class="swatch-black"></a>
-							</li>
-							<li>
-								<a href="#!" class="swatch-cream"></a>
-							</li>
-						</ul>
-						
-					</div>
 					 
 					<div class="product-size">
 						<span>Size:</span>
@@ -189,40 +170,8 @@ Collection<?> occhiali = (Collection<?>) request.getAttribute("descrizione");
 							
 						</div>
 						
-						<!--  
-						<div id="reviews" class="tab-pane fade">
-							<div class="post-comments">
-						    	<ul class="media-list comments-list m-bot-50 clearlist">
-								   
-								    <li class="media">
-
-								        <a class="pull-left" href="#!">
-								            <img class="media-object comment-avatar" src="images/blog/avater-1.jpg" alt="" width="50" height="50" />
-								        </a>
-
-								        <div class="media-body">
-								            <div class="comment-info">
-								                <h4 class="comment-author">
-								                    <a href="#!">Jonathon Andrew</a>
-								                	
-								                </h4>
-								                <time datetime="2013-04-06T13:53">July 02, 2015, at 11:34</time>
-								                <a class="comment-button" href="#!"><i class="tf-ion-chatbubbles"></i>Reply</a>
-								            </div>
-
-								            <p>
-								                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at magna ut ante eleifend eleifend.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod laborum minima, reprehenderit laboriosam officiis praesentium? Impedit minus provident assumenda quae.
-								            </p>
-								        </div>
-
-								    </li>
-								   
-								   
-								  
-							</ul>
-							</div>
-						</div>
-						-->
+						
+						
 					</div>
 				</div>
 			</div>

@@ -56,7 +56,7 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 					                        <a href="" ><i class="tf-ion-ios-heart"></i></a>
 										</li>
 										<li>
-											<a href="#!"><i class="tf-ion-android-cart"></i></a>
+											<a href="Prodotto?action=aggiungi&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-android-cart"></i></a>
 										</li>
 									</ul>
 		                      	</div>

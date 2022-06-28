@@ -15,6 +15,8 @@ public class OcchialeBean implements Serializable  {
     String category;
 	String image;
 	String description;
+	int quantity;
+	float totalPrice;
 	
 	public OcchialeBean() {
 		
@@ -113,6 +115,21 @@ public class OcchialeBean implements Serializable  {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	
+	public void setQuantity (int q) {
+	this.quantity= q ;
+	}
+	
+	public float getTotPrezzo() {
+		return totalPrice;
+	}
+	
+	public void setTotPrezzo(float prezzotot) {
+		this.totalPrice = prezzotot;
 	}
 
 	public String toString() {
