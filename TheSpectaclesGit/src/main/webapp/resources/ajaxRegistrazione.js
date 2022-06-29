@@ -18,7 +18,18 @@ $(document).ready(function(){
 	var expPassword= /^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{7,}$/;
 	//var expData=/^([0-9]{1,2})-([0-9]{1,2})-([0-9]{4})$/;
 		
-		
+	console.log(nome);	
+	console.log(nome.match(expNomeCognome));	
+	console.log(cognome);	
+	console.log(cognome.match(expNomeCognome));	
+	console.log(data);
+	console.log(email);		
+	console.log(email.match(expEmail));	
+	console.log(password);	
+	console.log(password.match(expPassword));
+	console.log(ripPassword);	
+	console.log(password==ripPassword);
+	
 		
 	if (!(nome.match(expNomeCognome)) && errNome < 1){
 		errNome= errNome + 1;
@@ -44,7 +55,7 @@ $(document).ready(function(){
 		$('#password').after("<b><p id=errorePassword style='color: red;'>Errore nell'inserimento della Password</p></b> <br>");
 	}
 		
-	if (!(password.equals(ripPassowrd)) && errRipPassword< 1){
+	if (!(password==ripPassword) && errRipPassword< 1){
 		errRipPassword= errRipPassword + 1;
 		$('#ripPassword').after("<b><p id=erroreRipPassword style='color: red;'>Errore Password diversa</p></b> <br>");
 	}
@@ -78,7 +89,7 @@ $(document).ready(function(){
 		$('#errorePassword').remove();
 	}
 		
-	if (ripPassword.equals(password)){
+	if (ripPassword==password){
 		errRipPassword= errRipPassword + 1;
 		$('#erroreRipPassword').remove();
 	}
@@ -87,13 +98,15 @@ $(document).ready(function(){
 		
 	//utilizzo di ajax
 		
-	if ((nome.match(expNomeCognome)) && (cognome.match(expNomeCognome)) && (data.match(expData)) && (email.match(expEmail)) && (ripPassword.match(password)) ){
+	if ((nome.match(expNomeCognome)) && (cognome.match(expNomeCognome)) && (email.match(expEmail)) && (ripPassword==password) ){
 			$.ajax({
 				type: 'POST',
 				data: {nome: nome, cognome: cognome, data: data, email: email, password: password},
 				url: 'Signin',
 				success: function(result){
-					window.location.href= shop.jsp;
+					if (result == "Utente"){
+					window.location.href="shop.jsp";
+				}
 				}
 			})
 		}

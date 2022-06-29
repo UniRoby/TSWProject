@@ -25,7 +25,8 @@ import model.*;
 public class SigninServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Model<UtenteBean, DataSource> utenteModel = new UtenteDao();
-	private ArrayList<String> value= new ArrayList<String>();
+	
+	
 	
 
 	public void init() throws ServletException {
@@ -46,23 +47,24 @@ public class SigninServlet extends HttpServlet {
 		
 		String nome= request.getParameter("nome");
 		String cognome= request.getParameter("cognome");
-		Date data = Date.valueOf(request.getParameter("data"));
+		//Date data = Date.valueOf(request.getParameter("data"));
 		
-		System.out.println(data);
+		System.out.println(request.getParameter("data"));
 		
 		String email= request.getParameter("email");
 		String newPassword= request.getParameter("password");
 		int ruolo= 0;
 		PrintWriter out= response.getWriter();
+		ArrayList<String> value= new ArrayList<String>();
 		value.add(email);
 		value.add(newPassword);
-		UtenteBean newUtente= new UtenteBean(email,newPassword,nome,cognome,data,ruolo);
+		UtenteBean newUtente= new UtenteBean(email,newPassword,nome,cognome,new Date(5,5, 5),ruolo);
 		try {
 			
 			utenteModel.doSave(newUtente);
 			UtenteBean client = utenteModel.doRetrieveByKey(value);
-			request.getSession().setAttribute("accedi", client);
-			out.print("shop.jsp");
+			request.getSession().setAttribute("auth", client);
+			out.print("Utente");
 		} catch (SQLException e) {
 			System.out.println ("Errore nella signin: " + e.getMessage());
 		}

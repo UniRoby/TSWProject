@@ -23,7 +23,7 @@ public class CategoriaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static boolean isDataSource = true;
 	private OcchialeDao modelOcchiale = new OcchialeDao();
-	private ArrayList<String> valori= new ArrayList<String>();
+	
 	public void init() throws ServletException {
 		super.init();
 		modelOcchiale.setDB((DataSource) getServletContext().getAttribute("DataSource"));
@@ -38,6 +38,7 @@ public class CategoriaServlet extends HttpServlet {
 		String tipo= request.getParameter("tipo");
 		String colore= request.getParameter("colore");
 		String sex= request.getParameter("sex");
+		ArrayList<String> valori= new ArrayList<String>();
 		valori.add(tipo);
 		System.out.println("ServletCategoria: "+ valori.get(0));
 		

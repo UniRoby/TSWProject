@@ -8,6 +8,7 @@
 
 
 <%
+
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 Collection<?> occhiali = (Collection<?>) request.getAttribute("occhiali");
 if(occhiali == null) {
@@ -20,14 +21,13 @@ if(occhiali == null) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<% session.setAttribute("auth",(OcchialeBean) request.getSession().getAttribute("auth")); %>
 <%@ include file="meta.html"%>
 
 </head>
 
 <body id="body">
  
-<% session.setAttribute("auth",(OcchialeBean) request.getSession().getAttribute("auth")); %>
 
 <%@ include file="header.jsp"%>
  

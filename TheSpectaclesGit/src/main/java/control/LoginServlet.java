@@ -57,11 +57,11 @@ public class LoginServlet extends HttpServlet {
 				}
 					
 				if((cerca.getEmail() != null) && (cerca.getRole()==1)) {
-					request.getSession().setAttribute("accedi", cerca);
+					request.getSession().setAttribute("auth", cerca);
 					out.print("Admin");
 					}
 				if((cerca.getEmail() != null) && !(cerca.getRole()==1)) {
-					request.getSession().setAttribute("accedi", cerca);
+					request.getSession().setAttribute("auth", cerca);
 					out.print("Utente");
 				}
 				
