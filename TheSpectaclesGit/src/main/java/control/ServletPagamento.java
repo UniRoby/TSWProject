@@ -35,10 +35,10 @@ public class ServletPagamento extends HttpServlet {
 		UtenteDao dm= new UtenteDao();
 		
 		try {
-		
+			
 		request.setAttribute("indirizzo", dm.cercaIndirizzo(idUtente));
 		
-		//ord.effettuaPagamento(idUtente, "Il pagamento è avvenuto tramite carta", dat, "La spedizione è gratuita");
+		//ord.effettuaPagamento(idUtente, 2, dat, "La spedizione è gratuita");
 		Carrello car= (Carrello) request.getSession().getAttribute("carrello");
 		car.delete();
 		request.getSession().setAttribute("carrello", car);

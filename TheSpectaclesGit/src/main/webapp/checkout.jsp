@@ -20,12 +20,12 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 <html lang="en">
 <head>
 
- <% session.setAttribute("auth",(OcchialeBean) request.getSession().getAttribute("auth")); %>
+
 <%@ include file="meta.html"%>
 
 </head>
 <body>
-<% session.setAttribute("auth",(OcchialeBean) request.getSession().getAttribute("auth")); %>
+<% session.setAttribute("auth",(UtenteBean) request.getSession().getAttribute("auth")); %>
 
 <%@ include file="header.jsp"%>
 

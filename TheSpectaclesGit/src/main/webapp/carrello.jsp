@@ -15,7 +15,7 @@
 
 <body id="body">
 
-<% session.setAttribute("auth",(OcchialeBean) request.getSession().getAttribute("auth")); %>
+<% session.setAttribute("auth",(UtenteBean) request.getSession().getAttribute("auth")); %>
 
 <%@ include file="header.jsp"%>
 
