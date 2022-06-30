@@ -12,6 +12,7 @@ import java.sql.Date;
 import model.*;
 
 
+
 	 public class UtenteDao implements Model<UtenteBean, DataSource> {
 
 	 	private static final String TABLE_NAME = "utente";
@@ -60,6 +61,46 @@ import model.*;
 	 		}
 	 		return bean;
 		}
+		
+		public IndirizziBean cercaIndirizzo(String email) throws SQLException{
+			IndirizziBean indirizzo = new IndirizziBean();
+			Connection con = null;
+			PreparedStatement prep = null;
+			ResultSet rs = null;
+			
+			String selectSQL = "SELECT * FROM  indirizzi   WHERE email = ?";
+
+
+	 		try {
+	 			con = ds.getConnection();
+				prep = con.prepareStatement(selectSQL);
+				prep.setString(1, email);
+				
+				rs = prep.executeQuery();
+
+	 			while (rs.next()) {
+	 				
+	 				indirizzo.setEmail(rs.getString("email"));
+	 				indirizzo.setAddress(rs.getString("indirizzo"));
+	 				indirizzo.setCity(rs.getString("citta"));
+	 				indirizzo.setCap(rs.getInt("cap"));
+	 				indirizzo.setProvince(rs.getString("provincia"));
+	 				
+	 			}
+
+	 		} 
+	 		catch(Exception e) {
+	 			e.printStackTrace();
+	 		}
+	 		finally {
+	 			
+	 			rs.close();
+				prep.close();
+				con.close();
+	 		}
+	 		return indirizzo;
+		}
+		
 		
 
 		public Collection<UtenteBean> doRetrieveAll(String order) throws SQLException {
