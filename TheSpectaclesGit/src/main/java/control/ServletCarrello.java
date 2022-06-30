@@ -34,6 +34,8 @@ public class ServletCarrello extends HttpServlet {
 		Carrello car= (Carrello) session.getAttribute("carrello");
 		String id=  request.getParameter("nascosto");
 		int scelta= Integer.parseInt(request.getParameter("scelta"));
+		
+		System.out.println("Sono nella Servlet Carrello: \nId: "+id+"\nQuantità scelta: "+scelta+"\n");
 		car.getPrezzoTotale(scelta, id);
 		car.insertQuantita(id, scelta);
 		

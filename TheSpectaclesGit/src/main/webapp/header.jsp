@@ -63,7 +63,7 @@
 							<!-- Cart Item -->
 							<div class="media">
 								<a class="pull-left" href="#!">
-									<img class="media-object" src="images/shop/products<%=car.getCarrello().get(i).getImage()%>" alt="image" />
+									<img class="media-object" src="images/shop/products/<%=car.getCarrello().get(i).getImage()%>" alt="image" />
 								</a>
 								<div class="media-body">
 									<h4 class="media-heading"><a href="#!"><%=car.getCarrello().get(i).getNameGlasses()%></a></h4>

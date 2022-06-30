@@ -103,7 +103,7 @@
                       <form action="Prodotto2" method="get">
                         <div class="product-quantity-slider">
                         	<input type="hidden" value="<%= cart.getCarrello().get(i).getIdGlasses() %>" name="nascosto">
-							<input id="product-quantity" type="text" value="<%= cart.getCarrello().get(i).getQuantity() %>" name="scelta">
+							<input id="product-quantity" type="text" value="<%= cart.getCarrello().get(i).getQuantity() %>" name="scelta"  min="1" max="<%= car.getCarrello().get(i).getAvailability()%>">
 							<input type="submit"  value="Aggiorna" >
 						</div>
                       </form>
