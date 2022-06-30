@@ -3,7 +3,7 @@
 	<%@page import="java.util.*"%>
 	<%@page import="dao.*"%>
 	<%@page import="model.*"%>
-	<%@page import="servlet.*"%>
+	<%@page import="control.*"%>
 	<%@page import="java.util.*"%>
 
 

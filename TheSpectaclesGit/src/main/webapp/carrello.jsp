@@ -1,7 +1,7 @@
 <%@page import="dao.*"%>
 <%@page import="model.*"%>
-
-<%@page import="servlet.*"%><%@page import="java.util.*"%>
+<%@page import="control.*"%>
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
