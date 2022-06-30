@@ -134,55 +134,26 @@ if(occhiali == null) {
 				</div>
 			</div>
 		
-			
-			
-			
-			
-			
-			
-			
-
-		<!-- Modal -->
-		<div class="modal product-modal fade" id="product-modal">
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<i class="tf-ion-close"></i>
-			</button>
-		  	<div class="modal-dialog " role="document">
-		    	<div class="modal-content">
-			      	<div class="modal-body">
-			        	<div class="row">
-			        		<div class="col-md-8 col-sm-6 col-xs-12">
-			        			<div class="modal-image">
-				        			<img class="img-responsive" src="images/shop/products/<%=bean.getImage()%>" alt="product-img" />
-			        			</div>
-			        		</div>
-			        		<div class="col-md-4 col-sm-6 col-xs-12">
-			        			<div class="product-short-details">
-			        				<h2 class="product-title"><%=bean.getNameGlasses() %></h2>
-			        				<p class="product-price"><%=bean.getPrice() %>€</p>
-			        				<p class="product-short-description">
-			        					<%=bean.getDescription() %>
-			        				</p>
-			        				<a href="Prodotto?action=aggiungi&id=<%= bean.getIdGlasses() %>" class="btn btn-main">Add To Cart</a>
-			        				<a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>" class="btn btn-transparent">View Product Details</a>
-			        			</div>
-			        		</div>
-			        	</div>
-			        </div>
-		    	</div>
-		  	</div>
-		</div><!-- /.modal -->
-
-		</div>
-	</div>
-</section>
-	<%
+			<%
 			}
 			} else {
 			out.println("There is no proucts");
 			}
 			%>
 			
+			
+			
+			
+			
+			
+			
+
+		
+
+		</div>
+	</div>	
+</section>
+
 
 
 <!--
