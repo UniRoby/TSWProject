@@ -51,8 +51,7 @@ public class CategoriaServlet extends HttpServlet {
 			System.out.println("Errore Categoria Servlet: " + e.getMessage());
 		}
 		
-		/*RequestDispatcher dis= request.getRequestDispatcher("/shopCategoria.jsp");
-		dis.forward(request, response);*/
+		
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/shopCategoria.jsp");
 		dispatcher.forward(request, response);

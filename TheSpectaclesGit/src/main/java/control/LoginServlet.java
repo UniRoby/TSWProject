@@ -22,7 +22,7 @@ import model.*;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Model<UtenteBean, DataSource> utenteModel = new UtenteDao();
-	private ArrayList<String> value= new ArrayList<String>();
+	
 	
 	public void init() throws ServletException {
 		super.init();
@@ -44,6 +44,7 @@ public class LoginServlet extends HttpServlet {
 		   
 			String email = request.getParameter("email");
 			String pw = request.getParameter("password");
+			ArrayList<String> value= new ArrayList<String>();
 			PrintWriter out= response.getWriter();
 			value.add(email);
 			value.add(pw);

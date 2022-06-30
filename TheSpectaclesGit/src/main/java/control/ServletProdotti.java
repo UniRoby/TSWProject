@@ -22,7 +22,7 @@ public class ServletProdotti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	static boolean isDataSource = true;
-	private ArrayList<String> valori= new ArrayList<String>();
+	
 	//private static Model<OcchialeBean, DataSource> modelOcchiale = new OcchialeDao();
 	private OcchialeDao modelOcchiale = new OcchialeDao();
 	public void init() throws ServletException {
@@ -43,6 +43,7 @@ public class ServletProdotti extends HttpServlet {
 			car= new Carrello();
 			session.setAttribute("carrello", car);
 		}
+		ArrayList<String> valori= new ArrayList<String>();
 		valori.add(request.getParameter("id"));
 	
 		synchronized (session) {
