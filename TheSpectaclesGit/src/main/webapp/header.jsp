@@ -89,7 +89,7 @@
 								<span class="total-price"><%=totale%>&#8364;</span>
 							</div>
 							<ul class="text-center cart-buttons">
-								<li><a href="cart.jsp" class="btn btn-small">Carrello</a></li>
+								<li><a href="carrello.jsp" class="btn btn-small">Carrello</a></li>
 								<li><a href="checkout.jsp" class="btn btn-small btn-solid-border">Pagamento</a></li>
 							</ul>
 						</div>
