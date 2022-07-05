@@ -49,7 +49,49 @@ import model.*;
 	            	bean.setCategory(rs.getString("categoria"));
 	            	bean.setImage(rs.getString("img"));
 	            	bean.setDescription(rs.getString("descrizione"));
-	            	System.out.println("\nSono nel while: "+ bean);
+	            	
+	            	occhiali.add(bean);
+	 			}
+
+	 		} 
+		    catch(Exception e){
+			  e.printStackTrace();
+			} finally {
+	 			rs.close();
+				prep.close();
+				con.close();
+	 		}
+	 		return occhiali;
+		}
+		
+		public Collection<OcchialeBean> doRetrieveByBrand(String brand) throws SQLException {
+			OcchialeBean bean = new OcchialeBean();
+			Connection con = null;
+			PreparedStatement prep = null;
+			ResultSet rs = null;
+			Collection<OcchialeBean> occhiali = new ArrayList<OcchialeBean>();
+	 		String sql = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE marca = ?";
+	 		
+
+	 		try {
+	 			con = ds.getConnection();
+				prep = con.prepareStatement(sql);
+				prep.setString(1,brand);
+				rs = prep.executeQuery();
+
+	 			while (rs.next()) {
+	 				
+	            	bean.setIdGlasses(rs.getString("idOcchiale"));
+	            	bean.setNameGlasses(rs.getString("nomeOcchiale"));
+	            	bean.setBrand(rs.getString("marca"));
+	            	bean.setPrice(rs.getInt("prezzo"));
+	            	bean.setAvailability(rs.getInt("disponibilita"));
+	            	bean.setType(rs.getString("tipo").charAt(0));
+	            	bean.setColor(rs.getString("colore"));
+	            	bean.setCategory(rs.getString("categoria"));
+	            	bean.setImage(rs.getString("img"));
+	            	bean.setDescription(rs.getString("descrizione"));
+	            	
 	            	occhiali.add(bean);
 	 			}
 

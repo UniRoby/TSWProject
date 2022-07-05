@@ -1,10 +1,12 @@
 package model;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class Carrello {
+public class Carrello implements Serializable {
 	
+	private static final long serialVersionUID = 3497262402613555555L;
 	private ArrayList<OcchialeBean> car;
 	private int dimensione;
 	private float tot;
@@ -127,7 +129,11 @@ public class Carrello {
 	public void insertQuantita(String code, int q) {
 		for (int i= 0; i < car.size(); i++) {
 			if (car.get(i).getIdGlasses().equals(code)) {
-				car.get(i).setQuantity(q);
+				
+				if(q<=car.get(i).getAvailability())
+					car.get(i).setQuantity(q);
+				else 
+					car.get(i).setQuantity(car.get(i).getAvailability());
 			}
 		}
 	}
