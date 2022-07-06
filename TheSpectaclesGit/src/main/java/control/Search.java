@@ -36,10 +36,10 @@ public class Search extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		
-		String query = request.getParameter("query");
+		String brand = request.getParameter("brand");
 		try {
 			request.removeAttribute("occhiali");
-			request.setAttribute("occhiali", modelOcchiale.doRetrieveByBrand(query));
+			request.setAttribute("occhiali", modelOcchiale.doRetrieveByBrand(brand));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

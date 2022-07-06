@@ -66,9 +66,9 @@
 					    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 					    	<div class="panel-body">
 					     		<ul>
-									<li><a href="Categoria?colore=rosso">Rosso</a></li>
-									<li><a href="Categoria?colore=blu">Blu</a></li>
-									<li><a href="Categoria?colore=giallo">Giallo</a></li>
+									<li><a href="Categoria?colore=nero">Nero</a></li>
+									<li><a href="Categoria?colore=oro">oro</a></li>
+									<li><a href="Categoria?colore=verde">verde</a></li>
 								</ul>
 					    	</div>
 					    </div>

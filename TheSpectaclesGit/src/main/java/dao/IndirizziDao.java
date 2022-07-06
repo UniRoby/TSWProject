@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 import model.*;
 
 
-	 public class IndirizziDao implements Model<IndirizziBean, DataSource> {
+	 public class IndirizziDao  {
 
 	 	private static final String TABLE_NAME = "indirizzo";
 
@@ -20,25 +20,25 @@ import model.*;
 			this.ds=obj;
 		}
 
-		public IndirizziBean doRetrieveByKey(ArrayList<String> keys) throws SQLException {
+		public IndirizziBean doRetrieveActive(String email) throws SQLException {
 			IndirizziBean bean = new IndirizziBean();
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
 	
-	 		String selectSQL = "SELECT * FROM " + IndirizziDao.TABLE_NAME + " WHERE CODE = ?";
+	 		String selectSQL = "SELECT * FROM " + IndirizziDao.TABLE_NAME + " WHERE email = ? and attivo=1";
 
 	 		try {
 	 			con = ds.getConnection();
 				prep = con.prepareStatement(selectSQL);
-				prep.setString(1, keys.get(0));
+				prep.setString(1, email);
 				rs = prep.executeQuery();
 
 	 			while (rs.next()) {
 	 				
 	            	bean.setIdIndirizzo(rs.getInt("idIndirizzo"));
 	            	bean.setAddress(rs.getString("address"));
-	            	bean.setStatus(rs.getBoolean("status"));
+	            	bean.setStatus(rs.getInt("status"));
 	            	bean.setCity(rs.getString("city"));
 	            	bean.setProvince(rs.getString("province"));
 	            	bean.setCap(rs.getInt("cap"));
@@ -51,6 +51,73 @@ import model.*;
 				con.close();
 	 		}
 	 		return bean;
+		}
+		
+
+		public IndirizziBean search(String email, String via) throws SQLException {
+			IndirizziBean bean = new IndirizziBean();
+			Connection con = null;
+			PreparedStatement prep = null;
+			ResultSet rs = null;
+	
+	 		String selectSQL = "SELECT * FROM " + IndirizziDao.TABLE_NAME + " WHERE email = ? and indirizzo= ?";
+
+	 		try {
+	 			con = ds.getConnection();
+				prep = con.prepareStatement(selectSQL);
+				prep.setString(1, email);
+				prep.setString(2, via);
+				rs = prep.executeQuery();
+
+	 			while (rs.next()) {
+	 				
+	            	bean.setIdIndirizzo(rs.getInt("idIndirizzo"));
+	            	bean.setAddress(rs.getString("address"));
+	            	bean.setStatus(rs.getInt("status"));
+	            	bean.setCity(rs.getString("city"));
+	            	bean.setProvince(rs.getString("province"));
+	            	bean.setCap(rs.getInt("cap"));
+	            	bean.setEmail(rs.getString("email"));
+	 			}
+
+	 		} finally {
+	 			rs.close();
+				prep.close();
+				con.close();
+	 		}
+	 		return bean;
+		}
+		public Collection<IndirizziBean> doRetrieveAllAddress(String email) throws SQLException {
+			Collection<IndirizziBean> indirizzi = new ArrayList<IndirizziBean>();
+			Connection con = null;
+			PreparedStatement prep = null;
+			ResultSet rs = null;
+			String sql = "SELECT * FROM " + IndirizziDao.TABLE_NAME+"  WHERE email = ?";
+			
+			try {
+				con = ds.getConnection();
+				prep = con.prepareStatement(sql);
+				prep.setString(1, email);
+				rs = prep.executeQuery();
+			
+			while (rs.next()) {
+				IndirizziBean bean = new IndirizziBean();
+				bean.setIdIndirizzo(rs.getInt("idIndirizzo"));
+            	bean.setAddress(rs.getString("address"));
+            	bean.setStatus(rs.getInt("status"));
+            	bean.setCity(rs.getString("city"));
+            	bean.setProvince(rs.getString("province"));
+            	bean.setCap(rs.getInt("cap"));
+            	bean.setEmail(rs.getString("email"));
+				
+				indirizzi.add(bean);
+		}
+		 } finally {
+				rs.close();
+				prep.close();
+				con.close();
+			}
+			return indirizzi;
 		}
 	
 		public Collection<IndirizziBean> doRetrieveAll(String order) throws SQLException {
@@ -93,7 +160,7 @@ import model.*;
 
 				prep.setInt(1, indirizzo.getIdIndirizzo());
 				prep.setString(2, indirizzo.getAddress());
-				prep.setBoolean(3, indirizzo.getStatus());
+				prep.setInt(3, indirizzo.getStatus());
 				prep.setString(4, indirizzo.getCity());
 				prep.setString(5, indirizzo.getProvince());
 				prep.setInt(6, indirizzo.getCap());
@@ -138,7 +205,7 @@ import model.*;
 
 				prep.setInt(1, indirizzo.getIdIndirizzo());
 				prep.setString(2, indirizzo.getAddress());
-				prep.setBoolean(3, indirizzo.getStatus());
+				prep.setInt(3, indirizzo.getStatus());
 				prep.setString(4, indirizzo.getCity());
 				prep.setString(5, indirizzo.getProvince());
 				prep.setInt(6, indirizzo.getCap());

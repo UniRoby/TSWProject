@@ -8,8 +8,12 @@
 
 
 <%
-
+if(request.getSession().getAttribute("auth") == null) {
+response.sendRedirect(getServletContext().getContextPath() +
+"/login.jsp"); } 
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
+IndirizziBean attivo= (IndirizziBean) request.getAttribute("attivo");
+Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
 
 
 
@@ -45,7 +49,7 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 	</div>
 </section>
 
- <form  class="checkout-form" action="Pagamento" method="get">
+ <form  class="checkout-form" action="Checkout" method="get">
 <div class="page-wrapper">
    <div class="checkout shopping">
       <div class="container">
@@ -54,25 +58,19 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
                <div class="block billing-details">
                   <h4 class="widget-title">Indirizzo</h4>
                   
-                    
-                     <div class="form-group">
-                        <label for="user_address">Via </label>
-                        <input type="text" class="form-control" id="user_address" placeholder="Via Le mani dal Naso">
-                     </div>
-                     <div class="checkout-country-code clearfix">
-                        <div class="form-group">
-                           <label for="user_post_code">Codice Postale</label>
-                           <input type="text" class="form-control" id="user_post_code" name="zipcode" value="81100">
-                        </div>
-                        <div class="form-group" >
-                           <label for="user_city">Città</label>
-                           <input type="text" class="form-control" id="user_city" name="city" placeholder="Caserta">
-                        </div>
-                     </div>
-                     <div class="form-group">
-                        <label for="user_country">Provincia</label>
-                        <input type="text" class="form-control" id="user_country" placeholder="CE">
-                     </div>
+                  <% if(attivo!=null){ %>
+                   
+                   <input type="radio" name="sameadr" value="activeAddress" checked>Default: <%=attivo.getAddress() %><br>
+                   <% }%>
+                   <%if (indirizzi != null && indirizzi.size() != 0) {
+						Iterator<?> it = indirizzi.iterator();
+						while (it.hasNext()) {
+							IndirizziBean bean = (IndirizziBean) it.next();%> 
+                       <input type="radio" name="sameadr"  value="otherAddress"><%=bean.getAddress() %><br>
+                   <% }
+						%>
+						 <input type="radio" name="sameadr" onclick="aggiungiIndirizzo.jsp" value="nuovoIndirizzo">Nuovo indirizzo spedizione<br>
+						
                   
                </div>
                <div class="block">
@@ -84,7 +82,7 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
                           
                               <div class="form-group">
                                  <label for="card-number">Numero Carta <span class="required">*</span></label>
-                                 <input  id="card-number" class="form-control" name="cardnumber"  type="tel" placeholder="â¢â¢â¢â¢ â¢â¢â¢â¢ â¢â¢â¢â¢ â¢â¢â¢â¢">
+                                 <input  id="card-number" class="form-control" name="cardnumber"  type="tel" placeholder="">
                               </div>
                               <div class="form-group half-width padding-right">
                                  <label for="card-expiry">Scadenza (MM/YY) <span class="required">*</span></label>
@@ -95,14 +93,14 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
                                  <input id="card-cvc" class="form-control" name="cvv"  type="tel" maxlength="3" placeholder="123" >
                               </div>
                                
-                               <button  type="button" class="btn btn-main mt-20" id="submit" value="Continua Checkout">Odina</button>
+                               <button  type="submit" class="btn btn-main mt-20" id="submit" value="Continua Checkout">Ordina</button>
                         
                         </div>
                      </div>
                   </div>
                </div>
             </div>
-        </form> 
+        </form>  <!-- fine form -->
             <%
 				Carrello cart= (Carrello) session.getAttribute("carrello");
 	
@@ -135,13 +133,19 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
                            <span class="price"><%=car.getCarrello().get(i).getTotPrezzo()%>&#8364;</span>
                         </li>
                         <li>
+                        <%float iva=(car.getCarrello().get(i).getTotPrezzo()*22)/100; %>
+                           <span>IVA:</span>
+                           <span><%=iva %>&#8364;</span>
+                        </li>
+                        <li>
                            <span>Shipping:</span>
                            <span>Free</span>
                         </li>
                      </ul>
                      <div class="summary-total">
                         <span>Total</span>
-                        <span><%=car.getCarrello().get(i).getTotPrezzo()%>&#8364;</span>
+                        
+                        <span><%=car.getCarrello().get(i).getTotPrezzo()+iva%>&#8364;</span>
                      </div>
                      <div class="verified-icon">
                         <img src="images/shop/verified.png">
@@ -153,10 +157,11 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
       </div>
    </div>
 </div>
-   <%
-	}
-	%>
-	
+  <%}
+                  }
+                  
+  %>
+
    <!--  
    <div class="modal fade" id="coupon-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">

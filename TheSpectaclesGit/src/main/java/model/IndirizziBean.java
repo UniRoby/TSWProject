@@ -6,7 +6,7 @@ public class IndirizziBean implements Serializable {
 	
 	int idIndirizzo;
 	String address;
-	boolean status;
+	int status;
 	String city;
 	String province;
 	int cap;
@@ -16,7 +16,7 @@ public class IndirizziBean implements Serializable {
 		
 	}
 	
-	public IndirizziBean(int idIndirizzo, String address, boolean status, String city, String province, int cap,
+	public IndirizziBean(int idIndirizzo, String address, int status, String city, String province, int cap,
 			String email) {
 		
 		this.idIndirizzo = idIndirizzo;
@@ -44,12 +44,12 @@ public class IndirizziBean implements Serializable {
 		this.address = address;
 	}
 	
-	public boolean getStatus() {
+	public int getStatus() {
 		return status;
 	}
 	
-	public void setStatus(boolean status) {
-		this.status = status;
+	public void setStatus(int i) {
+		this.status = i;
 	}
 	
 	public String getCity() {

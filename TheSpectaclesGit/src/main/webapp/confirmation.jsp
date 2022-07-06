@@ -7,18 +7,18 @@
 <%
 
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
-
-
+IndirizziBean ind= (IndirizziBean) request.getSession().getAttribute("address");
  %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<% session.setAttribute("auth",(OcchialeBean) request.getSession().getAttribute("auth")); %>
 <%@ include file="meta.html"%>
+<% session.setAttribute("auth",(UtenteBean) request.getSession().getAttribute("auth")); %>
 
-<% session.setAttribute("auth",(OcchialeBean) request.getSession().getAttribute("auth")); %>
-<%@ include file="meta.html"%>
+<%@ include file="header.jsp"%>
+
+
 
   
 <!-- Page Wrapper -->
@@ -30,6 +30,7 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
         	<i class="tf-ion-android-checkmark-circle"></i>
           <h2 class="text-center">Grazie <%= auth.getFirstName() %> per il tuo Ordine!</h2>
           <p>L'ordine da te effettuato &e andato a buon fine.</p>
+          <p>In direzione verso <%=ind %></p>
           <a href="shop.jsp" class="btn btn-main mt-20">Continua lo Shopping</a>
            <a href="Ordini?action=ordiniEffettuati" class="btn btn-main mt-20">Ordini effettuati</a>
         </div>

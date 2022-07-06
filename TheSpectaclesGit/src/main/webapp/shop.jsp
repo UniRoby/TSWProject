@@ -12,7 +12,6 @@ if(occhiali == null) {
 	response.sendRedirect("./ShopControl");	
 	return;
 }
-OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 
  %>
 
@@ -62,9 +61,9 @@ OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
 		                      	</div>
 							</div>
 							<div class="product-content">
-								<h4><a href=""><%=bean.getNameGlasses() %></a></h4>
-								<p class="price"><%=bean.getPrice() %></p>
-								<p class="price"><%=bean.getIdGlasses() %></p>
+								<h4><a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>"><%=bean.getNameGlasses() %></a></h4>
+								<p class="price"><%=bean.getPrice() %>&#8364;</p>
+								<p class="price"><%=bean.getBrand() %></p>
 							</div>
 						</div>
 					</div>

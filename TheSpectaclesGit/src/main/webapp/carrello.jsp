@@ -72,7 +72,7 @@
         <div class="col-md-8 col-md-offset-2">
           <div class="block">
             <div class="product-list">
-              <form method="post">
+             <!-- <form method="post"> --> 
                 <table class="table">
                   <thead>
                     <tr>
@@ -96,7 +96,7 @@
                            
                         </div>
                       </td>
-                      <td class=""><%=cart.getCarrello().get(i).getPrice()%>€</td>
+                      <td class=""><%=cart.getCarrello().get(i).getPrice()%>&#8364;</td>
                        <td class=""><%=cart.getCarrello().get(i).getIdGlasses()%></td>
                       <td class="">
                       
@@ -117,8 +117,8 @@
 					%>
                   </tbody>
                 </table>
-                <a href="checkout.jsp" class="btn btn-main pull-right">Checkout</a>
-              </form>
+                <a href="/Indirizzo" class="btn btn-main pull-right">Checkout</a>
+             <!--</form>  --> 
             </div>
           </div>
         </div>

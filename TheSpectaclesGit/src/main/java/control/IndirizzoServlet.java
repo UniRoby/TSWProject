@@ -19,45 +19,45 @@ import model.*;
 
 
 
-@WebServlet("/Categoria")
-public class CategoriaServlet extends HttpServlet {
+@WebServlet("/Indirizzo")
+public class IndirizzoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static boolean isDataSource = true;
-	private OcchialeDao modelOcchiale = new OcchialeDao();
+	private IndirizziDao indDao= new IndirizziDao();
 	
 	public void init() throws ServletException {
 		super.init();
-		modelOcchiale.setDB((DataSource) getServletContext().getAttribute("DataSource"));
 		
+		indDao.setDB((DataSource) getServletContext().getAttribute("DataSource"));
 	}
-	public CategoriaServlet() {
+	public IndirizzoServlet() {
 		super();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String tipo= request.getParameter("tipo");
-		String colore= request.getParameter("colore");
-		String sex= request.getParameter("sex");
-		ArrayList<String> valori= new ArrayList<String>();
-		valori.add(tipo);
-		System.out.println("ServletCategoria: "+ valori.get(0));
+		UtenteBean bean= (UtenteBean) request.getSession().getAttribute("auth");
+		
+		
 		
 		try {
-		    Collection<OcchialeBean> beans= modelOcchiale.doRetrieveByKey(valori);
-		    for(OcchialeBean b : beans) {
-		    	System.out.println(b.getNameGlasses());
+		    Collection<IndirizziBean> beans=  indDao.doRetrieveAllAddress(bean.getEmail());
+		    for(IndirizziBean b : beans) {
+		    	System.out.println(b);
 		    }
-			request.removeAttribute("occhiali");
-			request.setAttribute("occhiali", beans);
+		    IndirizziBean defaultAddress=indDao.doRetrieveActive(bean.getEmail());
+		    request.removeAttribute("attivo");
+		    request.setAttribute("attivo",defaultAddress);
+			request.removeAttribute("indirizzi");
+			request.setAttribute("indirizzi", beans);
 		}
 		catch (SQLException e) {
-			System.out.println("Errore Categoria Servlet: " + e.getMessage());
+			System.out.println("Errore Indirizzi Servlet: " + e.getMessage());
 		}
 		
 		
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/shopCategoria.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/checkout.jsp");
 		dispatcher.forward(request, response);
 		
 	}

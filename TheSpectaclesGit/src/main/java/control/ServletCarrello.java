@@ -36,8 +36,10 @@ public class ServletCarrello extends HttpServlet {
 		int scelta= Integer.parseInt(request.getParameter("scelta"));
 		
 		System.out.println("Sono nella Servlet Carrello: \nId: "+id+"\nQuantità scelta: "+scelta+"\n");
+		
 		car.getPrezzoTotale(scelta, id);
 		car.insertQuantita(id, scelta);
+		
 		
 		RequestDispatcher dis= getServletContext().getRequestDispatcher("/carrello.jsp");
 		dis.forward(request, response);

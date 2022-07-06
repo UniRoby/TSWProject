@@ -23,7 +23,7 @@ import model.*;
 		}
 
 		public Collection<OcchialeBean> doRetrieveByKey(ArrayList<String> keys) throws SQLException {
-			OcchialeBean bean = new OcchialeBean();
+			
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
@@ -38,7 +38,7 @@ import model.*;
 				rs = prep.executeQuery();
 
 	 			while (rs.next()) {
-	 				
+	 				OcchialeBean bean = new OcchialeBean();
 	            	bean.setIdGlasses(rs.getString("idOcchiale"));
 	            	bean.setNameGlasses(rs.getString("nomeOcchiale"));
 	            	bean.setBrand(rs.getString("marca"));
@@ -65,7 +65,7 @@ import model.*;
 		}
 		
 		public Collection<OcchialeBean> doRetrieveByBrand(String brand) throws SQLException {
-			OcchialeBean bean = new OcchialeBean();
+			
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
@@ -80,7 +80,7 @@ import model.*;
 				rs = prep.executeQuery();
 
 	 			while (rs.next()) {
-	 				
+	 				OcchialeBean bean = new OcchialeBean();
 	            	bean.setIdGlasses(rs.getString("idOcchiale"));
 	            	bean.setNameGlasses(rs.getString("nomeOcchiale"));
 	            	bean.setBrand(rs.getString("marca"));
@@ -224,6 +224,24 @@ import model.*;
 				con.close();
 			}
 		}
+		
+		public void decreaseAvailability(OcchialeBean occhiale) throws SQLException {
+			Connection con = null;
+			PreparedStatement prep = null;
+			String sql = "UPDATE occhiale SET disponibilita=?";
+
+			try {
+				con = ds.getConnection();
+				prep = con.prepareStatement(sql);
+				prep.setInt(1, occhiale.getQuantity());
+				prep.executeUpdate();
+				
+
+			} finally {
+				prep.close();
+				con.close();
+			}
+		}
 
 		public void doDelete(OcchialeBean occhiale) throws SQLException {
 			Connection con = null;
@@ -237,6 +255,7 @@ import model.*;
 				prep.setString(1, occhiale.getIdGlasses());
 
 				prep.executeUpdate();
+				con.commit();
 
 			} finally {
 				prep.close();
@@ -266,6 +285,7 @@ import model.*;
 				prep.setString(10, occhiale.getDescription());
 
 				prep.executeUpdate();
+				con.commit();
 
 			} finally {
 				prep.close();

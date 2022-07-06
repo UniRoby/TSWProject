@@ -9,7 +9,7 @@
 	UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 	Collection<?> occhiali = (Collection<?>) request.getAttribute("occhiali");
 	
-	OcchialeBean occhiale = (OcchialeBean) request.getAttribute("occhiale");
+	
 
  %>
 
@@ -61,7 +61,8 @@
 							</div>
 							<div class="product-content">
 								<h4><a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>"><%=bean.getNameGlasses() %></a></h4>
-								<p class="price"><%=bean.getPrice() %>€</p>
+								<p class="price"><%=bean.getPrice() %>&#8364;</p>
+								<p class="price"><%=bean.getBrand() %></p>
 							</div>
 						</div>
 					</div>

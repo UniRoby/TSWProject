@@ -1,40 +1,52 @@
 package model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.UUID;
+import java.util.Date;
 
 public class OrdineBean implements Serializable {
 	
-	int idOrder;
-	Date date;
+	UUID idOrder;
+	Date data;
 	String email;
+	String stato;
 	
 
 	public OrdineBean() {
-		
+		this.idOrder = null;
+		this.email = null;
+		this.data = null;
+		this.stato = null;
 	}
+	
 
-	public OrdineBean(int idOrder, Date date, String email) {
+	public OrdineBean(UUID idOrder, Date date, String email,String stato) {
 		super();
 		this.idOrder = idOrder;
-		this.date = date;
+		this.data = date;
 		this.email = email;
+		this.stato= stato;
 	}
 
-	public int getIdOrder() {
+	public UUID getIdOrder() {
 		return idOrder;
 	}
 
-	public void setIdOrder(int idOrder) {
+	public void setIdOrder(UUID idOrder) {
 		this.idOrder = idOrder;
 	}
 
 	public Date getDate() {
-		return date;
+		return data;
 	}
-
+	public String getStato() {
+		return this.stato;
+	}
+	public void setStato(String s) {
+		this.stato=s;
+	}
 	public void setDate(Date date) {
-		this.date = date;
+		this.data = date;
 	}
 
 	public String getEmail() {
@@ -46,7 +58,7 @@ public class OrdineBean implements Serializable {
 	}
 
 	public String toString() {
-		return "Ordine [idOrder=" + idOrder + ", date=" + date + ", email=" + email + "]";
+		return "Ordine [idOrder=" + idOrder + ", date=" + data + ", email=" + email + "]";
 	}
 	
 }

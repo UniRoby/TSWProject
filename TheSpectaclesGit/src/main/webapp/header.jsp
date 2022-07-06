@@ -15,7 +15,7 @@
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- Site Logo -->
 				<div class="logo text-center">
-					<a href="index.html">
+					<a href="index.jsp">
 						<!-- replace logo here -->
 						<svg width="490px" height="40px" viewBox="0 0 155 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
 							xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -105,7 +105,7 @@
 								class="tf-ion-ios-search-strong"></i>Cerca </a>
 						<ul class="dropdown-menu search-dropdown">
 							<li>
-								<form action="post"><input type="search" class="form-Cerca" placeholder="Cerca..."></form>
+								<form action="search" method="get"><input type="search" name="brand"class="form-Cerca" placeholder="Inserisci Marca"></form>
 							</li>
 						</ul>
 					</li><!-- / Search -->
@@ -169,7 +169,7 @@
 
 					<!-- Elements -->
 					<li class="dropdown dropdown-slide">
-						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
+						<a href="shop.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
 							role="button" aria-haspopup="true" aria-expanded="false">Shop <span
 								class="tf-ion-ios-arrow-down"></span></a>
 						<div class="dropdown-menu">
@@ -180,9 +180,9 @@
 									<ul>
 										<li class="dropdown-header">Categorie</li>
 										<li role="separator" class="divider"></li>
-										<li><a href="shop-sidebar.html">Occhiali da Vista</a></li>
-										<li><a href="shop.html">Occhiali da Sole</a></li>
-										<li><a href=""></a></li>
+										<li><a href="Categoria?tipo=vista">Occhiali da Vista</a></li>
+										<li><a href="Categoria?tipo=sole">Occhiali da Sole</a></li>
+										<li><a href="Categoria?tipo=luce">Occhiali filtro luce blu</a></li>
 
 									</ul>
 								</div>

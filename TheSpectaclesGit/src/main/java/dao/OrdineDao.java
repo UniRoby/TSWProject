@@ -1,7 +1,8 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
+import java.util.UUID;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,8 +10,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import javax.sql.DataSource;
+import java.text.SimpleDateFormat;
 import model.*;
-import pacchetto.model.ConnectionPool;
+
 
 
 	 public class OrdineDao {
@@ -22,8 +24,41 @@ import pacchetto.model.ConnectionPool;
 		public void setDB(DataSource obj) {
 			this.ds=obj;
 		}
+		public void doSave(OrdineBean ordine) throws SQLException {
+			OrdineBean bean = new OrdineBean();
+			Connection con = null;
+			PreparedStatement prep = null;
+			
+			String query =
+					"INSERT INTO " +
+					TABLE_NAME +
+					" (idOrdine, email, data, stato)" +
+					" VALUES (?,?,CURRENT_TIMESTAMP(),?)";
 
-		public OrdineBean doRetrieveByKey(ArrayList<String> keys) throws SQLException {
+			try {
+	 			con = ds.getConnection();
+				prep = con.prepareStatement(query);
+				prep.setString(1, ordine.getIdOrder().toString());
+				prep.setString(2, ordine.getEmail());
+				prep.setString(3, ordine.getStato());
+				prep.executeUpdate();
+				
+				
+	 			
+
+	 		} finally {
+				try {
+					if (prep != null)
+						prep.close();
+				} finally {
+					if (con != null)
+						con.close();
+				}
+			}
+	 	
+		}
+		
+		public OrdineBean doRetrieveByKey(UUID idOrdine) throws SQLException {
 			OrdineBean bean = new OrdineBean();
 			Connection con = null;
 			PreparedStatement prep = null;
@@ -34,14 +69,15 @@ import pacchetto.model.ConnectionPool;
 	 		try {
 	 			con = ds.getConnection();
 				prep = con.prepareStatement(selectSQL);
-				prep.setString(1, keys.get(0));
+				prep.setString(1, idOrdine.toString());
 				rs = prep.executeQuery();
 
 	 			while (rs.next()) {
 	 			
-	            	bean.setIdOrder(rs.getInt("idOrder"));
-	            	bean.setDate(rs.getDate("date"));
-	            	bean.setEmail(rs.getString("email"));
+	 				bean.setIdOrder(UUID.fromString(rs.getString(1)));
+	 				bean.setDate(new Date(rs.getTimestamp(3).getTime()));
+	 				bean.setEmail(rs.getString(2));
+	 				bean.setStato(rs.getString(4));
 	 			}
 
 	 		} finally {
@@ -57,10 +93,10 @@ import pacchetto.model.ConnectionPool;
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
-			String sql = "SELECT idOrder FROM " + OrdineDao.TABLE_NAME+" ORDER BY ?";
-			/*if(order !=null && !order.equals("")) {
+			String sql = "SELECT idOrder FROM " + OrdineDao.TABLE_NAME;
+			if(order !=null && !order.equals("")) {
 				sql += " ORDER BY " + order;
-			}*/
+			}
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(sql);
@@ -69,9 +105,10 @@ import pacchetto.model.ConnectionPool;
 			
 			while (rs.next()) {
 				OrdineBean bean = new OrdineBean();
-				bean.setIdOrder(rs.getInt("idOrder"));
-            	bean.setDate(rs.getDate("date"));
-            	bean.setEmail(rs.getString("email"));
+				bean.setIdOrder(UUID.fromString(rs.getString(1)));
+				bean.setEmail(rs.getString(2));
+				bean.setDate(new Date(rs.getTimestamp(3).getTime()));
+				bean.setStato(rs.getString(4));
 			
 				ordine.add(bean);
 		}
@@ -86,17 +123,17 @@ import pacchetto.model.ConnectionPool;
 		public void doUpdate(OrdineBean ordine) throws SQLException {
 			Connection con = null;
 			PreparedStatement prep = null;
-			String sql = "UPDATE ordine SET idOrder=?, date=?, email=?";
+			String sql = "UPDATE ordine SET idOrder=?,  email=?";
 
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(sql);
 
-				prep.setInt(1, ordine.getIdOrder());
-				prep.setDate(2, ordine.getDate(), Calendar.getInstance());
-				prep.setString(3, ordine.getEmail());
+				prep.setString(1, ordine.getIdOrder().toString());
+				prep.setString(2, ordine.getEmail());
 			
 				prep.executeUpdate();
+				con.commit();
 
 			} finally {
 				prep.close();
@@ -113,9 +150,10 @@ import pacchetto.model.ConnectionPool;
 				con = ds.getConnection();
 				prep = con.prepareStatement(deleteSQL);
 
-				prep.setInt(1, ordine.getIdOrder());
+				prep.setString(1, ordine.getIdOrder().toString());
 
 				prep.executeUpdate();
+				con.commit();
 
 			} finally {
 				prep.close();
@@ -123,183 +161,78 @@ import pacchetto.model.ConnectionPool;
 			}
 		}
 
-		public void doSave(OrdineBean ordine) throws SQLException {
-			Connection con = null;
-			PreparedStatement prep = null;
+		public ArrayList<OrdineBean> doRetriveByUser(UtenteBean user, String order) throws SQLException {
+				
+				ArrayList<OrdineBean> ordine = new ArrayList<OrdineBean>();
+				Connection con = null;
+				PreparedStatement prep = null;
+				ResultSet rs = null;
+				String query = "SELECT * FROM " + TABLE_NAME + " WHERE email = " + user.getEmail();
+				if (order != null) {
+					query += " ORDER BY " + order;
+				}
+				try {
+					con = ds.getConnection();
+					prep = con.prepareStatement(query);
+					rs = prep.executeQuery();
+					while (rs.next()) {
+						OrdineBean bean = new OrdineBean();
+						bean.setIdOrder(UUID.fromString(rs.getString(1)));
+						bean.setEmail(rs.getString(2));
+						bean.setDate(new Date(rs.getTimestamp(3).getTime()));
+						bean.setStato(rs.getString(4));
+					
+						ordine.add(bean);
+					}
+					
+				} finally {
+					prep.close();
+					con.close();
+				}
+	
+				return ordine;
+			}
 		
-			String insertSQL = "INSERT INTO " + OrdineDao.TABLE_NAME + "(idOrder, date, email) VALUES (?, ?, ?)";
-			try {
-				con = ds.getConnection();
-				prep = con.prepareStatement(insertSQL);
+		public ArrayList<OrdineBean> doRetriveByDate(Date init, Date end, int skip, int limit)
+				throws SQLException {
+				ArrayList<OrdineBean> ordine = new ArrayList<OrdineBean>();
+				Connection con = null;
+				PreparedStatement prep = null;
+				ResultSet rs = null;
+				String query =
+					"SELECT * FROM " +
+					TABLE_NAME +
+					" WHERE _data >= ? AND _data <= ? ORDER BY _data DESC LIMIT ?, ?"; // LIMIT skip, limit
+				try {
+					con = ds.getConnection();
+					prep = con.prepareStatement(query);
+					prep.setString(1, new SimpleDateFormat("yyyy-MM-dd").format(init));
+					prep.setString(2, new SimpleDateFormat("yyyy-MM-dd").format(end) + " 23:59:59");
+					prep.setInt(3, skip);
+					prep.setInt(4, limit);
+					rs = prep.executeQuery();
+					while (rs.next()) {
+						OrdineBean bean = new OrdineBean();
+						bean.setIdOrder(UUID.fromString(rs.getString(1)));
+						bean.setEmail(rs.getString(2));
+						bean.setDate(new Date(rs.getTimestamp(3).getTime()));
+						bean.setStato(rs.getString(4));
+					
+						ordine.add(bean);
+					}
+					
+				} finally {
+					prep.close();
+					con.close();
+				}
+	
+				return ordine;
+				
 
-				prep.setInt(1, ordine.getIdOrder());
-				prep.setDate(2, ordine.getDate(), Calendar.getInstance());
-				prep.setString(3, ordine.getEmail());
-			
-				prep.executeUpdate();
+			}
 
-			} finally {
-				prep.close();
-				con.close();
-			}
-		}
 		
 		
 		
 		
-		public void effettuaPagamento (String email,int metodoPagamento, Date data, int tipoSpedizione) throws SQLException {
-			
-			Connection con= null;
-			PreparedStatement prep1= null;
-			PreparedStatement prep2= null;
-			PreparedStatement prep3= null;
-			PreparedStatement prep4= null;
-			PreparedStatement prep5= null;
-			PreparedStatement prep6= null;
-			String query1= "SELECT id_ordine_effettua FROM effettua WHERE id_cliente_effettua=?";
-			String query2= "SELECT id_ordine_pagamento FROM pagamento";
-			String query3= "SELECT prezzo_totale FROM ordine WHERE id_ordine=?";
-			String query4= "SELECT iva_inserito, quantita_inserito FROM inserito WHERE id_ordine_inserito=?";
-			String query5= "INSERT INTO pagamento (iva_prodotto_pagamento, info_metodo, data_pagmento, importo, quantita_pagamento, id_ordine_pagamento) VALUES (?, ?, ?, ?, ?, ?)";
-			String query6= "INSERT INTO spedizione (data_spedizione, spese, info_metodo, id_ordine_spedizione) VALUES (?, ?, ?, ?)";
-			ArrayList<Integer> idOrdineEffettua= new ArrayList<Integer>();
-			ArrayList<Integer> idOrdinePagamento= new ArrayList<Integer>();
-			ArrayList<Float> prezzoTotaleOrdine= new ArrayList<Float>();
-			ArrayList<Float> ivaInserito= new ArrayList<Float>();
-			ArrayList<Integer> quantitaInserito= new ArrayList<Integer>();
-			ArrayList<Integer> idOrdineTemporaneo= new ArrayList<Integer>();
-			
-			try {
-				con= ds.getConnection();
-				prep1= con.prepareStatement(query1);
-				prep1.setInt(1, email);
-				ResultSet residOrdineEffettua= prep1.executeQuery();
-				
-				while (residOrdineEffettua.next()) {
-					idOrdineEffettua.add(residOrdineEffettua.getInt("id_ordine_effettua"));
-				}
-				
-				prep2= con.prepareStatement(query2);
-				ResultSet residOrdinePagamento= prep2.executeQuery();
-				
-				while (residOrdinePagamento.next()) {
-					idOrdinePagamento.add(residOrdinePagamento.getInt("id_ordine_pagamento"));
-				}
-				
-				
-				if(idOrdinePagamento.size()==0) {
-					for (int i= 0; i < idOrdineEffettua.size(); i++) {
-						prep3= con.prepareStatement(query3);
-						prep3.setInt(1, idOrdineEffettua.get(i));
-						ResultSet resPrezzoTotale= prep3.executeQuery();
-						
-						while (resPrezzoTotale.next()) {
-							prezzoTotaleOrdine.add(resPrezzoTotale.getFloat("prezzo_totale"));
-						}
-						
-						prep4= con.prepareStatement(query4);
-						prep4.setInt(1, idOrdineEffettua.get(i));
-						ResultSet resIvaQuantit= prep4.executeQuery();
-						
-						while (resIvaQuantit.next()) {
-							ivaInserito.add(resIvaQuantit.getFloat("iva_inserito"));
-							quantitaInserito.add(resIvaQuantit.getInt("quantita_inserito"));
-						}
-					}
-					
-					for (int j= 0; j < ivaInserito.size(); j++) {
-						prep5= con.prepareStatement(query5);
-						prep5.setFloat(1, ivaInserito.get(j));
-						prep5.setString(2, "Il pagamento è avvenuto tramite carta prepagata");
-						prep5.setDate(3, data);
-						prep5.setFloat(4, prezzoTotaleOrdine.get(j));
-						prep5.setInt(5, quantitaInserito.get(j));
-						prep5.setInt(6, idOrdineEffettua.get(j));
-						
-						prep5.executeUpdate();
-						con.commit();
-						
-						prep6= con.prepareStatement(query6);
-						prep6.setDate(1, data);
-						prep6.setFloat(2, 0);
-						prep6.setString(3, "La spedizione è gratuita poichè è un servizio offerto dall'attività");
-						prep6.setInt(4, idOrdineEffettua.get(j));
-						
-						prep6.executeUpdate();
-						con.commit();
-					}
-				}
-				
-				else {
-					
-					for(int i= 0; i < idOrdineEffettua.size(); i++) {
-						boolean trovato= false;
-							for (int j= 0; j < idOrdinePagamento.size(); j++) {
-							if (idOrdineEffettua.get(i) == idOrdinePagamento.get(j)) {
-								trovato= true;
-							}
-					}
-						if(trovato==false) {
-							idOrdineTemporaneo.add(idOrdineEffettua.get(i));
-						}
-						
-					}
-					
-					
-				for (int i= 0; i < idOrdineTemporaneo.size(); i++) {
-						prep3= con.prepareStatement(query3);
-						prep3.setInt(1, idOrdineTemporaneo.get(i));
-						ResultSet resPrezzoTotale= prep3.executeQuery();
-						
-						while (resPrezzoTotale.next()) {
-							prezzoTotaleOrdine.add(resPrezzoTotale.getFloat("prezzo_totale"));
-						}
-						
-						prep4= con.prepareStatement(query4);
-						prep4.setInt(1, idOrdineTemporaneo.get(i));
-						ResultSet resIvaQuantit= prep4.executeQuery();
-						
-						while (resIvaQuantit.next()) {
-							ivaInserito.add(resIvaQuantit.getFloat("iva_inserito"));
-							quantitaInserito.add(resIvaQuantit.getInt("quantita_inserito"));
-						}
-					}
-					
-					for (int j= 0; j < ivaInserito.size(); j++) {
-						prep5= con.prepareStatement(query5);
-						prep5.setFloat(1, ivaInserito.get(j));
-						prep5.setString(2, "Il pagamento è avvenuto tramite carta prepagata");
-						prep5.setDate(3, data);
-						prep5.setFloat(4, prezzoTotaleOrdine.get(j));
-						prep5.setInt(5, quantitaInserito.get(j));
-						prep5.setInt(6, idOrdineTemporaneo.get(j));
-						
-						prep5.executeUpdate();
-						con.commit();
-						
-						prep6= con.prepareStatement(query6);
-						prep6.setDate(1, data);
-						prep6.setFloat(2, 0);
-						prep6.setString(3, "La spedizione è gratuita poichè è un servizio offerto dall'attività");
-						prep6.setInt(4, idOrdineTemporaneo.get(j));
-						
-						prep6.executeUpdate();
-						con.commit();
-					}
-					
-				}
-			}
-			finally {
-				
-					if ((prep1 != null) && (prep2 != null) && (prep3 != null) && (prep4 != null) && (prep5 != null) && (prep6 != null)) {
-						prep1.close();
-						prep2.close();
-						prep3.close();
-						prep4.close();
-						prep5.close();
-						prep6.close();
-					}
-				
-			}
-		}
 	 }
