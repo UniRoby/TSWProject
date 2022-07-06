@@ -117,7 +117,7 @@
 					%>
                   </tbody>
                 </table>
-                <a href="/Indirizzo" class="btn btn-main pull-right">Checkout</a>
+                <a href="Indirizzo" class="btn btn-main pull-right">Checkout</a>
              <!--</form>  --> 
             </div>
           </div>

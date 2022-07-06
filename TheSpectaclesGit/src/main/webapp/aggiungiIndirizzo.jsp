@@ -40,7 +40,7 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
            
                      <div class="form-group">
                         <label for="user_address">Via </label>
-                        <input type="text" class="form-control" name="via" id="user_address" placeholder="Via Le mani dal Naso">
+                        <input type="text" class="form-control" id="user_address" name="user_address" placeholder="Via Le mani dal Naso">
                      </div>
                      <div class="checkout-country-code clearfix">
                         <div class="form-group">
@@ -54,9 +54,9 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
                      </div>
                      <div class="form-group">
                         <label for="user_country">Provincia</label>
-                        <input type="text" class="form-control" id="user_country" placeholder="CE">
+                        <input type="text" class="form-control" name="user_country" id="user_country" placeholder="CE">
                      </div>
-                  
+                     <button  type="submit" class="btn btn-main mt-20" id="submit" value="Continua Checkout">Aggiungi</button>
                </div>
        
             </div>

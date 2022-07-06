@@ -40,6 +40,7 @@ public class ServletAddAddress extends HttpServlet {
 		
 		
 		System.out.println("Sono nella Servlet aggiungi indirizzo: \n");
+		System.out.println(request.getAttribute("user_address"));
 		String via= (String) request.getAttribute("user_address");
 		String città= (String) request.getAttribute("city");
 		String provincia=(String) request.getAttribute("user_country");

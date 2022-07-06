@@ -12,7 +12,7 @@ import model.*;
 
 	 public class IndirizziDao  {
 
-	 	private static final String TABLE_NAME = "indirizzo";
+	 	private static final String TABLE_NAME = "indirizzi";
 
 	 	private DataSource ds;
 
@@ -37,10 +37,10 @@ import model.*;
 	 			while (rs.next()) {
 	 				
 	            	bean.setIdIndirizzo(rs.getInt("idIndirizzo"));
-	            	bean.setAddress(rs.getString("address"));
-	            	bean.setStatus(rs.getInt("status"));
-	            	bean.setCity(rs.getString("city"));
-	            	bean.setProvince(rs.getString("province"));
+	            	bean.setAddress(rs.getString("indirizzo"));
+	            	bean.setStatus(rs.getInt("attivo"));
+	            	bean.setCity(rs.getString("citta"));
+	            	bean.setProvince(rs.getString("provincia"));
 	            	bean.setCap(rs.getInt("cap"));
 	            	bean.setEmail(rs.getString("email"));
 	 			}
@@ -72,10 +72,10 @@ import model.*;
 	 			while (rs.next()) {
 	 				
 	            	bean.setIdIndirizzo(rs.getInt("idIndirizzo"));
-	            	bean.setAddress(rs.getString("address"));
-	            	bean.setStatus(rs.getInt("status"));
-	            	bean.setCity(rs.getString("city"));
-	            	bean.setProvince(rs.getString("province"));
+	            	bean.setAddress(rs.getString("indirizzo"));
+	            	bean.setStatus(rs.getInt("attivo"));
+	            	bean.setCity(rs.getString("citta"));
+	            	bean.setProvince(rs.getString("provincia"));
 	            	bean.setCap(rs.getInt("cap"));
 	            	bean.setEmail(rs.getString("email"));
 	 			}
@@ -103,10 +103,10 @@ import model.*;
 			while (rs.next()) {
 				IndirizziBean bean = new IndirizziBean();
 				bean.setIdIndirizzo(rs.getInt("idIndirizzo"));
-            	bean.setAddress(rs.getString("address"));
-            	bean.setStatus(rs.getInt("status"));
-            	bean.setCity(rs.getString("city"));
-            	bean.setProvince(rs.getString("province"));
+            	bean.setAddress(rs.getString("indirizzo"));
+            	bean.setStatus(rs.getInt("attivo"));
+            	bean.setCity(rs.getString("citta"));
+            	bean.setProvince(rs.getString("provincia"));
             	bean.setCap(rs.getInt("cap"));
             	bean.setEmail(rs.getString("email"));
 				
@@ -152,7 +152,7 @@ import model.*;
 		public void doUpdate(IndirizziBean indirizzo) throws SQLException {
 			Connection con = null;
 			PreparedStatement prep = null;
-			String sql = "UPDATE indirizzo SET idIndirizzo=?, address=?, status=?, city=?, province=?, cap=?, email=?";
+			String sql = "UPDATE indirizzo SET idIndirizzo=?, indirizzo=?, attivo=?, citta=?, provincia=?, cap=?, email=?";
 
 			try {
 				con = ds.getConnection();
@@ -198,12 +198,12 @@ import model.*;
 			PreparedStatement prep = null;
 		
 			String insertSQL = "INSERT INTO " + IndirizziDao.TABLE_NAME
-					+ " (idIndirizzo, address, status, city, province, cap, email) VALUES (?, ?, ?, ?, ?, ?, ?)";
+					+ " (indirizzo, attivo, citta, provincia, cap, email) VALUES (?, ?, ?, ?, ?, ?, ?)";
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(insertSQL);
 
-				prep.setInt(1, indirizzo.getIdIndirizzo());
+				//prep.setInt(1, indirizzo.getIdIndirizzo());
 				prep.setString(2, indirizzo.getAddress());
 				prep.setInt(3, indirizzo.getStatus());
 				prep.setString(4, indirizzo.getCity());

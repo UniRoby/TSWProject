@@ -60,17 +60,28 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
                   
                   <% if(attivo!=null){ %>
                    
-                   <input type="radio" name="sameadr" value="activeAddress" checked>Default: <%=attivo.getAddress() %><br>
+                   <input type="radio"  name="sameadr" value="<%=attivo.getAddress() %>" checked>Default: <%=attivo.getAddress() %><br>
                    <% }%>
                    <%if (indirizzi != null && indirizzi.size() != 0) {
 						Iterator<?> it = indirizzi.iterator();
+						%>
+						<br> Altri indirizzi
+						<%
 						while (it.hasNext()) {
 							IndirizziBean bean = (IndirizziBean) it.next();%> 
-                       <input type="radio" name="sameadr"  value="otherAddress"><%=bean.getAddress() %><br>
+                       <input type="radio" name="sameadr"  value="<%=bean.getAddress() %>"><%=bean.getAddress() %><br>
                    <% }
 						%>
-						 <input type="radio" name="sameadr" onclick="aggiungiIndirizzo.jsp" value="nuovoIndirizzo">Nuovo indirizzo spedizione<br>
-						
+						<% }
+						%>
+						 <input type="radio" name="sameadr" onclick="aggiungi()" value="nuovoIndirizzo">Nuovo indirizzo spedizione<br>
+						<script type="text/javascript">
+						 function aggiungi(){
+							 
+							 window.location.href="aggiungiIndirizzo.jsp";
+						 }
+						 
+						</script>
                   
                </div>
                <div class="block">
@@ -101,16 +112,19 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
                </div>
             </div>
         </form>  <!-- fine form -->
-            <%
-				Carrello cart= (Carrello) session.getAttribute("carrello");
-	
-	   			 for (int i=0; i<car.getDimensione(); i++) { 			
-		
-			%>
+          
             <div class="col-md-4">
                <div class="product-checkout-details">
                   <div class="block">
                      <h4 class="widget-title">Order Summary</h4>
+                       <%
+							Carrello cart= (Carrello) session.getAttribute("carrello");
+				              float subtotal=0;
+			                  float total=0;
+			                  float iva=0;
+				   			 for (int i=0; i<car.getDimensione(); i++) { 			
+					
+						%>
                      <div class="media product-card">
                         <a class="pull-left" href="Prodotto?action=dettagli&id=<%=cart.getCarrello().get(i).getIdGlasses()%>">
                            <img class="media-object" src="images/shop/products/<%=cart.getCarrello().get(i).getImage()%>" alt="Image" />
@@ -121,19 +135,26 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
                            <span class="remove" >Remove</span>
                         </div>
                      </div>
+                      <%
+                          subtotal+=car.getCarrello().get(i).getTotPrezzo();
+                    	  iva+=(car.getCarrello().get(i).getTotPrezzo()*22)/100;
+                    	  total+=subtotal+iva;
+	   			 				}
+                
+                  
+  						%>
                      <!--  
                      <div class="discount-code">
                         <p>Have a discount ? <a data-toggle="modal" data-target="#coupon-modal" href="#!">enter it here</a></p>
                      </div>
                      -->
-                     
+                    
                      <ul class="summary-prices">
                         <li>
                            <span>Subtotal:</span>
-                           <span class="price"><%=car.getCarrello().get(i).getTotPrezzo()%>&#8364;</span>
+                           <span class="price"><%=subtotal%>&#8364;</span>
                         </li>
                         <li>
-                        <%float iva=(car.getCarrello().get(i).getTotPrezzo()*22)/100; %>
                            <span>IVA:</span>
                            <span><%=iva %>&#8364;</span>
                         </li>
@@ -145,7 +166,7 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
                      <div class="summary-total">
                         <span>Total</span>
                         
-                        <span><%=car.getCarrello().get(i).getTotPrezzo()+iva%>&#8364;</span>
+                        <span><%=total%>&#8364;</span>
                      </div>
                      <div class="verified-icon">
                         <img src="images/shop/verified.png">
@@ -157,10 +178,7 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
       </div>
    </div>
 </div>
-  <%}
-                  }
-                  
-  %>
+  
 
    <!--  
    <div class="modal fade" id="coupon-modal" tabindex="-1" role="dialog">

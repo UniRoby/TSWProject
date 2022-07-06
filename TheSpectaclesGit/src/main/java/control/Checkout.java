@@ -41,6 +41,8 @@ public class Checkout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		String ind= (String) request.getAttribute("sameadr");
+		System.out.println("Checkout address: "+request.getAttribute("sameadr"));
+		System.out.println("Checkout cardNumber: "+request.getAttribute("cardnumber"));
 		
 		Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
 		

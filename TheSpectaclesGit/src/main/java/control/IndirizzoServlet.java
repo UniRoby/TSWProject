@@ -37,28 +37,36 @@ public class IndirizzoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		UtenteBean bean= (UtenteBean) request.getSession().getAttribute("auth");
-		
-		
-		
-		try {
-		    Collection<IndirizziBean> beans=  indDao.doRetrieveAllAddress(bean.getEmail());
-		    for(IndirizziBean b : beans) {
-		    	System.out.println(b);
-		    }
-		    IndirizziBean defaultAddress=indDao.doRetrieveActive(bean.getEmail());
-		    request.removeAttribute("attivo");
-		    request.setAttribute("attivo",defaultAddress);
-			request.removeAttribute("indirizzi");
-			request.setAttribute("indirizzi", beans);
+		if (request.getSession().getAttribute("auth") != null) {
+			System.out.println("Sono nella Servlet Indirizzi ");
+			
+			try {
+			    Collection<IndirizziBean> beans=  indDao.doRetrieveAllAddress(bean.getEmail());
+			    for(IndirizziBean b : beans) {
+			    	System.out.println(b.getAddress());
+			    }
+			    IndirizziBean defaultAddress=indDao.doRetrieveActive(bean.getEmail());
+			   
+			    request.removeAttribute("attivo");
+			    request.setAttribute("attivo",defaultAddress);
+			    System.out.println(request.getAttribute("attivo"));
+				request.removeAttribute("indirizzi");
+				request.setAttribute("indirizzi", beans);
+			}
+			catch (SQLException e) {
+				System.out.println("Errore Indirizzi Servlet: " + e.getMessage());
+			}
+			
+			
+			
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/checkout.jsp");
+			dispatcher.forward(request, response);
+			
 		}
-		catch (SQLException e) {
-			System.out.println("Errore Indirizzi Servlet: " + e.getMessage());
+		else {
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+			dispatcher.forward(request, response);
 		}
-		
-		
-		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/checkout.jsp");
-		dispatcher.forward(request, response);
 		
 	}
 
