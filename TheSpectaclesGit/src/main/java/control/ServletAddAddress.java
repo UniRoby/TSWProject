@@ -46,6 +46,7 @@ public class ServletAddAddress extends HttpServlet {
 		String provincia=(String) request.getAttribute("user_country");
 		int cap=Integer.parseInt((String) request.getAttribute("zipcode")) ;
 		String email= bean.getEmail();
+		
 		int status=1;
 		
 		
