@@ -58,7 +58,6 @@ public class ServletAddAddress extends HttpServlet {
 			indirizzo.setProvince(provincia);
 			indirizzo.setStatus(status);
 			indirizzo.setEmail(email);
-			
 			indDao.doSave(indirizzo);
 			
 			
