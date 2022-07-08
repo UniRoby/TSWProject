@@ -27,6 +27,9 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 
 </head>
 <body>
+
+<%@ include file="header.jsp"%>
+
 <section class="signin-page account">
  <form  class="checkout-form" action="AddAddress" method="get">
 <div class="page-wrapper">

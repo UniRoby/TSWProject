@@ -209,10 +209,9 @@
 									<ul>
 									<li class="dropdown-header">Dashboard</li>
 										<li role="separator" class="divider"></li>
-										<li><a href="dashboard.html">User Interface</a></li>
-										<li><a href="order.html">Orders</a></li>
-										<li><a href="address.html">Address</a></li>
-										<li><a href="profile-details.html">Profile Details</a></li>
+										<li><a href="profile_details.jsp">Dettagli Profilo</a></li>
+										<li><a href="order.jsp">Ordini</a></li>
+										<li><a href="address.jsp">Indirizzi</a></li>
 
 									</ul>
 								</div>

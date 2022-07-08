@@ -48,6 +48,7 @@ import model.*;
 	            	bean.setColor(rs.getString("colore"));
 	            	bean.setCategory(rs.getString("categoria"));
 	            	bean.setImage(rs.getString("img"));
+	            	bean.setImage2(rs.getString("img2"));
 	            	bean.setDescription(rs.getString("descrizione"));
 	            	
 	            	occhiali.add(bean);
@@ -90,6 +91,7 @@ import model.*;
 	            	bean.setColor(rs.getString("colore"));
 	            	bean.setCategory(rs.getString("categoria"));
 	            	bean.setImage(rs.getString("img"));
+	            	bean.setImage2(rs.getString("img2"));
 	            	bean.setDescription(rs.getString("descrizione"));
 	            	
 	            	occhiali.add(bean);
@@ -133,8 +135,9 @@ import model.*;
 	            	bean.setType(rs.getString("tipo").charAt(0));
 	            	bean.setColor(rs.getString("colore"));
 	            	bean.setCategory(rs.getString("categoria"));
-	            	bean.setImage(rs.getString("img"));
-	            	bean.setDescription(rs.getString("descrizione"));
+	            	bean.setImage(rs.getString("img"));   
+	            	bean.setImage2(rs.getString("img2"));
+	            	bean.setDescription(rs.getString("descrizione"));	            	
 	            	System.out.println("\nSono nel while: "+ bean);
 	 			}
 
@@ -178,6 +181,7 @@ import model.*;
             	bean.setColor(rs.getString("colore"));
             	bean.setCategory(rs.getString("categoria"));
             	bean.setImage(rs.getString("img"));
+            	bean.setImage2(rs.getString("img2"));
             	bean.setDescription(rs.getString("descrizione"));
 
 				occhiali.add(bean);
@@ -200,7 +204,7 @@ import model.*;
 			Connection con = null;
 			PreparedStatement prep = null;
 			String sql = "UPDATE occhiale SET idOcchiale=?, nomeOcchiale=?, marca=?,prezzo=?, disponibilità=?, "
-					+ "tipo=?, colore=?, idCategoria=? ,img=? ,descrizione=?";
+					+ "tipo=?, colore=?, idCategoria=? ,img=? ,img2=? ,descrizione=?";
 
 			try {
 				con = ds.getConnection();
@@ -215,7 +219,8 @@ import model.*;
 				prep.setString(7, occhiale.getColor());
 				prep.setString(8, occhiale.getCategory());
 				prep.setString(9, occhiale.getImage());
-				prep.setString(10, occhiale.getDescription());
+				prep.setString(10, occhiale.getImage2());
+				prep.setString(11, occhiale.getDescription());
 				
 				prep.executeUpdate();
 
@@ -268,7 +273,7 @@ import model.*;
 			PreparedStatement prep = null;
 		
 			String insertSQL = "INSERT INTO " + OcchialeDao.TABLE_NAME
-					+ " (idOcchiale, nomeOcchiale, marca, prezzo,disponibilità,tipo,colore,idCategoria,img,descrizione) VALUES (?, ?, ?, ?,?,?,?,?,?,?)";
+					+ " (idOcchiale, nomeOcchiale, marca, prezzo,disponibilità,tipo,colore,idCategoria,img,img2,descrizione) VALUES (?, ?, ?, ?,?,?,?,?,?,?,?)";
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(insertSQL);
@@ -282,7 +287,8 @@ import model.*;
 				prep.setString(7, occhiale.getColor());
 				prep.setString(8, occhiale.getCategory());
 				prep.setString(9, occhiale.getImage());
-				prep.setString(10, occhiale.getDescription());
+				prep.setString(10, occhiale.getImage2());
+				prep.setString(11, occhiale.getDescription());
 
 				prep.executeUpdate();
 				con.commit();
