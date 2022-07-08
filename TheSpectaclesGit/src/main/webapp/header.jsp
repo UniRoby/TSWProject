@@ -8,15 +8,27 @@
 		<div class="row">
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<div class="contact-number">
-					<i class="tf-ion-ios-telephone"></i>
-					<span>0823123456</span>
+			
+					
 				</div>
-			</div>
-			<div class="col-md-4 col-xs-12 col-sm-4">
+			 </div>
+			 <div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- Site Logo -->
 				<div class="logo text-center">
 					<a href="index.jsp">
-						<!-- replace logo here -->
+						<!-- replace logo here 
+						<svg width="490px" height="40px" viewBox="0 0 155 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink">
+							<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="40"
+								font-family="AustinBold, Austin" font-weight="bold">
+								<g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
+									<text id="Spectacles">
+										<tspan x="-55" y="325">The Spectacles</tspan>
+									</text>
+								</g>
+							</g>
+						</svg>
+						-->
 						<svg width="490px" height="40px" viewBox="0 0 155 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
 							xmlns:xlink="http://www.w3.org/1999/xlink">
 							<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="40"
@@ -41,7 +53,7 @@
 				%>
 				<ul class="top-menu text-right list-inline">
 					<li class="dropdown cart-nav dropdown-slide">
-						<a href="cart.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+			<a href="cart.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
 								class="tf-ion-android-cart"></i>Carrello</a>
 						
 						<% if ((car==null) || (car.getDimensione()==0)) { %>

@@ -728,7 +728,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 
 @media (max-width: 480px) {
   .top-header .logo {
-    padding: 10px;
+    padding: 20px;
   }
 }
 

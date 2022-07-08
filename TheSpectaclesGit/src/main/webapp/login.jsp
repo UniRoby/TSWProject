@@ -8,7 +8,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 
 
@@ -28,10 +28,10 @@
       <div class="col-md-6 col-md-offset-3">
         <div class="block text-center">
           <a class="logo" href="index.jsp">
-            <img src="images/logo.jpg" alt="">
+            <img src="images/logo.jpg" alt=""
+            style="max-width:1000px; max-height:200px; "/>
           </a>
           <h2 class="text-center">Ben Tornato</h2>
-          
           
           
           <form class="text-left clearfix" name="formLog" method="post">
@@ -40,17 +40,18 @@
            
             <div class="form-group">
              <div id="userPass">
-              <input id="email1" type="email" class="form-control"  name="email"  placeholder="email@esempio.it" required="required">
+              <input id="email1" type="email" class="form-control"  name="email"  placeholder="email@esempio.com" required="required">
 			 
             </div>
             
             <div class="form-group">
-              <input id="password1" type="password" class="form-control"  name="pass" placeholder="Password123" required="required">
+              <input id="password1" type="password" class="form-control"  name="pass" placeholder="Password" required="required">
 		       
             <div class="text-center">
             
               <button  type="button" class="btn btn-main text-center" id="submit" value="Accedi">Login</button>
-             
+              
+               </div>
               </div>
             </div>
           </form>
