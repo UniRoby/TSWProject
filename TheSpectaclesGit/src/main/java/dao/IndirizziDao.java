@@ -198,18 +198,18 @@ import model.*;
 			PreparedStatement prep = null;
 		
 			String insertSQL = "INSERT INTO " + IndirizziDao.TABLE_NAME
-					+ " (indirizzo, attivo, citta, provincia, cap, email) VALUES (?, ?, ?, ?, ?, ?, ?)";
+					+ " (indirizzo, attivo, citta, provincia, cap, email) VALUES (?, ?, ?, ?, ?, ?)";
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(insertSQL);
 
 				//prep.setInt(1, indirizzo.getIdIndirizzo());
-				prep.setString(2, indirizzo.getAddress());
-				prep.setInt(3, indirizzo.getStatus());
-				prep.setString(4, indirizzo.getCity());
-				prep.setString(5, indirizzo.getProvince());
-				prep.setInt(6, indirizzo.getCap());
-				prep.setString(7, indirizzo.getEmail());
+				prep.setString(1, indirizzo.getAddress());
+				prep.setInt(2, indirizzo.getStatus());
+				prep.setString(3, indirizzo.getCity());
+				prep.setString(4, indirizzo.getProvince());
+				prep.setInt(5, indirizzo.getCap());
+				prep.setString(6, indirizzo.getEmail());
 			
 				prep.executeUpdate();
 

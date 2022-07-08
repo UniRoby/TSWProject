@@ -40,9 +40,9 @@ public class Checkout extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-		String ind= (String) request.getAttribute("sameadr");
-		System.out.println("Checkout address: "+request.getAttribute("sameadr"));
-		System.out.println("Checkout cardNumber: "+request.getAttribute("cardnumber"));
+		String ind= (String) request.getParameter("sameadr");
+		System.out.println("Checkout address: "+request.getParameter("sameadr"));
+		System.out.println("Checkout cardNumber: "+request.getParameter("cardnumber"));
 		
 		Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
 		
@@ -63,7 +63,7 @@ public class Checkout extends HttpServlet {
 					for (OcchialeOrdineBean o : occhialiOrdine) {
 						occhialeDao.doSave(o);
 						
-						oDao.decreaseAvailability(o.getProdotto());
+						oDao.decreaseAvailability(o.getProdotto()); // controllare perchè toglie tutte le quantità
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();

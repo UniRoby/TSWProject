@@ -65,7 +65,7 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
                    <%if (indirizzi != null && indirizzi.size() != 0) {
 						Iterator<?> it = indirizzi.iterator();
 						%>
-						<br> Altri indirizzi
+						<br> Altri indirizzi: <br>
 						<%
 						while (it.hasNext()) {
 							IndirizziBean bean = (IndirizziBean) it.next();%> 

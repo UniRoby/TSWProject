@@ -40,11 +40,16 @@ public class ServletAddAddress extends HttpServlet {
 		
 		
 		System.out.println("Sono nella Servlet aggiungi indirizzo: \n");
-		System.out.println(request.getAttribute("user_address"));
-		String via= (String) request.getAttribute("user_address");
-		String citta= (String) request.getAttribute("city");
-		String provincia=(String) request.getAttribute("user_country");
-		int cap=Integer.parseInt((String) request.getAttribute("zipcode")) ;
+		System.out.println("\n"+request.getParameter("user_address"));
+		System.out.println("\n"+request.getParameter("city"));
+		System.out.println("\n"+request.getParameter("user_country"));
+		System.out.println("\n"+request.getParameter("zipcode"));
+		
+		String via=  request.getParameter("user_address");
+		String citta= request.getParameter("city");
+		String provincia=request.getParameter("user_country");
+		int cap=  Integer.parseInt(request.getParameter("zipcode"));
+		
 		String email= bean.getEmail();
 		
 		int status=1;
@@ -58,12 +63,13 @@ public class ServletAddAddress extends HttpServlet {
 			indirizzo.setProvince(provincia);
 			indirizzo.setStatus(status);
 			indirizzo.setEmail(email);
+			
 			indDao.doSave(indirizzo);
 			
 			
 			
 		} catch (SQLException e) {
-			System.out.println("Errore Servelt aggiungi indirizzo" + e.getMessage());
+			System.out.println("Errore Servelt aggiungi indirizzo: " + e.getMessage());
 		}
 		
 		

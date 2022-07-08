@@ -66,7 +66,7 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
     <%@ include file="footer.html"%>
 
     <%@ include file="script.html"%>
-    <script src="./resources/ajaxLogin.js"></script>
+    
 
 
   </body>
