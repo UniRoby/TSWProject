@@ -42,7 +42,7 @@ public class ServletAddAddress extends HttpServlet {
 		System.out.println("Sono nella Servlet aggiungi indirizzo: \n");
 		System.out.println(request.getAttribute("user_address"));
 		String via= (String) request.getAttribute("user_address");
-		String citt‡= (String) request.getAttribute("city");
+		String citt√†= (String) request.getAttribute("city");
 		String provincia=(String) request.getAttribute("user_country");
 		int cap=Integer.parseInt((String) request.getAttribute("zipcode")) ;
 		String email= bean.getEmail();
@@ -54,7 +54,7 @@ public class ServletAddAddress extends HttpServlet {
 			IndirizziBean indirizzo= new IndirizziBean();
 			indirizzo.setAddress(via);
 			indirizzo.setCap(cap);
-			indirizzo.setCity(citt‡);
+			indirizzo.setCity(citt√†);
 			indirizzo.setProvince(provincia);
 			indirizzo.setStatus(status);
 			indirizzo.setEmail(email);
