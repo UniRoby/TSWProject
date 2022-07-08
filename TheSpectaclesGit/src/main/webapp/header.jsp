@@ -23,7 +23,7 @@
 								font-family="AustinBold, Austin" font-weight="bold">
 								<g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
 									<text id="Spectacles">
-										<tspan x="10.94" y="325">The Spectacles</tspan>
+										<tspan x="-55" y="325">The Spectacles</tspan>
 									</text>
 								</g>
 							</g>

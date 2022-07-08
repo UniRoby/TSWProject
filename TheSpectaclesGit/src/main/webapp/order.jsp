@@ -12,13 +12,9 @@ response.sendRedirect(getServletContext().getContextPath() +
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 
 
-
-
-
-
 %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 
 

@@ -19,7 +19,7 @@ if(occhiali == null) {
 
  %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 <% session.setAttribute("auth",(UtenteBean) request.getSession().getAttribute("auth")); %>
 <%@ include file="meta.html"%>

@@ -703,9 +703,9 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   vertical-align: middle;
 }
 
-@media (max-width: 768px) {
+@media (max-width:768px) {
   .top-header .top-menu {
-    text-align: center;
+    text-align: right;
     padding: 10px 0;
   }
 }

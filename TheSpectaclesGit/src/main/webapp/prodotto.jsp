@@ -15,7 +15,7 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("descrizione");
 
  %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 
 <%@ include file="meta.html"%>

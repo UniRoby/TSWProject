@@ -11,7 +11,7 @@ IndirizziBean ind= (IndirizziBean) request.getSession().getAttribute("address");
  %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 <%@ include file="meta.html"%>
 <% session.setAttribute("auth",(UtenteBean) request.getSession().getAttribute("auth")); %>

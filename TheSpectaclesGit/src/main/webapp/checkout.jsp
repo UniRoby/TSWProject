@@ -5,8 +5,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
-
 <%
 if(request.getSession().getAttribute("auth") == null) {
 response.sendRedirect(getServletContext().getContextPath() +
@@ -21,7 +19,7 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
 %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 
 
