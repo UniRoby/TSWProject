@@ -32,7 +32,7 @@ IndirizziBean ind= (IndirizziBean) request.getSession().getAttribute("address");
           <p>L'ordine da te effettuato &e andato a buon fine.</p>
           <p>In direzione verso <%=ind.getAddress() %></p>
           <a href="shop.jsp" class="btn btn-main mt-20">Continua lo Shopping</a>
-           <a href="Ordini?action=ordiniEffettuati" class="btn btn-main mt-20">Ordini effettuati</a>
+           <a href="CronologiaOrdini" class="btn btn-main mt-20">Ordini effettuati</a>
         </div>
       </div>
     </div>

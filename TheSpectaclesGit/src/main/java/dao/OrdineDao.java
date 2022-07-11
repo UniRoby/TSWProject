@@ -64,7 +64,7 @@ import model.*;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
 	
-	 		String selectSQL = "SELECT * FROM " + OrdineDao.TABLE_NAME + " WHERE CODE = ?";
+	 		String selectSQL = "SELECT * FROM " + OrdineDao.TABLE_NAME + " WHERE idOrdine = ?";
 
 	 		try {
 	 			con = ds.getConnection();
@@ -93,7 +93,7 @@ import model.*;
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
-			String sql = "SELECT idOrder FROM " + OrdineDao.TABLE_NAME;
+			String sql = "SELECT idOrdine FROM " + OrdineDao.TABLE_NAME;
 			if(order !=null && !order.equals("")) {
 				sql += " ORDER BY " + order;
 			}
@@ -167,19 +167,20 @@ import model.*;
 				Connection con = null;
 				PreparedStatement prep = null;
 				ResultSet rs = null;
-				String query = "SELECT * FROM " + TABLE_NAME + " WHERE email = " + user.getEmail();
+				String query = "SELECT * FROM " + TABLE_NAME + " WHERE email = ?";
 				if (order != null) {
 					query += " ORDER BY " + order;
 				}
 				try {
 					con = ds.getConnection();
 					prep = con.prepareStatement(query);
+					prep.setString(1, user.getEmail());
 					rs = prep.executeQuery();
 					while (rs.next()) {
 						OrdineBean bean = new OrdineBean();
 						bean.setIdOrder(UUID.fromString(rs.getString(1)));
-						bean.setEmail(rs.getString(2));
-						bean.setDate(new Date(rs.getTimestamp(3).getTime()));
+						bean.setEmail(rs.getString(3));
+						bean.setDate(new Date(rs.getTimestamp(2).getTime()));
 						bean.setStato(rs.getString(4));
 					
 						ordine.add(bean);
@@ -214,8 +215,8 @@ import model.*;
 					while (rs.next()) {
 						OrdineBean bean = new OrdineBean();
 						bean.setIdOrder(UUID.fromString(rs.getString(1)));
-						bean.setEmail(rs.getString(2));
-						bean.setDate(new Date(rs.getTimestamp(3).getTime()));
+						bean.setEmail(rs.getString(3));
+						bean.setDate(new Date(rs.getTimestamp(2).getTime()));
 						bean.setStato(rs.getString(4));
 					
 						ordine.add(bean);

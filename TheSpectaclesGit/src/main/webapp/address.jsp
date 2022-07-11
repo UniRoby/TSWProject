@@ -57,7 +57,7 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
     <div class="row">
       <div class="col-md-12">
         <ul class="list-inline dashboard-menu text-center">
-          <li><a href="order.jsp">Ordini</a></li>
+          <li><a href="CronologiaOrdini">Ordini</a></li>
           <li><a class="active" href="Indirizzo?page='ok'">Indirizzi</a></li>
           <li><a href="profile-details.jsp">Dettagli Profilo</a></li>
         </ul>

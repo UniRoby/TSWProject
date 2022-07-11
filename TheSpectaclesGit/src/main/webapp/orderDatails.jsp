@@ -10,9 +10,8 @@ if(request.getSession().getAttribute("auth") == null) {
 response.sendRedirect(getServletContext().getContextPath() +
 "/login.jsp"); } 
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
-
-ArrayList<OrdineBean> ordini = (ArrayList<OrdineBean>) request.getAttribute("ordini");
-
+ArrayList<OcchialeOrdineBean> prodotti = (ArrayList<OcchialeOrdineBean>) request.getAttribute("prodotti");
+OrdineBean ordine= (OrdineBean) request.getAttribute("ordine");
 
 %>
 <!DOCTYPE html>
@@ -33,7 +32,7 @@ ArrayList<OrdineBean> ordini = (ArrayList<OrdineBean>) request.getAttribute("ord
 		<div class="row">
 			<div class="col-md-12">
 				<div class="content">
-					<h1 class="page-name">Cronologia Ordini</h1>
+					<h1 class="page-name">Dettaglio Ordine <p><%=ordine.getIdOrder() %></p></h1>
 				</div>
 			</div>
 		</div>
@@ -53,40 +52,34 @@ ArrayList<OrdineBean> ordini = (ArrayList<OrdineBean>) request.getAttribute("ord
 						<table class="table">
 							<thead>
 								<tr>
-									<th>Order ID</th>
-									<th>Date</th>
-									<th>Status</th>
+									<th>Nome</th>
+									<th>Brand</th>
+									<th>Quantità</th>
+									<th>Prezzo Totale</th>
 									<th></th>
 								</tr>
 							</thead>
 							<tbody>
-							
 							<%
-							for(int i=0;i<ordini.size();i++){
-								
-								OrdineBean ordine= new OrdineBean();
-								ordine=ordini.get(i);
-								
-							
-							  %>
-								
-								<tr>
-									<td><%=ordine.getIdOrder()  %></td>
-									<td><%= ordine.getDate() %></td>
-									
-									<td><span class="label label-success"><%= ordine.getStato() %></span></td>
-									<td><a href="DettagliOrdini?ordineId='<%=ordine.getIdOrder().toString() %>'" class="btn btn-default">View</a></td>
-								</tr>
-							<%
-							}
-								
+								float tot = 0;
+								for(OcchialeOrdineBean prodotto: prodotti){
+									tot+= prodotto.getPrezzoEffettivo() * prodotto.getQuantita(); 
 							%>
-								
+								<tr>
+									<td><%= prodotto.getProdotto().getNameGlasses()%></td>
+									<td><%= prodotto.getProdotto().getBrand()%></td>
+									<td><%= prodotto.getQuantita()%></td>
+									<td><%= prodotto.getProdotto().getPrice() * prodotto.getQuantita() %>&#8364;</td>
+									
+									
+								</tr>
+								<%
+									}
+								%>
 							</tbody>
 						</table>
 					</div>
 				</div>
-			</div>
 		</div>
 	</div>
 </section>
