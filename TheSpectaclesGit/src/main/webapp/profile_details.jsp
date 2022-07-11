@@ -5,7 +5,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth"); %>
+<%
+if(request.getSession().getAttribute("auth") == null) {
+response.sendRedirect(getServletContext().getContextPath() +
+"/login.jsp"); } 
+UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
+
+
+%>
 
 
 <!DOCTYPE html>
@@ -39,9 +46,9 @@
     <div class="row">
       <div class="col-md-12">
         <ul class="list-inline dashboard-menu text-center">
-          <li><a href="order.html">Ordini</a></li>
-          <li><a href="address.html">Indirizzi</a></li>
-          <li><a class="active"  href="profile-details.html">Dettagli Profilo</a></li>
+     	 <li><a href="order.jsp">Ordini</a></li>
+          <li><a class="active" href="Indirizzo?page='ok'">Indirizzi</a></li>
+          <li><a href="profile-details.jsp">Dettagli Profilo</a></li>
         </ul>
         <div class="dashboard-wrapper dashboard-user-profile">
           <div class="media">

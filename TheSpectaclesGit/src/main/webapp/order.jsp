@@ -42,10 +42,9 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="list-inline dashboard-menu text-center">
-					<li><a href="dashboard.html">Dashboard</a></li>
-					<li><a class="active" href="order.jsp">Orders</a></li>
-					<li><a href="address.jjsp">Address</a></li>
-					<li><a href="profile-details.jsp">Profile Details</a></li>
+					 <li><a href="order.jsp">Ordini</a></li>
+			          <li><a class="active" href="Indirizzo?page='ok'">Indirizzi</a></li>
+			          <li><a href="profile-details.jsp">Dettagli Profilo</a></li>
 				</ul>
 				<div class="dashboard-wrapper user-dashboard">
 					<div class="table-responsive">

@@ -57,10 +57,18 @@ public class IndirizzoServlet extends HttpServlet {
 				System.out.println("Errore Indirizzi Servlet: " + e.getMessage());
 			}
 			
-			
-			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/checkout.jsp");
-			dispatcher.forward(request, response);
+			String page= request.getParameter("page");
+			if(page.equals("ok"))
+			{
+				System.out.println(page);
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/address.jsp");
+				dispatcher.forward(request, response);
+			}
+			else {
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/checkout.jsp");
+				dispatcher.forward(request, response);
+				
+			}
 			
 		}
 		else {

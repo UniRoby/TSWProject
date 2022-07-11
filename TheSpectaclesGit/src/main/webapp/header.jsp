@@ -223,7 +223,7 @@
 										<li role="separator" class="divider"></li>
 										<li><a href="profile_details.jsp">Dettagli Profilo</a></li>
 										<li><a href="order.jsp">Ordini</a></li>
-										<li><a href="address.jsp">Indirizzi</a></li>
+										<li><a href="Indirizzo?page=ok">Indirizzi</a></li>
 
 									</ul>
 								</div>

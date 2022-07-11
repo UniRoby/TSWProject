@@ -56,23 +56,56 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
                <div class="block billing-details">
                   <h4 class="widget-title">Indirizzo</h4>
                   
+                  <div class="table-responsive">
+                     <table class="table">
+                      <thead>
+			                <tr>
+			                  <th>Nome</th>
+			                  <th>Indirizzo</th>
+			                </tr>
+			              </thead>
+			               <tbody>
                   <% if(attivo!=null){ %>
                    
-                   <input type="radio"  name="sameadr" value="<%=attivo.getAddress() %>" checked>Default: <%=attivo.getAddress() %><br>
+			       <tr>    
+                  <td><%= auth.getFirstName() %> <%= auth.getLastName() %></td>
+                  <td>
+                   <input type="radio"  name="sameadr" value="<%=attivo.getAddress() %>" checked>Default: <%=attivo.getAddress() %>
+                   </td>
+                    </tr>
+                    </tbody>
+                     </table>
                    <% }%>
+                     <table class="table">
+                      <thead>
+						<tr>
+			                  <th>Nome</th>
+			                  <th>Indirizzo</th>
+			                </tr>
+			           </thead>
+			           <tbody>
                    <%if (indirizzi != null && indirizzi.size() != 0) {
 						Iterator<?> it = indirizzi.iterator();
 						%>
-						<br> Altri indirizzi: <br>
+				
+                   
+						<tr> Altri indirizzi: </tr>
 						<%
 						while (it.hasNext()) {
 							IndirizziBean bean = (IndirizziBean) it.next();%> 
-                       <input type="radio" name="sameadr"  value="<%=bean.getAddress() %>"><%=bean.getAddress() %><br>
+                       <tr>
+                        <td><%= auth.getFirstName() %> <%= auth.getLastName() %></td>
+                       <td><input type="radio" name="sameadr"  value="<%=bean.getAddress() %>"><%=bean.getAddress() %></td>
+                       </tr>
+                       
                    <% }
 						%>
 						<% }
 						%>
-						 <input type="radio" name="sameadr" onclick="aggiungi()" value="nuovoIndirizzo">Nuovo indirizzo spedizione<br>
+						<tr>
+						<td> <input type="radio" name="sameadr" onclick="aggiungi()" value="nuovoIndirizzo">Nuovo indirizzo spedizione</td>
+						</tr>
+						
 						<script type="text/javascript">
 						 function aggiungi(){
 							 
@@ -80,7 +113,9 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
 						 }
 						 
 						</script>
-                  
+                   </tbody>
+                     </table>
+         			 </div>
                </div>
                <div class="block">
                   <h4 class="widget-title">Metodo Pagamento</h4>
