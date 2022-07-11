@@ -6,17 +6,16 @@
     pageEncoding="UTF-8"%>
 
 <%
-if(request.getSession().getAttribute("auth") == null) {
+if(request.getSession().getAttribute("auth")== null) {
 response.sendRedirect(getServletContext().getContextPath() +
-"/login.jsp"); } 
+"/login.jsp"); 
+} 
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
-
-
 %>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 
   	<%@ include file="meta.html"%>
@@ -24,7 +23,6 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 </head>
 
 <body id="body">
-
 
 <% session.setAttribute("auth",(UtenteBean) request.getSession().getAttribute("auth")); %>
 
@@ -57,7 +55,7 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
                 <li><span>Nome:</span><%= auth.getFirstName() %></li>
                 <li><span>Cognome:</span><%= auth.getLastName() %></li>
                 <li><span>Email:</span><%= auth.getEmail()%></li>
-                <li><span>Cellulare:</span>+880123123</li>
+                <li><span>Cellulare:</span> <%= 3 %></li>
                 <li><span>Data di nascita:</span><%= auth.getBirthday() %></li>
               </ul>
             </div>
