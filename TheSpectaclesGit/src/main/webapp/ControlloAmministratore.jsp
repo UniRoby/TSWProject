@@ -11,14 +11,13 @@ if (admin == null){
 response.sendRedirect("./ControlloAdmin");
 return ;
 }
-
- %>
+%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 
-  <%@ include file="meta.html"%>
+<%@ include file="meta.html"%>
 </head>
 
 <body id="body">
@@ -52,9 +51,7 @@ return ;
 
 
  <%@ include file="footer.html"%>
-
  <%@ include file="script.html"%>
-
 
   </body>
   </html>

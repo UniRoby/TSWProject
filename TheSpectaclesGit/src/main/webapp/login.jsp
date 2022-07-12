@@ -6,11 +6,9 @@
 	<%@page import="control.*"%>
 	<%@page import="java.util.*"%>
 
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
-
 
   <meta charset="utf-8">
   <script src="./resources/Ajax.js"></script>
@@ -31,8 +29,7 @@
             <img src="images/logo.jpg" alt=""
             style="max-width:1000px; max-height:200px; "/>
           </a>
-          <h2 class="text-center">BenTornato</h2>
-          
+          <h2 class="text-center">Bentornato</h2>
           
           <form class="text-left clearfix" name="formLog" method="post">
            
@@ -46,13 +43,11 @@
               onclick="myFunction1()" onmouseout="myFunction3()">
             
             <div class="text-center">
-              <button  type="button" class="btn btn-main text-center" id="submit" value="Accedi" onclick=true >Login</button>
-              
+              <button  type="button" class="btn btn-main text-center" id="submit" value="Accedi" onclick=true>Login</button>
                </div>
               </div>
             </div>
           </form>
-          
           
           <p class="mt-20">Nuovo sul sito?<a href="signin.jsp"> Crea un nuovo Account</a></p>
         </div>
@@ -65,25 +60,15 @@
    function myFunction(){
 	   document.getElementById("email1").style.borderColor = "red";
    }
-   </script>
-   
-     <script>
    function myFunction2(){
 	   document.getElementById("email1").style.borderColor = "initial";
    }
-   </script>
-   
-     <script>
    function myFunction1(){
 	   document.getElementById("password1").style.borderColor = "red";
    }
-   </script>
-     <script>
    function myFunction3(){
 	   document.getElementById("password1").style.borderColor = "initial";
    }
-   </script>
-   <script>
 	var input = document.getElementById("password1");
 	input.addEventListener("keypress", function(event) {
   			if (event.key === "Enter") {
@@ -91,6 +76,7 @@
     			document.getElementById("submit").click();
 	}});
 	</script>
+	
     <%@ include file="footer.html"%>
     <%@ include file="script.html"%>
     <script src="./resources/ajaxLogin.js"></script>

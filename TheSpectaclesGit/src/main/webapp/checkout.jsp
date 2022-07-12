@@ -12,16 +12,11 @@ response.sendRedirect(getServletContext().getContextPath() +
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 IndirizziBean attivo= (IndirizziBean) request.getAttribute("attivo");
 Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
-
-
-
-
 %>
 
 <!DOCTYPE html>
 <html lang="it">
 <head>
-
 
 <%@ include file="meta.html"%>
 
@@ -90,8 +85,7 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
 				
                    
 						<tr> Altri indirizzi: </tr>
-						<%
-						while (it.hasNext()) {
+						<%while (it.hasNext()) {
 							IndirizziBean bean = (IndirizziBean) it.next();%> 
                        <tr>
                         <td><%= auth.getFirstName() %> <%= auth.getLastName() %></td>
@@ -114,9 +108,13 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
 						 
 						</script>
                    </tbody>
-                     </table>
-         			 </div>
-               </div>
+                       </table>
+         			  </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                 </div>
                <div class="block">
                   <h4 class="widget-title">Metodo Pagamento</h4>
                   <p>Credit Cart Details (Secure payment)</p>
@@ -136,7 +134,6 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
                                  <label for="card-cvc">CVV <span class="required">*</span></label>
                                  <input id="card-cvc" class="form-control" name="cvv"  type="tel" maxlength="3" placeholder="123" >
                               </div>
-                               
                                <button  type="submit" class="btn btn-main mt-20" id="submit" value="Continua Checkout">Ordina</button>
                         
                         </div>
@@ -207,12 +204,7 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
                   </div>
                </div>
             </div>
-         </div>
-      </div>
-   </div>
-</div>
-  
-
+ 
    <!--  
    <div class="modal fade" id="coupon-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
@@ -231,11 +223,7 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
    -->
    
  <%@ include file="footer.html"%>
-
  <%@ include file="script.html"%>
 
-    
-
-
-  </body>
-  </html>
+ </body>
+ </html>

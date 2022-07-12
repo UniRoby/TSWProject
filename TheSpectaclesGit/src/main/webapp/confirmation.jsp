@@ -4,11 +4,11 @@
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
 
+<%
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 IndirizziBean ind= (IndirizziBean) request.getSession().getAttribute("address");
- %>
+%>
 
 <!DOCTYPE html>
 <html lang="it">
@@ -40,9 +40,8 @@ IndirizziBean ind= (IndirizziBean) request.getSession().getAttribute("address");
 </section><!-- /.page-warpper -->
 
 <%@ include file="footer.html"%>
+<%@ include file="script.html"%>
 
- <%@ include file="script.html"%>
 
-
-  </body>
-  </html>
+ </body>
+ </html>

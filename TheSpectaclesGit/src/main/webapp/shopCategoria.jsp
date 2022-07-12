@@ -8,15 +8,11 @@
 <%
 	UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 	Collection<?> occhiali = (Collection<?>) request.getAttribute("occhiali");
-	
-	
-
- %>
+%>
 
 <!DOCTYPE html>
 <html lang="it">
 <head>
-
   <%@ include file="meta.html"%>
 </head>
 
@@ -25,18 +21,16 @@
 <% session.setAttribute("auth",(UtenteBean) request.getSession().getAttribute("auth")); %>
 
 <%@ include file="header.jsp"%>
-
-
 <%@ include file="shopHeader.jsp" %>
 
-			
 			<div class="col-md-9">		
 				<div class="row">				
 					<% 
 					if (occhiali != null && occhiali .size() != 0) {
 						Iterator<?> it = occhiali .iterator();
 						while (it.hasNext()) {
-							OcchialeBean bean = (OcchialeBean) it.next();%>
+							OcchialeBean bean = (OcchialeBean) it.next();
+					%>
 		
 					<div class="col-md-4">
 						<div class="product-item">
@@ -85,5 +79,5 @@
  <%@ include file="script.html"%>
 
 
-  </body>
-  </html>
+ </body>
+ </html>
