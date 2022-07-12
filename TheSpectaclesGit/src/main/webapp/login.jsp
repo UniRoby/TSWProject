@@ -46,7 +46,7 @@
               onclick="myFunction1()" onmouseout="myFunction3()">
             
             <div class="text-center">
-              <button  type="button" class="btn btn-main text-center" id="submit" value="Accedi">Login</button>
+              <button  type="button" class="btn btn-main text-center" id="submit" value="Accedi" onclick=true >Login</button>
               
                </div>
               </div>
@@ -61,10 +61,6 @@
   </div>
 </section>
 
-    <%@ include file="footer.html"%>
-
-    <%@ include file="script.html"%>
-    <script src="./resources/ajaxLogin.js"></script>
    <script>
    function myFunction(){
 	   document.getElementById("email1").style.borderColor = "red";
@@ -87,6 +83,17 @@
 	   document.getElementById("password1").style.borderColor = "initial";
    }
    </script>
-   
+   <script>
+	var input = document.getElementById("password1");
+	input.addEventListener("keypress", function(event) {
+  			if (event.key === "Enter") {
+    			event.preventDefault();
+    			document.getElementById("submit").click();
+	}});
+	</script>
+    <%@ include file="footer.html"%>
+    <%@ include file="script.html"%>
+    <script src="./resources/ajaxLogin.js"></script>
+    
   </body>
   </html>
