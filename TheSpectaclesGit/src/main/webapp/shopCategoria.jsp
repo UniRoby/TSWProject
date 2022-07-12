@@ -14,7 +14,7 @@
  %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 
   <%@ include file="meta.html"%>
@@ -77,8 +77,6 @@
 		</div>
 	</div>
 </section>
-
-
 
 
 

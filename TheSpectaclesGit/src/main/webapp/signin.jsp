@@ -3,9 +3,8 @@
 	pageEncoding="UTF-8"%>
 
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 
  
@@ -16,8 +15,6 @@
 
  	<%@ include file="meta.html"%>
 	
-	
-
 </head>
 
 <body id="body">
@@ -47,7 +44,7 @@
               <input type="email" class="form-control" name="email" id="email" placeholder="email@esempio.it" required="required">
             </div>
             <div class="form-group">
-              <input type="password" class="form-control"name="new password" id="password" placeholder="Password123" required="required" >
+              <input type="password" class="form-control"name="new password" id="password" placeholder="Password" required="required" >
             </div>
             <div class="form-group">
               <input type="password" class="form-control"name="rip password" id="ripPassword" placeholder="Conferma Password" required="required" >
@@ -69,7 +66,6 @@
 
    <%@ include file="script.html"%>
    <script src="./resources/ajaxRegistrazione.js"></script>
-
 
   </body>
   </html>

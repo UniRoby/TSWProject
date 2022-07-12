@@ -16,7 +16,7 @@ if(occhiali == null) {
  %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 
   <%@ include file="meta.html"%>
@@ -78,8 +78,6 @@ if(occhiali == null) {
 		</div>
 	</div>
 </section>
-
-
 
 
 
