@@ -31,24 +31,21 @@
             <img src="images/logo.jpg" alt=""
             style="max-width:1000px; max-height:200px; "/>
           </a>
-          <h2 class="text-center">Ben Tornato</h2>
+          <h2 class="text-center">BenTornato</h2>
           
           
           <form class="text-left clearfix" name="formLog" method="post">
            
-           
-           
             <div class="form-group">
              <div id="userPass">
-              <input id="email1" type="email" class="form-control"  name="email"  placeholder="email@esempio.com" required="required">
-			 
-            </div>
-            
+              <input id="email1" type="email" class="form-control" name="email" placeholder="email@esempio.com" required 
+              onclick="myFunction()" onmouseout="myFunction2()"> 
+            </div> 
             <div class="form-group">
-              <input id="password1" type="password" class="form-control"  name="pass" placeholder="Password" required="required">
-		       
-            <div class="text-center">
+              <input id="password1" type="password" class="form-control" name="pass" placeholder="Inserisci Password" required 
+              onclick="myFunction1()" onmouseout="myFunction3()">
             
+            <div class="text-center">
               <button  type="button" class="btn btn-main text-center" id="submit" value="Accedi">Login</button>
               
                </div>
@@ -68,7 +65,28 @@
 
     <%@ include file="script.html"%>
     <script src="./resources/ajaxLogin.js"></script>
-
-
+   <script>
+   function myFunction(){
+	   document.getElementById("email1").style.borderColor = "red";
+   }
+   </script>
+   
+     <script>
+   function myFunction2(){
+	   document.getElementById("email1").style.borderColor = "initial";
+   }
+   </script>
+   
+     <script>
+   function myFunction1(){
+	   document.getElementById("password1").style.borderColor = "red";
+   }
+   </script>
+     <script>
+   function myFunction3(){
+	   document.getElementById("password1").style.borderColor = "initial";
+   }
+   </script>
+   
   </body>
   </html>
