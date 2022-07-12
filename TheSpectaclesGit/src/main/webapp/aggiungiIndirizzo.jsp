@@ -56,6 +56,10 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
                         <label for="user_country">Provincia</label>
                         <input type="text" class="form-control" name="user_country" id="user_country" placeholder="CE">
                      </div>
+                     <div class="form-group">
+                        <label for="user_phone">Telefono</label>
+                        <input type="text" class="form-control" name="user_phone" id="user_phone" placeholder="1234567890">
+                     </div>
                      <button  type="submit" class="btn btn-main mt-20" id="submit" value="Continua Checkout">Aggiungi</button>
                </div>
        

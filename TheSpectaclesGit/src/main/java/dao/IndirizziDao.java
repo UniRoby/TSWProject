@@ -43,6 +43,7 @@ import model.*;
 	            	bean.setProvince(rs.getString("provincia"));
 	            	bean.setCap(rs.getInt("cap"));
 	            	bean.setEmail(rs.getString("email"));
+	            	bean.setTelefono(rs.getInt("telefono"));
 	 			}
 
 	 		} finally {
@@ -78,6 +79,7 @@ import model.*;
 	            	bean.setProvince(rs.getString("provincia"));
 	            	bean.setCap(rs.getInt("cap"));
 	            	bean.setEmail(rs.getString("email"));
+	            	bean.setTelefono(rs.getInt("telefono"));
 	 			}
 
 	 		} finally {
@@ -109,6 +111,7 @@ import model.*;
             	bean.setProvince(rs.getString("provincia"));
             	bean.setCap(rs.getInt("cap"));
             	bean.setEmail(rs.getString("email"));
+            	bean.setTelefono(rs.getInt("telefono"));
 				
 				indirizzi.add(bean);
 		}
@@ -152,7 +155,7 @@ import model.*;
 		public void doUpdate(IndirizziBean indirizzo) throws SQLException {
 			Connection con = null;
 			PreparedStatement prep = null;
-			String sql = "UPDATE indirizzo SET idIndirizzo=?, indirizzo=?, attivo=?, citta=?, provincia=?, cap=?, email=?";
+			String sql = "UPDATE indirizzo SET idIndirizzo=?, indirizzo=?, attivo=?, citta=?, provincia=?, cap=?, email=?, telefono=?";
 
 			try {
 				con = ds.getConnection();
@@ -165,6 +168,7 @@ import model.*;
 				prep.setString(5, indirizzo.getProvince());
 				prep.setInt(6, indirizzo.getCap());
 				prep.setString(7, indirizzo.getEmail());
+				prep.setInt(8, indirizzo.getTelefono());
 			
 				prep.executeUpdate();
 
@@ -198,7 +202,7 @@ import model.*;
 			PreparedStatement prep = null;
 		
 			String insertSQL = "INSERT INTO " + IndirizziDao.TABLE_NAME
-					+ " (indirizzo, attivo, citta, provincia, cap, email) VALUES (?, ?, ?, ?, ?, ?)";
+					+ " (indirizzo, attivo, citta, provincia, cap, email, telefono) VALUES (?, ?, ?, ?, ?, ?, ?)";
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(insertSQL);
@@ -210,6 +214,7 @@ import model.*;
 				prep.setString(4, indirizzo.getProvince());
 				prep.setInt(5, indirizzo.getCap());
 				prep.setString(6, indirizzo.getEmail());
+				prep.setInt(7, indirizzo.getTelefono());
 			
 				prep.executeUpdate();
 
