@@ -12,8 +12,7 @@ if(occhiali == null) {
 	response.sendRedirect("./Amministratore");	
 	return;
 }
-
- %>
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -87,14 +86,8 @@ if(occhiali == null) {
 	</div>
 </section>
 
-
-
-
-
  <%@ include file="footer.html"%>
-
  <%@ include file="script.html"%>
-
 
   </body>
   </html>

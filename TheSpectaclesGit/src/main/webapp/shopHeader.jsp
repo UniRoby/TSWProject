@@ -67,14 +67,15 @@
 					    	<div class="panel-body">
 					     		<ul>
 									<li><a href="Categoria?colore=nero">Nero</a></li>
-									<li><a href="Categoria?colore=oro">oro</a></li>
-									<li><a href="Categoria?colore=verde">verde</a></li>
+									<li><a href="Categoria?colore=oro">Oro</a></li>
+									<li><a href="Categoria?colore=verde">Verde</a></li>
 								</ul>
 					    	</div>
 					    </div>
 					  </div>
-			
 					</div>
-					
+					</div>
+					</div>
 				</div>
 			</div>
+			</section>

@@ -44,8 +44,6 @@ if(occhiali == null) {
       </div>
     </div>
   </div>
-
-
 </div>
 
 <section class="product-category section">
@@ -61,8 +59,8 @@ if(occhiali == null) {
 					<a href="#!">
 						<img src="images/shop/category/category-1.jpg" alt="" />
 						<div class="content">
-							<h3>Nuovi arrivi</h3>
-							<p>Nuovi occhiali </p>
+							<h3>Nuovi Arrivi</h3>
+							<p>Nuovi Occhiali </p>
 						</div>
 					</a>
 				</div>
@@ -71,7 +69,7 @@ if(occhiali == null) {
 						<img src="images/shop/category/category-2.jpg" alt="" />
 						<div class="content">
 							<h3>Occhiali Donna</h3>
-							<p>frase</p>
+							<p>Frase</p>
 						</div>
 					</a>
 				</div>
@@ -81,8 +79,8 @@ if(occhiali == null) {
 					<a href="#!">
 						<img src="images/shop/category/category-3.jpg" alt="" />
 						<div class="content">
-							<h3>Occhiali firmati</h3>
-							<p>occhiali speciali</p>
+							<h3>Occhiali Firmati</h3>
+							<p>Occhiali Speciali</p>
 						</div>
 					</a>
 				</div>
@@ -165,7 +163,7 @@ Start Call To Action
 			<div class="col-md-12 text-center">
 				<div class="title">
 					<h2>Iscriviti alla NEWSLETTER</h2>
-					<p>rimani sempre aggiornato sui nuovi prodotti, promo e tanto altro. <br> </p>
+					<p>Rimani sempre aggiornato sui nuovi prodotti, promo e tanto altro. <br></p>
 				</div>
 				<div class="col-lg-6 col-md-offset-3">
 				    <div class="input-group subscription-form">
@@ -182,14 +180,8 @@ Start Call To Action
 </section>   <!-- End section -->
 
 
-
-
  <%@ include file="footer.html"%>
-
  <%@ include file="script.html"%>
-
-
-
 
   </body>
   </html>

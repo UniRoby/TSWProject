@@ -9,7 +9,7 @@
 if(request.getSession().getAttribute("auth")== null) {
 response.sendRedirect(getServletContext().getContextPath() +
 "/login.jsp"); 
-} 
+	} 
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 %>
 
@@ -105,7 +105,7 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 						<a href="contact.html">PRIVACY POLICY</a>
 					</li>
 				</ul>
-				<p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a></p>
+				<p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by UnisaStudents</p>
 			</div>
 		</div>
 	</div>

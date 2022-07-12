@@ -13,15 +13,11 @@ response.sendRedirect(getServletContext().getContextPath() +
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 IndirizziBean attivo= (IndirizziBean) request.getAttribute("attivo");
 Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
-
-
-
-
 %>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 
 <head>
@@ -45,7 +41,7 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
 					<h1 class="page-name">Rubrica Indirizzi</h1>
 					<ol class="breadcrumb">
 						<li><a href="index.jsp">Home</a></li>
-						<li class="active">my account</li>
+						<li class="active">My Account</li>
 					</ol>
 				</div>
 			</div>
