@@ -72,10 +72,7 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
  </section>      
        
     <%@ include file="footer.html"%>
-
     <%@ include file="script.html"%>
     
-
-
-  </body>
-  </html>
+ </body>
+ </html>
