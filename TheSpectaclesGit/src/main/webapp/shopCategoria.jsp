@@ -22,7 +22,6 @@
 
 <%@ include file="header.jsp"%>
 <%@ include file="shopHeader.jsp" %>
-
 			<div class="col-md-9">		
 				<div class="row">				
 					<% 
@@ -75,7 +74,6 @@
 
 
  <%@ include file="footer.html"%>
-
  <%@ include file="script.html"%>
 
 

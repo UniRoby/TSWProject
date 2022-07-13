@@ -75,7 +75,7 @@ ArrayList<OrdineBean> ordini = (ArrayList<OrdineBean>) request.getAttribute("ord
 									<td><%= ordine.getDate() %></td>
 									
 									<td><span class="label label-success"><%= ordine.getStato() %></span></td>
-									<td><a href="DettagliOrdini?ordineId='<%=ordine.getIdOrder().toString() %>'" class="btn btn-default">View</a></td>
+									<td><a href="DettagliOrdini?ordineId=<%=ordine.getIdOrder().toString() %>" class="btn btn-default">View</a></td>
 								</tr>
 							<%
 							}

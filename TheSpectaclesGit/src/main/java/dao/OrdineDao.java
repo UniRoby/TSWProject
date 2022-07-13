@@ -58,33 +58,40 @@ import model.*;
 	 	
 		}
 		
-		public OrdineBean doRetrieveByKey(UUID idOrdine) throws SQLException {
+		public OrdineBean doRetrieveByKey(String idOrdine) throws SQLException {
 			OrdineBean bean = new OrdineBean();
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
 	
 	 		String selectSQL = "SELECT * FROM " + OrdineDao.TABLE_NAME + " WHERE idOrdine = ?";
-
+	 		
 	 		try {
 	 			con = ds.getConnection();
 				prep = con.prepareStatement(selectSQL);
-				prep.setString(1, idOrdine.toString());
+				prep.setString(1, idOrdine);
 				rs = prep.executeQuery();
-
+				System.out.println("DoRetrieveByKey OrdineDao: "+prep);
 	 			while (rs.next()) {
 	 			
 	 				bean.setIdOrder(UUID.fromString(rs.getString(1)));
-	 				bean.setDate(new Date(rs.getTimestamp(3).getTime()));
-	 				bean.setEmail(rs.getString(2));
+	 				bean.setDate(new Date(rs.getTimestamp(2).getTime()));
+	 				bean.setEmail(rs.getString(3));
 	 				bean.setStato(rs.getString(4));
+	 				System.out.println("DoRetrieveByKey OrdineDao: "+bean);
 	 			}
 
-	 		} finally {
+	 		} 
+	 		catch(Exception e){
+	 			e.printStackTrace();
+	 			
+	 		}finally {
+	 			
 	 			rs.close();
 				prep.close();
 				con.close();
 	 		}
+	 		
 	 		return bean;
 		}
 	

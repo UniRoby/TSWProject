@@ -49,15 +49,15 @@ if(occhiali == null) {
 										<li>
 											<span  data-toggle="modal" data-target="#product-modal">
 											
-												<a href="Amministratore?action=dettagli&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-md-search"></i></a>
+												<a href="Amministratore?action=dettagli&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-ios-search"></i></a>
 											</span>
 										</li>
 										<li>
-											<a href="Amministratore?action=modifica&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-pencil-sharp"></i></a>
+											<a href="Amministratore?action=modifica&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-ios-swap"></i></a>
 					                       
 										</li>
 										<li>
-											 <a href="EliminaProdAdmin?id=<%= bean.getIdGlasses() %>" ><i class="tf-ion-md-trash"></i></a>
+											 <a href="EliminaProdAdmin?id=<%= bean.getIdGlasses() %>" ><i class="tf-ion-ios-trash"></i></a>
 										</li>
 									</ul>
 		                      	</div>
@@ -75,12 +75,13 @@ if(occhiali == null) {
 					out.println("There is no proucts");
 					}
 					%>
-					<div align="center">
+					
+				</div>	
+				<div align="center">
 					<a href="Amministratore?action=aggiungi">
 					<input type="button" class="btn btn-main btn-medium btn-round-full" value="Aggiungi prodotto al catalogo">
 					</a>
-					</div>
-				</div>				
+					</div>			
 			</div>
 		</div>
 	</div>

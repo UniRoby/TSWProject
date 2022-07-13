@@ -14,22 +14,21 @@ import model.*;
 public class OcchialeOrdineDao {
 
 	private static final String TABLE_NAME = "occhiale_ordine";
-	
+
 	private DataSource ds;
 
 	public void setDB(DataSource obj) {
 
-		this.ds=obj;
-		
+		this.ds = obj;
+
 	}
 
 	public void doSave(OcchialeOrdineBean occhialeOrdine) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-	
-		String insertSQL = "INSERT INTO " +
-				TABLE_NAME +
-				" (id_occhiale, id_ordine, prezzo_reale, iva ,quantita) VALUES(?,?,?,?,?)";
+
+		String insertSQL = "INSERT INTO " + TABLE_NAME
+				+ " (id_occhiale, id_ordine, prezzo_reale, iva ,quantita) VALUES(?,?,?,?,?)";
 		try {
 			con = ds.getConnection();
 			ps = con.prepareStatement(insertSQL);
@@ -42,7 +41,7 @@ public class OcchialeOrdineDao {
 
 			ps.executeUpdate();
 
-		}  finally {
+		} finally {
 			try {
 				if (ps != null)
 					ps.close();
@@ -53,61 +52,51 @@ public class OcchialeOrdineDao {
 		}
 	}
 
-	
 	public boolean doDelete(String idOcchialeOrdine) throws SQLException {
 		return false;
 	}
 
-
 	public OcchialeOrdineBean doRetrieveByKey(String idOcchialeOrdine) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		ResultSet rs=null;
+		ResultSet rs = null;
 
 		String query = "SELECT * FROM " + TABLE_NAME + " WHERE id = ?";
 		ArrayList<OcchialeOrdineBean> listaProdotti = new ArrayList<>();
- 		try {
- 			
- 			con = ds.getConnection();
- 			ps = con.prepareStatement(query);
- 			ps.setString(1, idOcchialeOrdine);
- 			rs = ps.executeQuery();
- 			ArrayList<String> key= new ArrayList<>();
- 			
- 			while (rs.next()) {
- 				key.add(rs.getString(2));
- 				
- 					OcchialeBean prod = (OcchialeBean) new OcchialeDao().doRetrieveByKey(key);
- 					OcchialeOrdineBean prodotto = new OcchialeOrdineBean(
- 						rs.getInt(1),
- 						UUID.fromString(rs.getString(3)),
- 						prod,
- 						rs.getFloat(4),
- 						rs.getFloat(5),
- 						rs.getInt(6)
- 					);
- 					listaProdotti.add(prodotto);
- 			}
+		try {
 
- 		} 
-	    catch(Exception e){
-		  e.printStackTrace();
+			con = ds.getConnection();
+			ps = con.prepareStatement(query);
+			ps.setString(1, idOcchialeOrdine);
+			rs = ps.executeQuery();
+			ArrayList<String> key = new ArrayList<>();
+
+			while (rs.next()) {
+				key.add(rs.getString(2));
+
+				OcchialeBean prod = (OcchialeBean) new OcchialeDao().doRetrieveByKey(key);
+				OcchialeOrdineBean prodotto = new OcchialeOrdineBean(rs.getInt(1), UUID.fromString(rs.getString(3)),
+						prod, rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
+				listaProdotti.add(prodotto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {
- 			rs.close();
+			rs.close();
 			ps.close();
 			con.close();
- 		}
- 		return listaProdotti.get(0);
+		}
+		return listaProdotti.get(0);
 	}
 
-	
 	public Collection<OcchialeOrdineBean> doRetrieveAll(String order) throws SQLException {
 
 		Collection<OcchialeOrdineBean> occhiali = new ArrayList<OcchialeOrdineBean>();
 		Connection con = null;
 		PreparedStatement prep = null;
 		ResultSet rs = null;
-		ArrayList<String> key= new ArrayList<>();
+		ArrayList<String> key = new ArrayList<>();
 		String query = "SELECT * FROM " + TABLE_NAME;
 		if (order != null && !order.equals("")) {
 			query += " ORDER BY " + order;
@@ -117,28 +106,19 @@ public class OcchialeOrdineDao {
 			con = ds.getConnection();
 			prep = con.prepareStatement(query);
 			rs = prep.executeQuery();
-			
-		while (rs.next()) {
-			key.add(rs.getString(2));
-			OcchialeBean prod = (OcchialeBean) new OcchialeDao().doRetrieveByKey(key);
-			OcchialeOrdineBean bean = new OcchialeOrdineBean(
-					rs.getInt(1),
-					UUID.fromString(rs.getString(3)),
-					prod,
-					rs.getFloat(4),
-					rs.getFloat(5),
-					rs.getInt(6)
-				);
 
-			occhiali.add(bean);
-	}
-	 }
-		catch(Exception e){
-		  e.printStackTrace();
-		}
-			finally {
-		
-		 
+			while (rs.next()) {
+				key.add(rs.getString(2));
+				OcchialeBean prod = (OcchialeBean) new OcchialeDao().doRetrieveByKey(key);
+				OcchialeOrdineBean bean = new OcchialeOrdineBean(rs.getInt(1), UUID.fromString(rs.getString(3)), prod,
+						rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
+
+				occhiali.add(bean);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
 			rs.close();
 			prep.close();
 			con.close();
@@ -146,48 +126,42 @@ public class OcchialeOrdineDao {
 		return occhiali;
 	}
 
-	public ArrayList<OcchialeOrdineBean> doRetrivebyOrder(OrdineBean ordine) throws SQLException {
+	public ArrayList<OcchialeOrdineBean> doRetrivebyOrder(OrdineBean ordine,DataSource dataS) throws SQLException {
 		Connection con = null;
 		PreparedStatement prep = null;
 		ResultSet rs = null;
-		ArrayList<OcchialeOrdineBean> ordini=new ArrayList<OcchialeOrdineBean>();
-		ArrayList<String> key= new ArrayList<>();
-		String query =
-			"SELECT * FROM " + TABLE_NAME + " WHERE id_ordine = '" + ordine.getIdOrder() + "'";
-		
+		ArrayList<OcchialeOrdineBean> ordini = new ArrayList<OcchialeOrdineBean>();
+		ArrayList<String> key = new ArrayList<>();
+		String query = "SELECT * FROM " + TABLE_NAME + " WHERE id_ordine = '" + ordine.getIdOrder() + "'";
+     
 		try {
 			con = ds.getConnection();
 			prep = con.prepareStatement(query);
 			rs = prep.executeQuery();
-			
-		while (rs.next()) {
-			key.add(rs.getString(2));
-			OcchialeBean prod = (OcchialeBean) new OcchialeDao().doRetrieveByKey(key);
-			OcchialeOrdineBean bean = new OcchialeOrdineBean(
-					rs.getInt(1),
-					UUID.fromString(rs.getString(3)),
-					prod,
-					rs.getFloat(4),
-					rs.getFloat(5),
-					rs.getInt(6)
-				);
 
-			ordini.add(bean);
-	}
-	 }
-		catch(Exception e){
-		  e.printStackTrace();
-		}
-			finally {
-		
-		 
+			while (rs.next()) {
+				
+				key.add(rs.getString(2));
+				OcchialeBean prod = new OcchialeBean();
+				OcchialeDao oDao= new OcchialeDao();
+				oDao.setDB(dataS);
+				//Da modificare
+				Collection<OcchialeBean> list= oDao.doRetrieveByKey(key);
+				OcchialeOrdineBean bean = new OcchialeOrdineBean(rs.getInt(1), UUID.fromString(rs.getString(3)), prod,
+						rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
+				System.out.println("Metodo Dao: "+bean);
+				ordini.add(bean);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
 			rs.close();
 			prep.close();
 			con.close();
 		}
-		
+
 		return ordini;
 	}
-
 
 }
