@@ -58,22 +58,26 @@ public class IndirizzoServlet extends HttpServlet {
 			}
 			
 			String page= request.getParameter("page");
+			System.out.println(page);
 			if(page.equals("ok"))
 			{
-				System.out.println(page);
+				System.out.println("if");
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/address.jsp");
 				dispatcher.forward(request, response);
+				return;
 			}
 			else {
+				System.out.println("else");
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/checkout.jsp");
 				dispatcher.forward(request, response);
-				
+				return;
 			}
 			
 		}
 		else {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(request, response);
+			return;
 		}
 		
 	}

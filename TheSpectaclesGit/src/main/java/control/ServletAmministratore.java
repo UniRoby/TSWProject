@@ -40,27 +40,36 @@ public class ServletAmministratore extends HttpServlet {
 			request.setAttribute("admin", cerca);
 			
 			String azione= request.getParameter("action");
+			
+			System.out.println("Servlet Amministratore: "+azione);
 			if (azione != null && azione.equalsIgnoreCase("dettagli")) {
 				ArrayList<String> valori= new ArrayList<String>();
 				valori.add(request.getParameter("id"));
-			
-				request.setAttribute("des", modelOcchiale.doRetrieveByKey(valori));	
+				
+				System.out.println("sono in dettagli: "+valori.get(0));
+			  //errore qui
+				request.removeAttribute("des");
+				request.setAttribute("des", modelOcchiale.singleProduct(valori));	
 				RequestDispatcher dis= getServletContext().getRequestDispatcher("/ProdottiDesAmministratore.jsp");
 				dis.forward(request, response);
+				return;
 			}
 			
 			if (azione != null && azione.equalsIgnoreCase("modifica")) {
 				ArrayList<String> valori= new ArrayList<String>();
 				valori.add(request.getParameter("id"));
-				request.setAttribute("modifica", modelOcchiale.doRetrieveByKey(valori));	
+				System.out.println("sono in modifica: "+valori.get(0));
+				request.setAttribute("modifica", modelOcchiale.singleProduct(valori));	
 				
 				RequestDispatcher dis= getServletContext().getRequestDispatcher("/ModificaAmministratore.jsp");
-				dis.forward(request, response);		
+				dis.forward(request, response);	
+				return;
 			}
 			
 			if (azione != null && azione.equalsIgnoreCase("aggiungi")) {
 				RequestDispatcher dis= getServletContext().getRequestDispatcher("/AggiungiProdAdmin.jsp");
 				dis.forward(request, response);	
+				return;
 			}
 			
 		} catch (SQLException e) {
@@ -68,6 +77,7 @@ public class ServletAmministratore extends HttpServlet {
 		}
 		RequestDispatcher dis= getServletContext().getRequestDispatcher("/PageAmministratore.jsp");
 		dis.forward(request, response);
+		
 	}
 
 	

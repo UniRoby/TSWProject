@@ -43,12 +43,12 @@ public class ServletDettagliOrdine extends HttpServlet {
 			UtenteBean bean= (UtenteBean) request.getSession().getAttribute("auth");
 			
 			String idOrdine= request.getParameter("ordineId");
-			
+			System.out.println(idOrdine);
 			
 			try {
-				OrdineBean ordine= ordineDao.doRetrieveByKey(UUID.fromString(idOrdine));
-				
-				request.setAttribute("prodotti", occhialeOrdineDao.doRetrivebyOrder(ordine));
+				OrdineBean ordine= ordineDao.doRetrieveByKey(idOrdine);
+				System.out.println(ordine);
+				//request.setAttribute("prodotti", occhialeOrdineDao.doRetrivebyOrder(ordine,getServletContext().getAttribute("DataSource")));
 				request.setAttribute("ordine", ordine);
 				
 				
