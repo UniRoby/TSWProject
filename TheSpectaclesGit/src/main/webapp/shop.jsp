@@ -29,7 +29,11 @@ if(occhiali == null) {
 <%@ include file="header.jsp"%>
 <%@ include file="shopHeader.jsp" %>
 
+<!--
 
+<section class="products section">
+	<div class="container">
+		<div class="row">
 			<div class="col-md-9">		
 				<div class="row">				
 					<% 
@@ -37,7 +41,7 @@ if(occhiali == null) {
 						Iterator<?> it = occhiali .iterator();
 						while (it.hasNext()) {
 							OcchialeBean bean = (OcchialeBean) it.next();%>
-		
+		  
 					<div class="col-md-4">
 						<div class="product-item">
 							<div class="product-thumb">
@@ -79,6 +83,59 @@ if(occhiali == null) {
 	</div>
 </section>
 
+
+-->
+
+
+
+<section class="products section">
+	<div class="container">
+		<div class="row">
+
+		<% 
+		if (occhiali != null && occhiali .size() != 0) {
+			Iterator<?> it = occhiali .iterator();
+			while (it.hasNext()) {
+				OcchialeBean bean = (OcchialeBean) it.next();%>
+	
+			<div class="col-md-4">
+				<div class="product-item">
+					<div class="product-thumb">
+						<span class="bage">Sale</span>
+						<img class="img-responsive" src="images/shop/products/<%=bean.getImage()%>" alt="product-img" />
+						<div class="preview-meta">
+							<ul>
+								<li>
+									<span  data-toggle="modal" data-target="#product-modal">
+										<a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-ios-search-strong"></i></a>
+									</span>
+								</li>
+								<li>
+			                        <a href="" ><i class="tf-ion-ios-heart"></i></a>
+								</li>
+								<li>
+									<a href="Prodotto?action=aggiungi&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-android-cart"></i></a>
+								</li>
+							</ul>
+                      	</div>
+					</div>
+					<div class="product-content">
+						<h4><a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>"><%=bean.getNameGlasses() %></a></h4>
+						<p class="price"><%=bean.getPrice() %>&#8364;</p>
+						<p class="price"><%=bean.getBrand() %></p>
+					</div>
+				</div>
+			</div>
+		
+			<%
+			}
+			} else {
+			out.println("There is no proucts");
+			}
+			%>
+		</div>
+	</div>	
+</section>
 
 
  <%@ include file="footer.html"%>

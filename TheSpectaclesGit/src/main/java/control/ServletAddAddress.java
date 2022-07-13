@@ -52,9 +52,10 @@ public class ServletAddAddress extends HttpServlet {
 		String provincia=request.getParameter("user_country");
 		int cap=  Integer.parseInt(request.getParameter("zipcode"));
 		String email= bean.getEmail();
+		System.out.println("\n"+request.getParameter("user_phone"));
 		int telefono= Integer.parseInt(request.getParameter("user_phone"));
 		
-		int status=1;
+		int status=0;
 		
 		
 		try {
