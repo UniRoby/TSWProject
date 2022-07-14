@@ -44,8 +44,12 @@ public class ServletAddAddress extends HttpServlet {
 		System.out.println("\n"+request.getParameter("city"));
 		System.out.println("\n"+request.getParameter("user_country"));
 		System.out.println("\n"+request.getParameter("zipcode"));
+<<<<<<< HEAD
 		System.out.println("\n"+request.getParameter("user_phone"));
 		
+=======
+		System.out.println("\n"+request.getParameter("tel"));
+>>>>>>> branch 'master' of https://github.com/UniRoby/TSWProject.git
 		
 		String via=  request.getParameter("user_address");
 		String citta= request.getParameter("city");

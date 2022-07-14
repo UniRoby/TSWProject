@@ -109,8 +109,11 @@ public class Carrello implements Serializable {
 		
 		for (int i= 0; i < car.size(); i++) {
 			if (car.get(i).getIdGlasses().equals(id)) {
+				
 				tot= car.get(i).getPrice() * quant;
 				car.get(i).setTotPrezzo(tot);
+				
+				System.out.println("\ntot: "+tot);
 			}
 				}
 		return tot;
@@ -129,12 +132,14 @@ public class Carrello implements Serializable {
 	public void insertQuantita(String code, int q) {
 		for (int i= 0; i < car.size(); i++) {
 			if (car.get(i).getIdGlasses().equals(code)) {
-				
+				System.out.println("Disponibilità: "+car.get(i).getAvailability());
+				System.out.println("\n Stampa if di InsertQuantita: "+(q<=car.get(i).getAvailability()));
 				if(q<=car.get(i).getAvailability())
 					car.get(i).setQuantity(q);
 				else 
 					car.get(i).setQuantity(car.get(i).getAvailability());
 			}
+			System.out.println("Quantità scelta corretta in Occhiale Bean: "+car.get(i).getQuantity());
 		}
 	}
 }
