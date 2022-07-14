@@ -48,7 +48,7 @@ public class ServletDettagliOrdine extends HttpServlet {
 			try {
 				OrdineBean ordine= ordineDao.doRetrieveByKey(idOrdine);
 				System.out.println(ordine);
-				//request.setAttribute("prodotti", occhialeOrdineDao.doRetrivebyOrder(ordine,getServletContext().getAttribute("DataSource")));
+				request.setAttribute("prodotti", occhialeOrdineDao.doRetrivebyOrder(idOrdine,(DataSource) getServletContext().getAttribute("DataSource")));
 				request.setAttribute("ordine", ordine);
 				
 				

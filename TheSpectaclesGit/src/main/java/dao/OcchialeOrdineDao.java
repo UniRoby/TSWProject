@@ -126,7 +126,7 @@ public class OcchialeOrdineDao {
 		return occhiali;
 	}
 
-	public ArrayList<OcchialeOrdineBean> doRetrivebyOrder(OrdineBean ordine,DataSource dataS) throws SQLException {
+	/*public ArrayList<OcchialeOrdineBean> doRetrivebyOrder(OrdineBean ordine,DataSource dataS) throws SQLException {
 		Connection con = null;
 		PreparedStatement prep = null;
 		ResultSet rs = null;
@@ -162,6 +162,41 @@ public class OcchialeOrdineDao {
 		}
 
 		return ordini;
+	}*/
+
+	public ArrayList<OcchialeOrdineBean> doRetrivebyOrder(String ordine,DataSource data) throws SQLException {
+	Connection con = null;
+	PreparedStatement prep = null;
+	ResultSet rs = null;
+	ArrayList<OcchialeOrdineBean> ordini = new ArrayList<OcchialeOrdineBean>();
+	
+	String query = "SELECT * FROM " + TABLE_NAME + " WHERE id_ordine = ?";
+ 
+	try {
+		con = ds.getConnection();
+		prep = con.prepareStatement(query);
+		prep.setString(1, ordine);
+		rs = prep.executeQuery();
+
+		while (rs.next()) {
+			OcchialeDao oDao= new OcchialeDao();
+			oDao.setDB(data);
+			OcchialeBean prod= oDao.doRetrieveOcchiale(rs.getString("id_occhiale"));
+			OcchialeOrdineBean bean = new OcchialeOrdineBean(rs.getInt(1), UUID.fromString(rs.getString(3)), prod,
+					rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
+			System.out.println("Metodo Dao: "+bean);
+			ordini.add(bean);
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+
+		rs.close();
+		prep.close();
+		con.close();
 	}
+
+	return ordini;
+}
 
 }
