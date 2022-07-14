@@ -59,7 +59,7 @@ public class IndirizzoServlet extends HttpServlet {
 			
 			String page= request.getParameter("page");
 			System.out.println(page);
-			if(page.equals("ok"))
+			if(page!=null && page.equals("ok"))
 			{
 				System.out.println("if");
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/address.jsp");
