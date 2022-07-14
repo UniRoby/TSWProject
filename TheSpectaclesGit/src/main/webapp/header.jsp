@@ -192,6 +192,7 @@
 									<ul>
 										<li class="dropdown-header">Categorie</li>
 										<li role="separator" class="divider"></li>
+										<li><a href="shop.jsp">Tutti gli occhiali</a></li>
 										<li><a href="Categoria?tipo=vista">Occhiali da Vista</a></li>
 										<li><a href="Categoria?tipo=sole">Occhiali da Sole</a></li>
 										<li><a href="Categoria?tipo=luce">Occhiali filtro luce blu</a></li>
