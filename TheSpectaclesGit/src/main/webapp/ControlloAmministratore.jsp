@@ -18,6 +18,16 @@ return ;
 <head>
 
 <%@ include file="meta.html"%>
+
+
+<style>
+div.log {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+</style>
+
 </head>
 
 <body id="body">

@@ -41,7 +41,7 @@
 					</a>
 				</div>
 			</div>
-			<div class="col-md-4 col-xs-12 col-sm-4">
+			<div class="log">
 				
 					<ul>
 					<%
@@ -49,8 +49,7 @@
 				    %>
 				
 				   <li class="login">
-						<a href="log-out" ><i
-								class=""></i>Logout </a>
+						<a href="log-out" ><i class=""></i>Logout </a>
 						<ul class="dropdown-menu search-dropdown">
 						</ul>
 					</li>
@@ -58,8 +57,7 @@
 					} else {
 					%>
                     <li class="login">
-						<a href="login.jsp" ><i
-								class=""></i>Login </a>
+						<a href="login.jsp" ><i class=""></i>Login </a>
 						<ul class="dropdown-menu search-dropdown">
 						</ul>
 					</li>
@@ -67,6 +65,7 @@
 					}
 					%>
 				</ul><!-- / .nav .navbar-nav .navbar-right -->
+				
 			</div>
 		</div>
 	</div>
@@ -113,8 +112,8 @@
 										<li class="dropdown-header">Opzioni</li>
 										<li role="separator" class="divider"></li>
 										<li><a href="ControlloAdmin?azione=controllo">Controlla il catalogo</a></li>
-										<li><a href="ControlloAdmin?azione=ordiniNominativo">Controlla gli ordini per clienten</a></li>
-										<li><a href="ControlloAdmin?azione=ordiniData">Controlla gli ordini per Datau</a></li>
+										<li><a href="ControlloAdmin?azione=ordiniNominativo">Controlla gli ordini per cliente</a></li>
+										<li><a href="ControlloAdmin?azione=ordiniData">Controlla gli ordini per Data</a></li>
 
 									</ul>
 								</div>
