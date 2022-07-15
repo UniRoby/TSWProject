@@ -20,6 +20,35 @@ if(occhiali == null) {
 <head>
 
   <%@ include file="meta.html"%>
+  
+  <!-- 
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+  <script type="text/javascript">
+  $function()
+  {
+	  $('#idimg').hover(function()
+			  {
+		  var img1="${bean.getImage()}";
+		  var img2="${bean.getImage2()}";
+		  
+		  			$('#diimg').attr('src','images/shop/products/+img2+');
+		  
+			  },
+			  function()
+			  {
+				  $('idimg').attr('src', 'images/shop/products/+img1+')
+			  })			  
+  })
+  
+    
+  </script>
+
+	 -->
+	 <!-- 
+
+	   
+-->
+  
 </head>
 
 <body id="body">
@@ -29,62 +58,6 @@ if(occhiali == null) {
 <%@ include file="header.jsp"%>
 <%@ include file="shopHeader.jsp" %>
 
-<!--
-
-<section class="products section">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-9">		
-				<div class="row">				
-					<% 
-					if (occhiali != null && occhiali .size() != 0) {
-						Iterator<?> it = occhiali .iterator();
-						while (it.hasNext()) {
-							OcchialeBean bean = (OcchialeBean) it.next();%>
-		  
-					<div class="col-md-4">
-						<div class="product-item">
-							<div class="product-thumb">
-								<span class="bage">Sale</span>
-								<img class="img-responsive" src="images/shop/products/<%=bean.getImage()%>" alt="product-img" />
-								<div class="preview-meta">
-									<ul>
-										<li>
-											<span  data-toggle="modal" data-target="#product-modal">
-											
-												<a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-ios-search-strong"></i></a>
-											</span>
-										</li>
-										<li>
-					                        <a href="" ><i class="tf-ion-ios-heart"></i></a>
-										</li>
-										<li>
-											<a href="Prodotto?action=aggiungi&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-android-cart"></i></a>
-										</li>
-									</ul>
-		                      	</div>
-							</div>
-							<div class="product-content">
-								<h4><a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>"><%=bean.getNameGlasses() %></a></h4>
-								<p class="price"><%=bean.getPrice() %>&#8364;</p>
-								<p class="price"><%=bean.getBrand() %></p>
-							</div>
-						</div>
-					</div>
-					<%
-					}
-					} else {
-					out.println("There is no proucts");
-					}
-					%>
-				</div>				
-			</div>
-		</div>
-	</div>
-</section>
-
-
--->
 
 
 
@@ -100,9 +73,13 @@ if(occhiali == null) {
 	
 			<div class="col-md-4">
 				<div class="product-item">
+				<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 					<div class="product-thumb">
 						<span class="bage">Sale</span>
-						<img class="img-responsive" src="images/shop/products/<%=bean.getImage()%>" alt="product-img" />
+						<img id="img" onmouseover="setNewImage()" onmouseout="setOldImage()" src="images/shop/products/<%=bean.getImage()%>"  />
+							<!--  
+						<img class="img-responsive" src="images/shop/products/<%=bean.getImage2()%>" alt="product-img" id="idimg"/>	
+						  -->											  
 						<div class="preview-meta">
 							<ul>
 								<li>
@@ -117,8 +94,22 @@ if(occhiali == null) {
 									<a href="Prodotto?action=aggiungi&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-android-cart"></i></a>
 								</li>
 							</ul>
-                      	</div>
-					</div>
+                      	</div>                     	
+					</div> 		
+					<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	   <script type="text/javascript">   
+	   function setNewImage()
+	   {
+		   document.getElementById("img").src="images/shop/products/"+<%=bean.getImage2()%>+;
+	   }
+	   function setOldImage()
+	   {
+		   document.getElementById("img").src="images/shop/products/"+<%=bean.getImage()%>+;
+	   }
+	   
+	   </script>
+		
+
 					<div class="product-content">
 						<h4><a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>"><%=bean.getNameGlasses() %></a></h4>
 						<p class="price"><%=bean.getPrice() %>&#8364;</p>
@@ -126,6 +117,7 @@ if(occhiali == null) {
 					</div>
 				</div>
 			</div>
+			
 		
 			<%
 			}
@@ -136,6 +128,7 @@ if(occhiali == null) {
 		</div>
 	</div>	
 </section>
+
 
 
  <%@ include file="footer.html"%>
