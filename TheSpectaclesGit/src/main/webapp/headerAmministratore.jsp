@@ -41,7 +41,7 @@
 					</a>
 				</div>
 			</div>
-			<div class="log">
+				<div class="log">
 				
 					<ul>
 					<%
@@ -66,6 +66,10 @@
 					%>
 				</ul><!-- / .nav .navbar-nav .navbar-right -->
 				
+			</div>
+
+			</div>
+
 			</div>
 		</div>
 	</div>
@@ -124,22 +128,7 @@
 							</div><!-- / .row -->
 						</div><!-- / .dropdown-menu -->
 					</li><!-- / Elements -->
-
-						
-						
-						
 					
-						
-						
-						
-						
-					
-
-
-
-
-
-				
 
 				</ul><!-- / .nav .navbar-nav -->
 

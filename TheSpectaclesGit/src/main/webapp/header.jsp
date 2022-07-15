@@ -234,18 +234,7 @@
 
 							</div><!-- / .row -->
 						</div><!-- / .dropdown-menu -->
-					</li><!-- / Elements -->
-						
-						
-						
-						
-					
-
-
-
-
-
-				
+					</li><!-- / Elements -->						
 
 				</ul><!-- / .nav .navbar-nav -->
 

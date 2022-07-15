@@ -23,8 +23,8 @@ return ;
 <style>
 div.log {
   position: absolute;
-  right: 0px;
-  top: 0px;
+  right: 200px;
+  top: 40px;
 }
 </style>
 
