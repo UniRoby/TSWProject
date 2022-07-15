@@ -43,7 +43,7 @@ import model.*;
 	            	bean.setProvince(rs.getString("provincia"));
 	            	bean.setCap(rs.getInt("cap"));
 	            	bean.setEmail(rs.getString("email"));
-	            	bean.setTelefono(rs.getInt("telefono"));
+	            	bean.setTelefono(rs.getString("telefono"));
 	 			}
 
 	 		} finally {
@@ -79,7 +79,7 @@ import model.*;
 	            	bean.setProvince(rs.getString("provincia"));
 	            	bean.setCap(rs.getInt("cap"));
 	            	bean.setEmail(rs.getString("email"));
-	            	bean.setTelefono(rs.getInt("telefono"));
+	            	bean.setTelefono(rs.getString("telefono"));
 	 			}
 
 	 		} finally {
@@ -111,7 +111,7 @@ import model.*;
             	bean.setProvince(rs.getString("provincia"));
             	bean.setCap(rs.getInt("cap"));
             	bean.setEmail(rs.getString("email"));
-            	bean.setTelefono(rs.getInt("telefono"));
+            	bean.setTelefono(rs.getString("telefono"));
 				
 				indirizzi.add(bean);
 		}
@@ -168,7 +168,7 @@ import model.*;
 				prep.setString(5, indirizzo.getProvince());
 				prep.setInt(6, indirizzo.getCap());
 				prep.setString(7, indirizzo.getEmail());
-				prep.setInt(8, indirizzo.getTelefono());
+				prep.setString(8, indirizzo.getTelefono());
 			
 				prep.executeUpdate();
 
@@ -214,7 +214,7 @@ import model.*;
 				prep.setString(4, indirizzo.getProvince());
 				prep.setInt(5, indirizzo.getCap());
 				prep.setString(6, indirizzo.getEmail());
-				prep.setInt(7, indirizzo.getTelefono());
+				prep.setString(7, indirizzo.getTelefono());
 			
 				prep.executeUpdate();
 

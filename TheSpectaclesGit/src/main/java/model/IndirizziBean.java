@@ -11,14 +11,14 @@ public class IndirizziBean implements Serializable {
 	String province;
 	int cap;
 	String email;
-	int telefono;
+	String telefono;
 	
 	public IndirizziBean() {
 		
 	}
 	
 	public IndirizziBean(int idIndirizzo, String address, int status, String city, String province, int cap,
-			String email,int telefono) {
+			String email,String telefono) {
 		
 		this.idIndirizzo = idIndirizzo;
 		this.address = address;
@@ -85,11 +85,11 @@ public class IndirizziBean implements Serializable {
 		this.email = email;
 	}
 	
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 	
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 	
