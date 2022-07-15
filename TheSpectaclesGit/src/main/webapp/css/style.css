@@ -43,6 +43,13 @@
 -------------------------------------------------------------------*/
 /*=== MEDIA QUERY ===*/
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500");
+
+.img-responsive {
+	width:100%;
+	max-width:auto; 
+	height:auto;
+	}
+
 body {
   line-height: 1.5;
   font-family: "Poppins", sans-serif;

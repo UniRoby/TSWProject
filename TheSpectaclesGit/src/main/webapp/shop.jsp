@@ -73,13 +73,16 @@ if(occhiali == null) {
 	
 			<div class="col-md-4">
 				<div class="product-item">
-				<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 					<div class="product-thumb">
 						<span class="bage">Sale</span>
+						
+						<!-- 
 						<img id="img" onmouseover="setNewImage()" onmouseout="setOldImage()" src="images/shop/products/<%=bean.getImage()%>"  />
-							<!--  
-						<img class="img-responsive" src="images/shop/products/<%=bean.getImage2()%>" alt="product-img" id="idimg"/>	
-						  -->											  
+						 -->
+						
+						<img class="img-responsive" src="images/shop/products/<%=bean.getImage()%>" alt="product-img"/>							 
+						<img class="img-responsive" src="images/shop/products/<%=bean.getImage2()%>" alt="product-img" style="display:none"/>	
+						  											  
 						<div class="preview-meta">
 							<ul>
 								<li>
@@ -87,15 +90,15 @@ if(occhiali == null) {
 										<a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-ios-search-strong"></i></a>
 									</span>
 								</li>
-								<li>
-			                        <a href="" ><i class="tf-ion-ios-heart"></i></a>
-								</li>
+
 								<li>
 									<a href="Prodotto?action=aggiungi&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-android-cart"></i></a>
 								</li>
 							</ul>
                       	</div>                     	
-					</div> 		
+					</div> 	
+					
+					<!-- 
 					<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 	   <script type="text/javascript">   
 	   function setNewImage()
@@ -109,7 +112,7 @@ if(occhiali == null) {
 	   
 	   </script>
 		
-
+ 				-->	
 					<div class="product-content">
 						<h4><a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>"><%=bean.getNameGlasses() %></a></h4>
 						<p class="price"><%=bean.getPrice() %>&#8364;</p>
