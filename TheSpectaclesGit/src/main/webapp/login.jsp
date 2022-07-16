@@ -34,6 +34,7 @@
           <form class="text-left clearfix" name="formLog" method="post">
            
             <div class="form-group">
+            <div id="focus">
              <div id="userPass">
               <input id="email1" type="email" class="form-control" name="email" placeholder="email@esempio.com" required 
               onclick="myFunction()" onmouseout="myFunction2()"> 
@@ -41,11 +42,11 @@
             <div class="form-group">
               <input id="password1" type="password" class="form-control" name="pass" placeholder="Inserisci Password" required 
               onclick="myFunction1()" onmouseout="myFunction3()">
-            
+            </div>
+            </div>
             <div class="text-center">
               <button  type="button" class="btn btn-main text-center" id="submit" value="Accedi" onclick=true>Login</button>
                </div>
-              </div>
             </div>
           </form>
           

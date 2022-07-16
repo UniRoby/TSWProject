@@ -1,13 +1,14 @@
-var myIndex = 0;
-
 $(document).ready(function carousel() {
-  var i;
-  var x = document.getElementsByClassName("img-responsive");
-  for (i = 0; i < x.length; i++) {
-  	x[i].style.display = "none"; 
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 2000);
+	function onImg()
+	{ 
+		var img1=<%=bean.getImage()%>
+		var img2=<%=bean.getImage2()%>
+		this.setAttribute("src","images/shop/products/"+img2);
+	}
+	function outImg()
+	{
+		var img1=<%=bean.getImage()%>
+		var img2=<%=bean.getImage2()%>
+		this.setAttribute("src","images/shop/products/"+img1);
+	}
 })

@@ -44,10 +44,10 @@ if(occhiali == null) {
   </script>
 
 	 -->
-	 <!-- 
+	
 
-	   
--->
+
+
   
 </head>
 
@@ -72,17 +72,23 @@ if(occhiali == null) {
 				OcchialeBean bean = (OcchialeBean) it.next();%>
 	
 			<div class="col-md-4">
-				<div class="product-item">
+				 <div class="product-item">
 					<div class="product-thumb">
 						<span class="bage">Sale</span>
 						
-						<!-- 
-						<img id="img" onmouseover="setNewImage()" onmouseout="setOldImage()" src="images/shop/products/<%=bean.getImage()%>"  />
-						 -->
 						
+						<img id="img" onmouseover="setNewImage()" onmouseout="setOldImage()" src="images/shop/products/<%=bean.getImage()%>"  />
+						 
+						 
+						 <!-- 
+						<img id="img" onmouseover="onImg.call(this)" onmouseout="outImg.call(this)" src="images/shop/products/<%=bean.getImage()%>"  />
+						-->
+						<!-- 
 						<img class="img-responsive" src="images/shop/products/<%=bean.getImage()%>" alt="product-img"/>							 
 						<img class="img-responsive" src="images/shop/products/<%=bean.getImage2()%>" alt="product-img" style="display:none"/>	
-						  											  
+						 -->	
+						<!--  <img id="img" onmouseover="onImg.call(this)" onmouseout="outImg.call(this)" src="images/shop/products/<%=bean.getImage()%>"/> -->
+						 									  
 						<div class="preview-meta">
 							<ul>
 								<li>
@@ -113,6 +119,39 @@ if(occhiali == null) {
 	   </script>
 		
  				-->	
+ 				<!--
+ 					<script>
+	Function onImg()
+	{
+		this.setAttribute("src","images/shop/products/"+<%=bean.getImage2()%>+);
+	}
+	function outImg()
+	{
+		this.setAttribute("src","images/shop/products/"+<%=bean.getImage()%>+);
+	}
+	
+	</script>
+	-->	
+	 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	 <!-- <script src="resources/swapImg.js"></script> -->
+	<!-- 
+	<script type="text/javascript">
+	$(document).ready(function carousel() {
+	function onImg()
+	{ 
+		var img1=<%=bean.getImage()%>
+		var img2=<%=bean.getImage2()%>
+		this.setAttribute("src","images/shop/products/"+ <%=bean.getImage2()%> +"");
+	}
+	function outImg()
+	{
+		var img1=<%=bean.getImage()%>
+		var img2=<%=bean.getImage2()%>
+		this.setAttribute("src","images/shop/products/"+<%=bean.getImage2()%>+"");
+	}
+})	
+</script> 
+ -->
 					<div class="product-content">
 						<h4><a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>"><%=bean.getNameGlasses() %></a></h4>
 						<p class="price"><%=bean.getPrice() %>&#8364;</p>
@@ -120,8 +159,22 @@ if(occhiali == null) {
 					</div>
 				</div>
 			</div>
-			
-		
+			 <!-- 
+			 <img id="img" onmouseover="onImg.call(this)" onmouseout="outImg.call(this)" src="images/shop/products/<%=bean.getImage()%>"/>
+			 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+	function onImg()
+	{ 
+		this.setAttribute("src","images/shop/products/"+<%=bean.getImage2()%>);
+	}
+	function outImg()
+	{
+		this.setAttribute("src","images/shop/products/"+<%=bean.getImage()%>);
+	}
+	})
+	</script>
+		  -->
 			<%
 			}
 			} else {
@@ -131,7 +184,7 @@ if(occhiali == null) {
 		</div>
 	</div>	
 </section>
-
+ 
 
 
  <%@ include file="footer.html"%>

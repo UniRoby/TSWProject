@@ -38,7 +38,8 @@ if(occhiali == null) {
       <div class="row">
         <div class="col-lg-8 text-center">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODOTTI</p>
-          <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">The beauty of nature <br> is hidden in details.</h1>
+          <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Un paio di occhiali è un modo semplice di trasformare il tuo sguardo<br></h1>
+          <h3 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5"> -Goreski</h3>
           <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
         </div>
       </div>
@@ -51,24 +52,40 @@ if(occhiali == null) {
 		<div class="row">
 			<div class="col-md-12">
 				<div class="title text-center">
-					<h2>Product Category</h2>
+					<h2>Categorie Occhiali</h2>
 				</div>
 			</div>
 			<div class="col-md-6">
+			 
 				<div class="category-box">
 					<a href="#!">
-						<img src="images/shop/category/category-1.jpg" alt="" />
+						<img src="images/index/woman/donna1.jpg" alt="" />
+						 
+						 <!-- 
 						<div class="content">
-							<h3>Nuovi Arrivi</h3>
-							<p>Nuovi Occhiali </p>
+							  <img class="mySlides" src="images/index/woman/donna1.jpg">
+							  <img class="mySlides" src="images/index/woman/donna2.jpg">
+							  <img class="mySlides" src="images/index/woman/donna3.jpg">
+							  <img class="mySlides" src="images/index/woman/donna4.jpg">
 						</div>
+						 
+						<script type="text/javascript">
+							$(document).ready(function(){
+								var $smallImages = $(this).attr('src')
+							})
+						</script>
+						-->
+						<div class="content">
+							<h3>Occhiali Donna</h3>
+							<p>Nuovi Occhiali</p>
+						</div>					 
 					</a>
 				</div>
 				<div class="category-box">
 					<a href="#!">
-						<img src="images/shop/category/category-2.jpg" alt="" />
+						<img src="images/index/man/uomo1.jpg" alt="" />
 						<div class="content">
-							<h3>Occhiali Donna</h3>
+							<h3>Occhiali Uomo</h3>
 							<p>Frase</p>
 						</div>
 					</a>
@@ -79,7 +96,7 @@ if(occhiali == null) {
 					<a href="#!">
 						<img src="images/shop/category/category-3.jpg" alt="" />
 						<div class="content">
-							<h3>Occhiali Firmati</h3>
+							<h3>Tutti gli Occhiali</h3>
 							<p>Occhiali Speciali</p>
 						</div>
 					</a>
