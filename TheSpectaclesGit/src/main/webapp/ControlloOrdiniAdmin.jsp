@@ -49,8 +49,8 @@ div.log {
 		<div class="row mt-30">
 			<div class="col-md-12">
 	            <div class="buttonPart" align="center">
-	           <form action="CercaCliente" method="get"><input type="search" name="email" class="form-Cerca" placeholder="Inserisci email Cliente">
-	             
+	           <form action="searchCliente" method="get"><input type="search" name="email" class="form-Cerca" placeholder="Inserisci email Cliente">
+	             </form>
 	            </div>
 	        </div>		
 		</div>

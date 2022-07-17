@@ -18,7 +18,7 @@ import dao.*;
 import model.*;
 
 
-@WebServlet("/CercaCliente")
+@WebServlet("/cerca")
 public class SevletCercaCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private OrdineDao id_ordine=new OrdineDao();
@@ -45,12 +45,13 @@ public class SevletCercaCliente extends HttpServlet {
 		ArrayList<OrdineBean> ordini = id_ordine.doRetrieveByUser(email);
 		request.setAttribute("dati", dati);
 		request.setAttribute("email", ordini);
-		RequestDispatcher dis= request.getRequestDispatcher("/AdminCercaEmail.jsp");
-		dis.forward(request, response);
+		
 		
 	}catch(SQLException e) {
 		System.out.println("Error Servlet Cerca Cliente: " + e.getMessage());
 	}
+		RequestDispatcher dis= request.getRequestDispatcher("/AdminCercaEmail.jsp");
+		dis.forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
