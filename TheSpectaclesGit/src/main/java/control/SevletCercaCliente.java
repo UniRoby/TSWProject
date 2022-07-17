@@ -37,7 +37,7 @@ public class SevletCercaCliente extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	String email = request.getParameter("email");
 	System.out.println("Sono nel Cerca Cliente Admin\n");
-	System.out.println("emmail Cerca Utente: "+email);
+	System.out.println("email Cerca Utente: "+email);
 	
 	try{
 		
