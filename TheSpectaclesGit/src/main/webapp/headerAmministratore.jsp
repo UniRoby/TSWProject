@@ -13,7 +13,7 @@
 			 <div class="col-md-4 col-xs-12 col-sm-4">
 				<!-- Site Logo -->
 				<div class="logo text-center">
-					<a href="index.jsp">
+					<a href="ControlloAmministratore.jsp">
 						<!-- replace logo here 
 						<svg width="490px" height="40px" viewBox="0 0 155 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
 							xmlns:xlink="http://www.w3.org/1999/xlink">

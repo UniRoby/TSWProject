@@ -129,47 +129,10 @@ import model.*;
 				prep.close();
 				con.close();
 	 		}
-	 		
+	 		System.out.println("Ordini admin \n "+ordini);
 	 		return ordini;
 		}
 		
-		public int doRetrieveTotale(String id) throws SQLException {
-			OrdineBean bean = new OrdineBean();
-			Connection con = null;
-			PreparedStatement prep = null;
-			ResultSet rs = null;
-			ArrayList<OrdineBean> ordini= new ArrayList<OrdineBean>();
-	 		String selectSQL = "SELECT SUM(prezzo_reale) AS totale FROM ecommerce.occhiale_ordine INNER JOIN ordine on occhiale_ordine.id_ordine=ordine.idOrdine  where idOrdine=?;";
-	 		
-	 		try {
-	 			con = ds.getConnection();
-				prep = con.prepareStatement(selectSQL);
-				prep.setString(1, id);
-				rs = prep.executeQuery();
-				//System.out.println("DoRetrieveByKey OrdineDao: "+prep);
-	 			while (rs.next()) {
-	 			
-	 				bean.setIdOrder(UUID.fromString(rs.getString(1)));
-	 				bean.setDate(new Date(rs.getTimestamp(2).getTime()));
-	 				bean.setEmail(rs.getString(3));
-	 				bean.setStato(rs.getString(4));
-	 				//System.out.println("DoRetrieveByKey OrdineDao: "+bean);
-	 				ordini.add(bean);
-	 			}
-
-	 		} 
-	 		catch(Exception e){
-	 			e.printStackTrace();
-	 			
-	 		}finally {
-	 			
-	 			rs.close();
-				prep.close();
-				con.close();
-	 		}
-	 		
-	 		return ordini;
-		}
 	
 		public Collection<OrdineBean> doRetrieveAll(String order) throws SQLException {
 			Collection<OrdineBean> ordine = new ArrayList<OrdineBean>();

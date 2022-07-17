@@ -48,7 +48,7 @@ div.log {
 	            
 	              <ul class="list-inline mt-10">
 	                <li class="li"><a href="ControlloAdmin?azione=controllo" class="btn btn-main btn-large btn-round-full">Controlla il catalogo</a></li>
-	                <li class="li"><a href="ControlloAdmin?azione=ordiniNominativo" class="btn btn-main btn-large btn-round-full">Controlla gli ordini per clienten</a></li>
+	                <li class="li"><a href="ControlloAdmin?azione=ordiniNominativo" class="btn btn-main btn-large btn-round-full">Controlla gli ordini per cliente</a></li>
 	               <li class="li"><a href="ControlloAdmin?azione=ordiniData" class="btn btn-main btn-large btn-round-full">Controlla gli ordini per Data</a></li>
 	              </ul>
 	            </div>

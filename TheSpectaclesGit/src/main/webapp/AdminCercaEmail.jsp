@@ -6,11 +6,6 @@
     pageEncoding="UTF-8"%>
 
 <%
-UtenteBean admin = (UtenteBean) request.getAttribute("admin");
-if (admin == null){
-response.sendRedirect("./ControlloAdmin");
-return ;
-}
 ArrayList<OrdineBean> ordiniUtente = (ArrayList<OrdineBean>) request.getAttribute("email");
 UtenteBean dati=(UtenteBean) request.getAttribute("dati");
 %>
@@ -61,11 +56,6 @@ else {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<ul class="list-inline dashboard-menu text-center">
-					 <li><a href="order.jsp">Ordini</a></li>
-			          <li><a class="active" href="Indirizzo?page='ok'">Indirizzi</a></li>
-			          <li><a href="profile-details.jsp">Dettagli Profilo</a></li>
-				</ul>
 				<div class="dashboard-wrapper user-dashboard">
 					<div class="table-responsive">
 						<table class="table">

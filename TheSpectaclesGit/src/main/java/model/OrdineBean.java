@@ -65,7 +65,7 @@ public class OrdineBean implements Serializable {
 	}
 
 	public String toString() {
-		return "Ordine [idOrder=" + idOrder + ", date=" + data + ", email=" + email + "]";
+		return "Ordine [idOrder=" + idOrder + ", date=" + data + ", email=" + email + ", tot = " + tot + "]";
 	}
 	
 }

@@ -30,8 +30,8 @@ public class SearchCliente extends HttpServlet {
 	public void init() throws ServletException {
 		super.init();
 		
-		/*id_ordine.setDB((DataSource) getServletContext().getAttribute("DataSource"));
-		id_utente.setDB((DataSource) getServletContext().getAttribute("DataSource"));*/
+		id_ordine.setDB((DataSource) getServletContext().getAttribute("DataSource"));
+		id_utente.setDB((DataSource) getServletContext().getAttribute("DataSource"));
 		
 	}
 	
@@ -42,21 +42,21 @@ public class SearchCliente extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		
-		/*String email = request.getParameter("email");*/
+		String email = request.getParameter("email");
 		System.out.println("Sono nel Cerca Cliente Admin\n");
-		//System.out.println("emmail Cerca Utente: "+email)
+		System.out.println("email Cerca Utente: "+email);
 		try {
-			/*request.removeAttribute("dati");
+			request.removeAttribute("dati");
 			request.removeAttribute("email");
 			UtenteBean dati= id_utente.doRetrieveByMail(email);
 			ArrayList<OrdineBean> ordini = id_ordine.doRetrieveByUser(email);
 			request.setAttribute("dati", dati);
-			request.setAttribute("email", ordini);*/
-			
+			request.setAttribute("email", ordini);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AdminCercaEmail.jsp");
+			dispatcher.forward(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AdminCercaEmail.jsp");
-		dispatcher.forward(request, response);
+
 	}
 }

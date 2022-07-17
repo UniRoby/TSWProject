@@ -76,7 +76,9 @@ import model.*;
 				prep.setString(1, email);
 				
 				rs = prep.executeQuery();
-
+				
+				System.out.println("Sono nel metodo doRetrieveByMail "+prep);
+				
 	 			while (rs.next()) {
 	 				
 	            	bean.setPass(rs.getString("pass"));
