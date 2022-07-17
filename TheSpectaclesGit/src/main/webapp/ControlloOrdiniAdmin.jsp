@@ -49,10 +49,7 @@ div.log {
 		<div class="row mt-30">
 			<div class="col-md-12">
 	            <div class="buttonPart" align="center">
-	            <form action="CercaCliente" method="get">
-				<input type="search" name="email" placeholder="Inserisci nome cliente">
-				<input type="submit" value="Cerca" class="small" style=" font-size: 14px; padding:0px 2px;height:20px; width:100px;">
-				</form>
+	           <form action="CercaCliente" method="get"><input type="search" name="email" class="form-Cerca" placeholder="Inserisci email Cliente">
 	             
 	            </div>
 	        </div>		
