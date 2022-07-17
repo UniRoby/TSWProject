@@ -10,7 +10,8 @@ public class OcchialeOrdineBean implements Serializable {
 	private int idOcchialeOrdine;
 	private UUID idOrdine;
 	private OcchialeBean occhiale;
-	private float prezzoEffettivo;
+	private String idOcchiale;
+	private int prezzoEffettivo;
 	private float iva;
 	private int quantita;
 
@@ -21,18 +22,35 @@ public class OcchialeOrdineBean implements Serializable {
 		this.iva = 0;
 		this.quantita = 0;
 	}
+	
+	
 
 	public OcchialeOrdineBean(
 			int idOcchialeOrdine,
 			UUID idOrdine,
 			OcchialeBean occhiale,
-			float prezzoEffettivo,
+			int prezzoEffettivo,
 			float iva,
 			int quantita
 	) {
 		this.idOcchialeOrdine = idOcchialeOrdine;
 		this.idOrdine = idOrdine;
 		this.occhiale = occhiale;
+		this.prezzoEffettivo = prezzoEffettivo;
+		this.iva = iva;
+		this.quantita = quantita;
+	}
+	public OcchialeOrdineBean(
+			int idOcchialeOrdine,
+			UUID idOrdine,
+			String idOcchiale,
+			int prezzoEffettivo,
+			float iva,
+			int quantita
+	) {
+		this.idOcchialeOrdine = idOcchialeOrdine;
+		this.idOrdine = idOrdine;
+		this.idOcchiale = idOcchiale;
 		this.prezzoEffettivo = prezzoEffettivo;
 		this.iva = iva;
 		this.quantita = quantita;
@@ -48,6 +66,12 @@ public class OcchialeOrdineBean implements Serializable {
 
 	public OcchialeBean getProdotto() {
 		return occhiale;
+	}
+	public String getIdProdotto() {
+		return idOcchiale;
+	}
+	public void setIdProdotto(String id) {
+		this.idOcchiale=id;
 	}
 
 	public float getPrezzoEffettivo() {
@@ -74,11 +98,16 @@ public class OcchialeOrdineBean implements Serializable {
 		this.occhiale = occhiale;
 	}
 
-	public void setPrezzoEffettivo(float prezzoEffettivo) {
+	public void setPrezzoEffettivo(int prezzoEffettivo) {
 		this.prezzoEffettivo = prezzoEffettivo;
 	}
 
 	public void setQuantita(int quantita) {
 		this.quantita = quantita;
+	}
+	
+	public String toString() {
+		return "OcchialeOrdineBean [idOcchialeOrdine=" + idOcchialeOrdine + ", idOrdine=" + idOrdine + ", occhiale=" + idOcchiale + ",prezzoEffettivo="
+				+ prezzoEffettivo+ ", iva=" + iva + ", quantita=" +quantita  + "]";
 	}
 }

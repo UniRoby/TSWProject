@@ -11,6 +11,8 @@ response.sendRedirect(getServletContext().getContextPath() +
 "/login.jsp"); } 
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 ArrayList<OcchialeOrdineBean> prodotti = (ArrayList<OcchialeOrdineBean>) request.getAttribute("prodotti");
+
+System.out.println("orderDetails\n"+prodotti);
 OrdineBean ordine= (OrdineBean) request.getAttribute("ordine");
 
 %>
@@ -32,7 +34,7 @@ OrdineBean ordine= (OrdineBean) request.getAttribute("ordine");
 		<div class="row">
 			<div class="col-md-12">
 				<div class="content">
-					<h1 class="page-name">Dettaglio Ordine <p><%=ordine.getIdOrder() %></p></h1>
+					<h1 class="page-name">Dettaglio Ordine </h1> <!-- ordine.getIdOrder() -->
 				</div>
 			</div>
 		</div>
@@ -54,7 +56,7 @@ OrdineBean ordine= (OrdineBean) request.getAttribute("ordine");
 								<tr>
 									<th>Img</th>
 									<th>Nome</th>
-									<th>Brand</th>
+									<!-- <th>Brand</th> -->
 									<th>Quantità</th>
 									<th>Prezzo Totale</th>
 									<th></th>
@@ -71,10 +73,10 @@ OrdineBean ordine= (OrdineBean) request.getAttribute("ordine");
 				                          <img width="80" src="images/shop/products/<%=prodotto.getProdotto().getImage()%>" alt="" />
 
 				                      </td>
-									<td><%= prodotto.getProdotto().getNameGlasses()%></td>
-									<td><%= prodotto.getProdotto().getBrand()%></td>
+									<td><%= prodotto.getIdProdotto()%></td>
+									<!-- <td><%= prodotto.getProdotto().getBrand()%></td> -->
 									<td><%= prodotto.getQuantita()%></td>
-									<td><%= prodotto.getProdotto().getPrice() * prodotto.getQuantita() %>&#8364;</td>
+									<td><%= tot %>&#8364;</td>
 									
 									
 								</tr>
