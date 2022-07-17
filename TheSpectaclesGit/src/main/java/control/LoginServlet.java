@@ -2,8 +2,11 @@ package control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -44,10 +47,22 @@ public class LoginServlet extends HttpServlet {
 		   
 			String email = request.getParameter("email");
 			String pw = request.getParameter("password");
+			
+	        byte[] data1 = pw.getBytes("UTF-8");
+	        MessageDigest mdhash = null;
+			try {
+				mdhash = MessageDigest.getInstance("SHA-256");
+			} catch (NoSuchAlgorithmException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+	        byte[] digest = mdhash.digest(data1);              
+	        String HashPassw = Base64.getEncoder().encodeToString(digest);
+			
 			ArrayList<String> value= new ArrayList<String>();
 			PrintWriter out= response.getWriter();
 			value.add(email);
-			value.add(pw);
+			value.add(HashPassw);
 			
 			try{
 				UtenteBean cerca= utenteModel.doRetrieveByKey(value);
