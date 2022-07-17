@@ -43,7 +43,6 @@ public class ServletDettagliOrdine extends HttpServlet {
 			UtenteBean bean= (UtenteBean) request.getSession().getAttribute("auth");
 			
 			String idOrdine= request.getParameter("ordineId");
-			System.out.println("Ordine id Servelt Dettagli ordine: "+idOrdine);
 			
 			try {
 				OrdineBean ordine= ordineDao.doRetrieveByKey(idOrdine);
@@ -51,12 +50,12 @@ public class ServletDettagliOrdine extends HttpServlet {
 				
 				request.setAttribute("prodotti", occhialeOrdineDao.doRetrivebyOrder(idOrdine,(DataSource) getServletContext().getAttribute("DataSource")));
 				request.setAttribute("ordine", ordine);
-					
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/orderDetails.jsp");
+				dispatcher.forward(request, response);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/orderDetails.jsp");
-			dispatcher.forward(request, response);
+
 		} else {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(request, response);

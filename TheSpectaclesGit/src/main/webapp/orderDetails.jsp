@@ -54,9 +54,9 @@ OrdineBean ordine= (OrdineBean) request.getAttribute("ordine");
 						<table class="table">
 							<thead>
 								<tr>
-									<th>Img</th>
+								<!-- 
+									<th>Img</th> -->
 									<th>Nome</th>
-									<!-- <th>Brand</th> -->
 									<th>Quantità</th>
 									<th>Prezzo Totale</th>
 									<th></th>
@@ -66,15 +66,10 @@ OrdineBean ordine= (OrdineBean) request.getAttribute("ordine");
 							<%
 								float tot = 0;
 								for(OcchialeOrdineBean prodotto: prodotti){
-									tot+= prodotto.getPrezzoEffettivo() * prodotto.getQuantita(); 
+									tot= prodotto.getPrezzoEffettivo() * prodotto.getQuantita(); 
 							%>
 								<tr>
-									<td>
-				                          <img width="80" src="images/shop/products/<%=prodotto.getProdotto().getImage()%>" alt="" />
-
-				                      </td>
 									<td><%= prodotto.getIdProdotto()%></td>
-									<!-- <td><%= prodotto.getProdotto().getBrand()%></td> -->
 									<td><%= prodotto.getQuantita()%></td>
 									<td><%= tot %>&#8364;</td>
 									

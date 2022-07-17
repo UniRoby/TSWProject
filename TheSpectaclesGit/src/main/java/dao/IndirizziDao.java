@@ -206,7 +206,9 @@ import model.*;
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(insertSQL);
-
+				
+				System.out.println("Do Save "+prep);
+				
 				//prep.setInt(1, indirizzo.getIdIndirizzo());
 				prep.setString(1, indirizzo.getAddress());
 				prep.setInt(2, indirizzo.getStatus());

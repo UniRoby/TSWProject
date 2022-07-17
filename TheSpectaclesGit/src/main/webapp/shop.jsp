@@ -75,9 +75,9 @@ if(occhiali == null) {
 				 <div class="product-item">
 					<div class="product-thumb">
 						<span class="bage">Sale</span>					 
-						 <!-- 
+						 
 						<img id="img" onmouseover="onImg.call(this)" onmouseout="outImg.call(this)" src="images/shop/products/<%=bean.getImage()%>"  />
-						 -->
+						 
 						<!-- 
 						<img class="img-responsive" src="images/shop/products/<%=bean.getImage()%>" alt="product-img"/>							 
 						<img class="img-responsive" src="images/shop/products/<%=bean.getImage2()%>" alt="product-img" style="display:none"/>	
@@ -156,7 +156,7 @@ if(occhiali == null) {
 	
 	</script>
 	-->  
-	
+	<!--
 		<img id="img" onmouseover="setNewImage()" onmouseout="setOldImage()" src="images/shop/products/<%=bean.getImage()%>"/>		 
 		
 		<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
@@ -172,7 +172,7 @@ if(occhiali == null) {
 	   
 	   </script>
 		
- 				
+ 			--> 	
 	 	<%
 			}
 			} else {

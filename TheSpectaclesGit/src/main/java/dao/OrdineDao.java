@@ -95,7 +95,7 @@ import model.*;
 	 		return bean;
 		}
 		public ArrayList<OrdineBean> doRetrieveByUser(String email) throws SQLException {
-			OrdineBean bean = new OrdineBean();
+			
 			Connection con = null;
 			PreparedStatement prep = null;
 			ResultSet rs = null;
@@ -109,7 +109,8 @@ import model.*;
 				rs = prep.executeQuery();
 				//System.out.println("DoRetrieveByKey OrdineDao: "+prep);
 	 			while (rs.next()) {
-	 			
+	 				
+	 				OrdineBean bean = new OrdineBean();
 	 				bean.setIdOrder(UUID.fromString(rs.getString("idOrdine")));
 	 				bean.setDate(new Date(rs.getTimestamp("data").getTime()));
 	 				
