@@ -35,7 +35,7 @@ public class Search extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-		
+	
 		String brand = request.getParameter("brand");
 		try {
 			request.removeAttribute("occhiali");

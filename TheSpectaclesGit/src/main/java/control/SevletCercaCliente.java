@@ -18,7 +18,7 @@ import dao.*;
 import model.*;
 
 
-@WebServlet("/cerca")
+@WebServlet("/CercaCliente")
 public class SevletCercaCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private OrdineDao id_ordine=new OrdineDao();
