@@ -76,7 +76,7 @@ public class OcchialeOrdineDao {
 
 				OcchialeBean prod = (OcchialeBean) new OcchialeDao().doRetrieveByKey(key);
 				OcchialeOrdineBean prodotto = new OcchialeOrdineBean(rs.getInt(1), UUID.fromString(rs.getString(3)),
-						prod, rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
+						prod, rs.getInt(4), rs.getFloat(5), rs.getInt(6));
 				listaProdotti.add(prodotto);
 			}
 
@@ -111,7 +111,7 @@ public class OcchialeOrdineDao {
 				key.add(rs.getString(2));
 				OcchialeBean prod = (OcchialeBean) new OcchialeDao().doRetrieveByKey(key);
 				OcchialeOrdineBean bean = new OcchialeOrdineBean(rs.getInt(1), UUID.fromString(rs.getString(3)), prod,
-						rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
+						rs.getInt(4), rs.getFloat(5), rs.getInt(6));
 
 				occhiali.add(bean);
 			}
@@ -179,12 +179,13 @@ public class OcchialeOrdineDao {
 		rs = prep.executeQuery();
 
 		while (rs.next()) {
-			OcchialeDao oDao= new OcchialeDao();
+			/*OcchialeDao oDao= new OcchialeDao();
 			oDao.setDB(data);
-			OcchialeBean prod= oDao.doRetrieveOcchiale(rs.getString("id_occhiale"));
-			OcchialeOrdineBean bean = new OcchialeOrdineBean(rs.getInt(1), UUID.fromString(rs.getString(3)), prod,
-					rs.getFloat(4), rs.getFloat(5), rs.getInt(6));
-			System.out.println("Metodo Dao: "+bean);
+			OcchialeBean prod= oDao.doRetrieveOcchiale(rs.getString(2));
+			System.out.println("Metodo OcchialeOrdineDao  OcchialeBean: "+prod);*/
+			OcchialeOrdineBean bean = new OcchialeOrdineBean(rs.getInt(1), UUID.fromString(rs.getString("id_ordine")), rs.getString("id_occhiale"),
+					rs.getInt("prezzo_reale"), rs.getFloat("iva"), rs.getInt("quantita"));
+			System.out.println("Metodo OcchialeOrdineDao  doRetrivebyOrder: "+bean);
 			ordini.add(bean);
 		}
 	} catch (Exception e) {
@@ -195,7 +196,7 @@ public class OcchialeOrdineDao {
 		prep.close();
 		con.close();
 	}
-
+	System.out.println("tutti gli ordini doRetrivebyOrder: "+ordini);
 	return ordini;
 }
 

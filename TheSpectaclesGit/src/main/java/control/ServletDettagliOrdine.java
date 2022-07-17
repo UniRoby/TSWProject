@@ -38,22 +38,20 @@ public class ServletDettagliOrdine extends HttpServlet {
 	}	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		System.out.println("Servlet dettagli ordini\n");
 		if (request.getSession().getAttribute("auth") != null) {
 			UtenteBean bean= (UtenteBean) request.getSession().getAttribute("auth");
 			
 			String idOrdine= request.getParameter("ordineId");
-			System.out.println(idOrdine);
+			System.out.println("Ordine id Servelt Dettagli ordine: "+idOrdine);
 			
 			try {
 				OrdineBean ordine= ordineDao.doRetrieveByKey(idOrdine);
-				System.out.println(ordine);
+				//System.out.println(ordine);
+				
 				request.setAttribute("prodotti", occhialeOrdineDao.doRetrivebyOrder(idOrdine,(DataSource) getServletContext().getAttribute("DataSource")));
 				request.setAttribute("ordine", ordine);
-				
-				
-				
-				
+					
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

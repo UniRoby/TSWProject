@@ -10,6 +10,7 @@ public class OrdineBean implements Serializable {
 	Date data;
 	String email;
 	String stato;
+	int tot=0;
 	
 
 	public OrdineBean() {
@@ -17,6 +18,7 @@ public class OrdineBean implements Serializable {
 		this.email = null;
 		this.data = null;
 		this.stato = null;
+		
 	}
 	
 
@@ -52,7 +54,12 @@ public class OrdineBean implements Serializable {
 	public String getEmail() {
 		return email;
 	}
-
+	public int getTot() {
+		return tot;
+	}
+	public void setTot(int t) {
+		tot=t;
+	}
 	public void setEmail(String email) {
 		this.email = email;
 	}

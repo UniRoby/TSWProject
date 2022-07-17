@@ -78,7 +78,7 @@ public OcchialeBean doRetrieveOcchiale (String id) throws SQLException {
 			PreparedStatement prep = null;
 			ResultSet rs = null;
 			OcchialeBean bean = new OcchialeBean();
-	 		String sql = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE categoria = ?";
+	 		String sql = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE idOcchiale = ?";
 	 		
 
 	 		try {
@@ -86,7 +86,7 @@ public OcchialeBean doRetrieveOcchiale (String id) throws SQLException {
 				prep = con.prepareStatement(sql);
 				prep.setString(1,id);
 				rs = prep.executeQuery();
-
+				System.out.println("\nQuery doRetrieveOcchiale: "+prep);
 	 			while (rs.next()) {
 	 				
 	            	bean.setIdGlasses(rs.getString("idOcchiale"));
@@ -119,6 +119,7 @@ public OcchialeBean doRetrieveOcchiale (String id) throws SQLException {
 				}
 				
 	 		}
+	 		System.out.println("Metodo OcchialeDao  doRetrieveOcchiale: \n"+bean);
 	 		return bean;
 		}
 		public Collection<OcchialeBean> doRetrieveByBrand(String brand) throws SQLException {
