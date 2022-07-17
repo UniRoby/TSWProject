@@ -88,7 +88,7 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
                   <td><%= bean.getAddress() %></td>
                   <td><%= bean.getCity() %>, <%= bean.getProvince() %> </td>
                   <td><%= bean.getCap() %></td>
-                  <td>+884 5452 6452</td>
+                  <td><%= bean.getTelefono() %></td>
                   <td>
                     <div class="btn-group" role="group">
                       <button type="button" class="btn btn-default"><i class="tf-pencil2" aria-hidden="true"></i></button>
