@@ -84,13 +84,8 @@ else {
 							
 							<%
 							 for(OrdineBean ordine: ordini){
-								 	String id= String.valueOf(ordine.getIdOrder());
-					        		ArrayList<OcchialeOrdineBean> prodotti = new OcchialeOrdineDao().doRetrivebyOrder(id,(DataSource) getServletContext().getAttribute("DataSource"));
-					        		float total = 0;
-					        		for(OcchialeOrdineBean prod: prodotti){
-					        			total += prod.getPrezzoEffettivo() * prod.getQuantita();
-					        			
-					        		}
+								 	String id= String.valueOf(ordine.getIdOrder());								
+
 								
 							
 							  %>
@@ -100,7 +95,7 @@ else {
 									<td><%= new SimpleDateFormat("dd/MM/yyyy - HH:mm", Locale.ITALIAN).format(ordine.getDate()).toString()%></td>
 									<td><span class="label label-success"><%= ordine.getStato() %></span></td>
 									<td><%=ordine.getEmail()  %></td>
-									<td><%=total %></td>
+									<td><%=ordine.getTot()  %>&#8364;</td>
 								</tr>
 							<%
 							}

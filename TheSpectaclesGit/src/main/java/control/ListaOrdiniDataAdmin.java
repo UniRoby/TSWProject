@@ -52,6 +52,7 @@ public class ListaOrdiniDataAdmin extends HttpServlet {
 			request.setAttribute("limit", limit);
 			RequestDispatcher dis= getServletContext().getRequestDispatcher("/AdminCercaPerData.jsp");
 			dis.forward(request, response);	
+			System.out.println("Sono dopo dispatcher \n");
 			return;
 		} catch (ParseException e) {
 			response.getWriter().println("Errore nel convertire la data");

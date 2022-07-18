@@ -49,7 +49,7 @@ div.log {
 		<div class="row mt-30">
 			<div class="col-md-12">
 	            <div class="buttonPart" align="center">
-				<form action="ordiniData" method="post">
+				<form action="ordiniData" method="get">
 				<div align="center">
 				Inserisci la data di inizio:<br><input type="date" name="dateStart"><br><br>
 				Inserisci la data di fine:<br><input type="date" name="dateEnd"><br><br>

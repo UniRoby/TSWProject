@@ -28,6 +28,7 @@
             <img src="images/logo.png" alt="">
           </a>
           <h2 class="text-center">Crea il tuo Account</h2>
+            			
           
           <form class="text-left clearfix"  name="formReg" method ="post">
             

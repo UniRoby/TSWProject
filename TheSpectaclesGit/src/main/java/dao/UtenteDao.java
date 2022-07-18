@@ -4,11 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import javax.sql.DataSource;
-import java.sql.Date;
+import java.util.Date;
 import model.*;
 
 
@@ -191,13 +192,14 @@ import model.*;
 
 				prep.setString(1, utente.getFirstName());
 				prep.setString(2, utente.getLastName());
-				prep.setDate(3, utente.getBirthday(), Calendar.getInstance());
+				prep.setString(3, new SimpleDateFormat("yyyy-MM-dd").format(utente.getBirthday()));
+				//prep.setDate(3, (java.sql.Date) utente.getBirthday());
 				prep.setString(4, utente.getEmail());
 				prep.setString(5, utente.getPass());
 				prep.setInt(6, utente.getRole());
 				
 			
-				
+				System.out.println("il birh : "+utente.getBirthday());
 				prep.executeUpdate();
 
 			} finally {

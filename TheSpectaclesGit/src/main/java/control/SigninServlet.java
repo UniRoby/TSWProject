@@ -5,13 +5,12 @@ import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
-
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
 import java.util.regex.Pattern;
 import java.text.ParseException;
-import java.sql.Date;  
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -65,7 +64,13 @@ public class SigninServlet extends HttpServlet {
 		
 		String nome= request.getParameter("nome");
 		String cognome= request.getParameter("cognome");
-		//Date data = Date.valueOf(request.getParameter("data"));
+		Date birth=new Date();
+		try {
+			birth = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(request.getParameter("data"));
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		System.out.println(request.getParameter("data"));
 		
@@ -78,7 +83,7 @@ public class SigninServlet extends HttpServlet {
 		ArrayList<String> value= new ArrayList<String>();
 		value.add(email);
 		value.add(newPassword);
-		UtenteBean newUtente= new UtenteBean(email,HashPassw,nome,cognome,new Date(5,5, 5),ruolo);
+		UtenteBean newUtente= new UtenteBean(email,HashPassw,nome,cognome,birth,ruolo);
 		try {
 			
 			utenteModel.doSave(newUtente);

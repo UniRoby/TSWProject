@@ -23,6 +23,7 @@ import model.*;
 
 		public void setDB(DataSource obj) {
 			this.ds=obj;
+			System.out.println("DataSource : "+ds+"\n");
 		}
 		public void doSave(OrdineBean ordine) throws SQLException {
 			OrdineBean bean = new OrdineBean();
@@ -248,23 +249,26 @@ import model.*;
 				PreparedStatement prep = null;
 				ResultSet rs = null;
 				String query =
-					"SELECT * FROM " +
-					TABLE_NAME +
-					" WHERE _data >= ? AND _data <= ? ORDER BY _data DESC LIMIT ?, ?"; // LIMIT skip, limit
+					"SELECT idOrdine,data,email,stato,SUM(prezzo_reale) AS totale FROM ecommerce.occhiale_ordine INNER JOIN ordine on occhiale_ordine.id_ordine=ordine.idOrdine " +
+					" WHERE data >= ? AND data <= ? group by idOrdine ORDER BY data DESC LIMIT  ?, ? "; // LIMIT skip, limit
 				try {
 					con = ds.getConnection();
 					prep = con.prepareStatement(query);
+					
 					prep.setString(1, new SimpleDateFormat("yyyy-MM-dd").format(init));
 					prep.setString(2, new SimpleDateFormat("yyyy-MM-dd").format(end) + " 23:59:59");
 					prep.setInt(3, skip);
 					prep.setInt(4, limit);
+					System.out.println(prep+"\n");
 					rs = prep.executeQuery();
+					
 					while (rs.next()) {
 						OrdineBean bean = new OrdineBean();
 						bean.setIdOrder(UUID.fromString(rs.getString("idOrdine")));
 						bean.setEmail(rs.getString("email"));
 						bean.setDate(new Date(rs.getTimestamp("data").getTime()));
 						bean.setStato(rs.getString("stato"));
+						bean.setTot(rs.getInt("totale"));
 					
 						ordine.add(bean);
 					}
