@@ -261,10 +261,10 @@ import model.*;
 					rs = prep.executeQuery();
 					while (rs.next()) {
 						OrdineBean bean = new OrdineBean();
-						bean.setIdOrder(UUID.fromString(rs.getString(1)));
-						bean.setEmail(rs.getString(3));
-						bean.setDate(new Date(rs.getTimestamp(2).getTime()));
-						bean.setStato(rs.getString(4));
+						bean.setIdOrder(UUID.fromString(rs.getString("idOrdine")));
+						bean.setEmail(rs.getString("email"));
+						bean.setDate(new Date(rs.getTimestamp("data").getTime()));
+						bean.setStato(rs.getString("stato"));
 					
 						ordine.add(bean);
 					}
