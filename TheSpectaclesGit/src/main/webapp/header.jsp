@@ -222,7 +222,7 @@
 									<ul>
 									<li class="dropdown-header">Dashboard</li>
 										<li role="separator" class="divider"></li>
-										<li><a href="profile_details.jsp">Dettagli Profilo</a></li>
+										<li><a href="Profile">Dettagli Profilo</a></li>
 										<li><a href="CronologiaOrdini">Ordini</a></li>
 										<li><a href="Indirizzo?page=ok">Indirizzi</a></li>
 

@@ -40,7 +40,7 @@ if(occhiali == null) {
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODOTTI</p>
           <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Un paio di occhiali è un modo semplice di trasformare il tuo sguardo<br></h1>
           <h3 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5"> -Goreski</h3>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Shop Now</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.jsp">Vai al negozio</a>
         </div>
       </div>
     </div>
@@ -77,16 +77,14 @@ if(occhiali == null) {
 						-->
 						<div class="content">
 							<h3>Occhiali Donna</h3>
-							<p>Nuovi Occhiali</p>
 						</div>					 
 					</a>
 				</div>
 				<div class="category-box">
 					<a href="#!">
-						<img src="images/index/man/uomo1.jpg" alt="" />
+						<img src="images/index/man/uomo2.jpg" alt="" />
 						<div class="content">
 							<h3>Occhiali Uomo</h3>
-							<p>Frase</p>
 						</div>
 					</a>
 				</div>
@@ -94,10 +92,9 @@ if(occhiali == null) {
 			<div class="col-md-6">
 				<div class="category-box category-box-2">
 					<a href="#!">
-						<img src="images/shop/category/category-3.jpg" alt="" />
+						<img src="images/index/man/uomo1.jpg" alt="" />
 						<div class="content">
 							<h3>Tutti gli Occhiali</h3>
-							<p>Occhiali Speciali</p>
 						</div>
 					</a>
 				</div>

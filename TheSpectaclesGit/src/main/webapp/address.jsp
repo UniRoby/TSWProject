@@ -50,7 +50,7 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
 			<ul class="list-inline dashboard-menu text-center">
 				<li><a href="CronologiaOrdini">Ordini</a></li>
 				<li><a class="active" href="Indirizzo?page=ok">Indirizzi</a></li>										
-				<li><a  href="profile_details.jsp">Dettagli Profilo</a></li>	
+				<li><a  href="Profile">Dettagli Profilo</a></li>	
 			</ul> 
         <div class="dashboard-wrapper user-dashboard">
           <div class="table-responsive">

@@ -49,7 +49,7 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 			<ul class="list-inline dashboard-menu text-center">
 				<li><a href="CronologiaOrdini">Ordini</a></li>
 				<li><a href="Indirizzo?page=ok">Indirizzi</a></li>										
-				<li><a class="active" href="profile_details.jsp">Dettagli Profilo</a></li>	
+				<li><a class="active" href="Profile">Dettagli Profilo</a></li>	
 			</ul> 
         <div class="dashboard-wrapper dashboard-user-profile">
           <div class="media">
