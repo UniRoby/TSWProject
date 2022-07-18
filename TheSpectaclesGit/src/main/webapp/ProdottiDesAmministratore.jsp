@@ -5,13 +5,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
 <%
-
 OcchialeBean bean = (OcchialeBean) request.getAttribute("des");
-
-
  %>
+ 
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -25,12 +22,9 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("des");
 
 <%@ include file="headerAmministratore.jsp"%>
 
-
-
 <% 
 		if (bean != null) {
-			
-			
+				
 				%>
 
 <section class="single-product">
@@ -70,7 +64,6 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("des");
 							</a>
 						</div>
 						
-					
 						
 						<ol class='carousel-indicators mCustomScrollbar meartlab'>
 							<li data-target='#carousel-custom' data-slide-to='0' class='active'>
@@ -98,10 +91,6 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("des");
 			       <p> Categoria: <%=bean.getCategory()%> </p>
 			       <p> Codice: <%=bean.getIdGlasses()  %> </p>
 
-					 					
-					
-
-					
 					
 				
 					<div class="product-quantity">
@@ -132,7 +121,6 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("des");
 						</div>
 						
 						
-						
 					</div>
 				</div>
 			</div>
@@ -140,20 +128,14 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("des");
 	</div>
 </section>
 
-	<%
-			
+	<%	
 			} else {
 			out.println("There is no proucts");
 			}
-			%>
+	%>
 
-
-
-    
 	 <%@ include file="footer.html"%>
-
      <%@ include file="script.html"%>
 	
-
   </body>
   </html>

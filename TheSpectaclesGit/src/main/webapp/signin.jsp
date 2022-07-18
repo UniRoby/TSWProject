@@ -2,12 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
 
- 
   <meta charset="utf-8">
   <script src="./resources/Ajax.js"></script>
   <meta name="description" content="Registrazione">
@@ -29,7 +27,6 @@
           </a>
           <h2 class="text-center">Crea il tuo Account</h2>
             			
-          
           <form class="text-left clearfix"  name="formReg" method ="post">
             
             <div class="form-group">
@@ -64,7 +61,6 @@
 </section>
  
    <%@ include file="footer.html"%>
-
    <%@ include file="script.html"%>
    <script src="./resources/ajaxRegistrazione.js"></script>
 

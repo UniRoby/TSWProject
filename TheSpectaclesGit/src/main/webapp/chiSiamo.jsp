@@ -106,38 +106,38 @@ hanno pensato di realizzare un e-commerce finalizzato alla vendita di occhiali p
 <div class="col">
 	<div class="card">
 		<div class="container">
-			<img src="images/team/Alessandro.jpg" class="imge"><br><br>
+			<img src="images/team/team-1.jpg" class="imge"><br><br>
 			<div class="overlay">
    				 <div class="imge1"><img src="./image/ChiSiamoMarilyn.jpeg" style="width:180px; height:180px; border-radius: 50%;">
    				 </div>
    			</div>
    		</div>
 					<p><b>Roberto Piscopo</b><br>
-						Studentessa di Informatica all'Università degli Studi di Salerno.<br>
+						Studente di Informatica all'Università degli Studi di Salerno.<br>
 						</p>
 						<p>
 								<br>Contatti:<br>
-								M.Ferrara115@studenti.unisa.it<br>
-								<a href="https://github.com/MiriamFerrara">Github.com/MiriamFerrara</a></p>
+								r.piscopo8@studenti.unisa.it<br>
+								<a href="https://github.com/UniRoby">Github.com/UniRoby</a></p>
 	</div>
 </div>
 
 <div class="col">
 	<div class="card">
 		<div class="container">
-			<img src="images/team/Alessandro.jpg" class="imge"><br><br>
+			<img src="images/team/team-1.jpg" class="imge"><br><br>
 			<div class="overlay">
    				 <div class="imge1"><img src="./image/ChiSiamoMarilyn.jpeg" style="width:180px; height:180px; border-radius: 50%;">
    				 </div>
    			</div>
    		</div>
 					<p><b>Mario Ranieri</b><br>
-						Studentessa di Informatica all'Università degli Studi di Salerno.<br>
+						Studente di Informatica all'Università degli Studi di Salerno.<br>
 						</p>
 						<p>
 								<br>Contatti:<br>
-								M.Ferrara115@studenti.unisa.it<br>
-								<a href="https://github.com/MiriamFerrara">Github.com/MiriamFerrara</a></p>
+								M.ranieri21@studenti.unisa.it<br>
+								<a href="https://github.com/Mario3107">Github.com/Mario3107</a></p>
 	</div>
 </div>
 
@@ -156,19 +156,14 @@ hanno pensato di realizzare un e-commerce finalizzato alla vendita di occhiali p
 						<p>
 								<br>Contatti:<br>
 								a.satta2@studenti.unisa.it<br>
-								<a href="https://github.com/TechAlexS">https://github.com/TechAlexS</a>
+								<a href="https://github.com/TechAlexS">Github.com/TechAlexS</a>
 						</p>
 	</div>
 </div>
 </div>
-<br><br>
 
-
- 
- 
  <%@ include file="footer.html"%>
  <%@ include file="script.html"%>
-
 
   </body>
   </html>

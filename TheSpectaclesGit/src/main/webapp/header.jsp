@@ -8,8 +8,7 @@
 		<div class="row">
 			<div class="col-md-4 col-xs-12 col-sm-4">
 				<div class="contact-number">
-			
-					
+				
 				</div>
 			 </div>
 			 <div class="col-md-4 col-xs-12 col-sm-4">
@@ -201,15 +200,10 @@
 								</div>
 
 
-
-
 							</div><!-- / .row -->
 						</div><!-- / .dropdown-menu -->
 					</li><!-- / Elements -->
 
-						
-						
-						
 					<li class="dropdown dropdown-slide">
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
 							role="button" aria-haspopup="true" aria-expanded="false">Profilo <span
@@ -228,9 +222,6 @@
 
 									</ul>
 								</div>
-
-
-
 
 							</div><!-- / .row -->
 						</div><!-- / .dropdown-menu -->
