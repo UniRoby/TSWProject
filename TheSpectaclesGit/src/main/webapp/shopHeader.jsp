@@ -24,16 +24,6 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3">
-				<div class="widget">
-					<h4 class="widget-title">Cerca per tipo</h4>
-					<form method="post" action="#">
-                        <select class="form-control">
-                            <option>Uomo</option>
-                            <option>Donna</option>
-                            <option>UniSex</option>
-                        </select>
-                    </form>
-	            </div>
 				<div class="widget product-category">
 					<h4 class="widget-title">Tipologia</h4>
 					<div class="panel-group commonAccordion" id="accordion" role="tablist" aria-multiselectable="true">
@@ -59,16 +49,15 @@
 					    <div class="panel-heading" role="tab" id="headingTwo">
 					      <h4 class="panel-title">
 					        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-					         	Colore
+					         	Sesso
 					        </a>
 					      </h4>
 					    </div>
 					    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 					    	<div class="panel-body">
 					     		<ul>
-									<li><a href="Categoria?colore=nero">Nero</a></li>
-									<li><a href="Categoria?colore=oro">Oro</a></li>
-									<li><a href="Categoria?colore=verde">Verde</a></li>
+									<li><a href="Categoria?sex=U">Uomo</a></li>
+									<li><a href="Categoria?sex=D">Donna</a></li>									
 								</ul>
 					    	</div>
 					    </div>

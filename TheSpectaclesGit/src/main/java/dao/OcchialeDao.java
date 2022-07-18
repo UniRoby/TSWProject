@@ -72,6 +72,57 @@ import model.*;
 	 		return occhiali;
 		}
 		
+		
+		public Collection<OcchialeBean> doRetrieveBySex(ArrayList<String> keys) throws SQLException {
+			
+			Connection con = null;
+			PreparedStatement prep = null;
+			ResultSet rs = null;
+			Collection<OcchialeBean> occhiali = new ArrayList<OcchialeBean>();
+	 		String sql = "SELECT * FROM " + OcchialeDao.TABLE_NAME + " WHERE tipo = ?";
+	 		
+
+	 		try {
+	 			con = ds.getConnection();
+				prep = con.prepareStatement(sql);
+				prep.setString(1,keys.get(1));
+				rs = prep.executeQuery();
+
+	 			while (rs.next()) {
+	 				OcchialeBean bean = new OcchialeBean();
+	            	bean.setIdGlasses(rs.getString("idOcchiale"));
+	            	bean.setNameGlasses(rs.getString("nomeOcchiale"));
+	            	bean.setBrand(rs.getString("marca"));
+	            	bean.setPrice(rs.getInt("prezzo"));
+	            	bean.setAvailability(rs.getInt("disponibilita"));
+	            	bean.setType(rs.getString("tipo").charAt(0));
+	            	bean.setColor(rs.getString("colore"));
+	            	bean.setCategory(rs.getString("categoria"));
+	            	bean.setImage(rs.getString("img"));
+	            	bean.setImage2(rs.getString("img2"));
+	            	bean.setDescription(rs.getString("descrizione"));
+	            	
+	            	occhiali.add(bean);
+	 			}
+
+	 		} 
+		    catch(Exception e){
+			  e.printStackTrace();
+			} finally {
+				if(rs!=null) {
+					rs.close();
+				}
+				if(prep!=null) {
+					prep.close();
+				}
+				if(con!=null) {
+					con.close();
+				}
+				
+	 		}
+	 		return occhiali;
+		}
+		
 public OcchialeBean doRetrieveOcchiale (String id) throws SQLException {
 			
 			Connection con = null;

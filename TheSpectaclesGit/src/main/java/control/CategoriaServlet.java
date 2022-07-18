@@ -41,8 +41,12 @@ public class CategoriaServlet extends HttpServlet {
 		String sex= request.getParameter("sex");
 		ArrayList<String> valori= new ArrayList<String>();
 		valori.add(tipo);
-		System.out.println("ServletCategoria: "+ valori.get(0));
+		valori.add(sex);
+		System.out.println("ServletCategoria: "+ valori.get(1));
+		System.out.println("\n size valori : "+valori.size());
 		
+		if(valori.get(0)!=null) {
+			System.out.println("\n sono dopo if");
 		try {
 		    Collection<OcchialeBean> beans= modelOcchiale.doRetrieveByKey(valori);
 		    for(OcchialeBean b : beans) {
@@ -54,7 +58,21 @@ public class CategoriaServlet extends HttpServlet {
 		catch (SQLException e) {
 			System.out.println("Errore Categoria Servlet: " + e.getMessage());
 		}
-		
+		}
+		else {
+			try {
+				System.out.println("\n sono dopo if");
+			    Collection<OcchialeBean> beans= modelOcchiale.doRetrieveBySex(valori);
+			    for(OcchialeBean b : beans) {
+			    	System.out.println(b.getNameGlasses());
+			    }
+				request.removeAttribute("occhiali");
+				request.setAttribute("occhiali", beans);
+			}
+			catch (SQLException e) {
+				System.out.println("Errore Categoria Servlet: " + e.getMessage());
+			}
+		}
 		
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/shopCategoria.jsp");
