@@ -89,11 +89,7 @@ if(occhiali == null) {
 								<p class="price"><%=bean.getBrand() %></p>
 							</div>
 						</div>
-					</div>
-					
-					
-					<img class="img-responsive" src="images/shop/products/<%=bean.getImage()%>" alt="product-img" />
-					
+					</div>			
 					<%
 					}
 					} else {
