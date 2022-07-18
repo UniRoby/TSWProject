@@ -6,16 +6,13 @@
     pageEncoding="UTF-8"%>
 
 <%
-
 if(request.getSession().getAttribute("auth")== null) {
 response.sendRedirect(getServletContext().getContextPath() +
 "/login.jsp"); 
 	} 
 
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
-
 %>
-
 
 <!DOCTYPE html>
 <html lang="it">
@@ -71,7 +68,5 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
  <%@ include file="footer.html"%>
  <%@ include file="script.html"%>
     
-
-
   </body>
   </html>

@@ -12,7 +12,6 @@ if(occhiali == null) {
 	response.sendRedirect("./ShopControl");	
 	return;
 }
-
  %>
 
 <!DOCTYPE html>
@@ -45,10 +44,6 @@ if(occhiali == null) {
 
 	 -->
 	
-
-
-
-  
 </head>
 
 <body id="body">
@@ -111,10 +106,7 @@ if(occhiali == null) {
 	</div>
 </section>
  
-
-
  <%@ include file="footer.html"%>
-
  <%@ include file="script.html"%>
 
 

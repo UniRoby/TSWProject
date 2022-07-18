@@ -27,13 +27,10 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("descrizione");
 
 <%@ include file="header.jsp"%>
 
-
-
 <% 
 		if (bean != null) {
-			
-			
-				%>
+	
+			%>
 
 <section class="single-product">
 	<div class="container">
@@ -72,8 +69,6 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("descrizione");
 							</a>
 						</div>
 						
-					
-						
 						<ol class='carousel-indicators mCustomScrollbar meartlab'>
 							<li data-target='#carousel-custom' data-slide-to='0' class='active'>
 								<img src='images/shop/products/<%=bean.getImage()%>' alt='' />
@@ -100,10 +95,6 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("descrizione");
 			       <p> Categoria: <%=bean.getCategory()%> </p>
 			       <p> Colore: <%=bean.getColor()%> </p>
 
-					 					
-					
-
-					
 					 <!-- <div class="product-size">
 						<span>Size:</span>
 						<select class="form-control">
@@ -157,14 +148,9 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("descrizione");
 			out.println("There is no proucts");
 			}
 			%>
-
-
-
     
 	 <%@ include file="footer.html"%>
-
      <%@ include file="script.html"%>
 	
-
   </body>
   </html>

@@ -8,21 +8,22 @@
 <%
 if(request.getSession().getAttribute("auth") == null) {
 response.sendRedirect(getServletContext().getContextPath() +
-"/login.jsp"); } 
+"/login.jsp"); 
+	} 
 UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 ArrayList<OcchialeOrdineBean> prodotti = (ArrayList<OcchialeOrdineBean>) request.getAttribute("prodotti");
 
 System.out.println("orderDetails\n"+prodotti);
 OrdineBean ordine= (OrdineBean) request.getAttribute("ordine");
-
 %>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
 
-
 	<%@ include file="meta.html"%>
 	<% session.setAttribute("auth",(UtenteBean) request.getSession().getAttribute("auth")); %>
+	
 </head>
 
 <body id="body">
@@ -72,8 +73,7 @@ OrdineBean ordine= (OrdineBean) request.getAttribute("ordine");
 									<td><%= prodotto.getIdProdotto()%></td>
 									<td><%= prodotto.getQuantita()%></td>
 									<td><%= tot %>&#8364;</td>
-									
-									
+														
 								</tr>
 								<%
 									}
@@ -86,7 +86,6 @@ OrdineBean ordine= (OrdineBean) request.getAttribute("ordine");
 	</div>
 </section>
  <%@ include file="footer.html"%>
-
  <%@ include file="script.html"%>
 
   </body>
