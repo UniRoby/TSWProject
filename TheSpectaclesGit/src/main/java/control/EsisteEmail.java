@@ -23,12 +23,11 @@ import dao.*;
 import model.*;
 
 
-@WebServlet("/Signin")
-public class SigninServlet extends HttpServlet {
+@WebServlet("/cercaMail")
+public class EsisteEmail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	//private static Model<UtenteBean, DataSource> utenteModel = new UtenteDao();
-	
 	private static UtenteDao utenteModel = new UtenteDao();
+	
 	
 	
 
@@ -38,7 +37,7 @@ public class SigninServlet extends HttpServlet {
 		
 	}
 	
-    public SigninServlet() {
+    public EsisteEmail() {
         super();
         
     }
@@ -48,49 +47,22 @@ public class SigninServlet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String newPassword= request.getParameter("password");
-		
-        byte[] data1 = newPassword.getBytes("UTF-8");
-        MessageDigest mdhash = null;
-		try {
-			mdhash = MessageDigest.getInstance("SHA-256");
-		} catch (NoSuchAlgorithmException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-        byte[] digest = mdhash.digest(data1);              
-        String HashPassw = Base64.getEncoder().encodeToString(digest);
-		
-		
-		
-		String nome= request.getParameter("nome");
-		String cognome= request.getParameter("cognome");
-		Date birth=new Date();
-		try {
-			birth = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(request.getParameter("data"));
-		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-		System.out.println(request.getParameter("data"));
 		
 		String email= request.getParameter("email");
 		
-		
+		System.out.println("SOno in cerca email\n");
 		
 		int ruolo= 0;
 		PrintWriter out= response.getWriter();
-		ArrayList<String> value= new ArrayList<String>();
-		value.add(email);
-		value.add(newPassword);
-		UtenteBean newUtente= new UtenteBean(email,HashPassw,nome,cognome,birth,ruolo);
 		try {
 			
-			utenteModel.doSave(newUtente);
-			UtenteBean client = utenteModel.doRetrieveByKey(value);
-			request.getSession().setAttribute("auth", client);
-			out.print("Utente");
+			if(utenteModel.esisteEmail(email));
+			{
+				HttpSession session= request.getSession(false);
+				session.setAttribute("email", email);
+				out.print("ok");
+			}
+			
 		} catch (SQLException e) {
 			System.out.println ("Errore nella signin: " + e.getMessage());
 		}

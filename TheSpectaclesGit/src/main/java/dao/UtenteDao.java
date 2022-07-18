@@ -62,6 +62,47 @@ import model.*;
 	 		}
 	 		return bean;
 		}
+		
+		public boolean esisteEmail(String email) throws SQLException {
+			UtenteBean bean = new UtenteBean();
+			Connection con = null;
+			PreparedStatement prep = null;
+			ResultSet rs = null;
+			
+			String selectSQL = "SELECT * FROM " + UtenteDao.TABLE_NAME + " WHERE email = ? ";
+
+
+	 		try {
+	 			con = ds.getConnection();
+				prep = con.prepareStatement(selectSQL);
+				prep.setString(1, email);
+				
+				rs = prep.executeQuery();
+
+	 			while (rs.next()) {
+	 				
+	            	bean.setPass(rs.getString("pass"));
+	            	bean.setRole(rs.getInt("role"));
+	            	bean.setEmail(rs.getString("email"));
+	            	bean.setFirstName(rs.getString("firstName"));
+	            	bean.setLastName(rs.getString("lastName"));
+	            	bean.setBirthday(rs.getDate("birthday"));
+	 			}
+
+	 		} 
+	 		catch(Exception e) {
+	 			e.printStackTrace();
+	 		}
+	 		finally {
+	 			
+	 			rs.close();
+				prep.close();
+				con.close();
+	 		}
+	 		if(bean!=null)
+	 			return true;
+	 		else return false;
+		}
 		public UtenteBean doRetrieveByMail(String email) throws SQLException {
 			UtenteBean bean = new UtenteBean();
 			Connection con = null;
@@ -172,8 +213,25 @@ import model.*;
 			return occhiali;
 		}
 
-		public void doUpdate(UtenteBean bean) throws SQLException {
-		
+		public void changePassword(String email, String pass) throws SQLException {
+			Connection con = null;
+			PreparedStatement prep = null;
+			String sql = "UPDATE utente SET password=? WHERE email=?";
+
+			try {
+				con = ds.getConnection();
+				prep = con.prepareStatement(sql);
+				prep.setString(1, pass);
+				prep.setString(2,email);
+				prep.executeUpdate();
+				
+				
+
+			} finally {
+				prep.close();
+				con.close();
+			}
+			
 		}
 
 		public void doDelete(UtenteBean bean) throws SQLException {

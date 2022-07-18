@@ -113,12 +113,12 @@ hanno pensato di realizzare un e-commerce finalizzato alla vendita di occhiali p
    			</div>
    		</div>
 					<p><b>Roberto Piscopo</b><br>
-						Studentessa di Informatica all'Università degli Studi di Salerno.<br>
+						Student di Informatica all'Università degli Studi di Salerno.<br>
 						</p>
 						<p>
 								<br>Contatti:<br>
-								M.Ferrara115@studenti.unisa.it<br>
-								<a href="https://github.com/MiriamFerrara">Github.com/MiriamFerrara</a></p>
+								r.piscopo8@studenti.unisa.it<br>
+								
 	</div>
 </div>
 
@@ -132,13 +132,12 @@ hanno pensato di realizzare un e-commerce finalizzato alla vendita di occhiali p
    			</div>
    		</div>
 					<p><b>Mario Ranieri</b><br>
-						Studentessa di Informatica all'Università degli Studi di Salerno.<br>
+						Studente di Informatica all'Università degli Studi di Salerno.<br>
 						</p>
 						<p>
 								<br>Contatti:<br>
-								M.Ferrara115@studenti.unisa.it<br>
-								<a href="https://github.com/MiriamFerrara">Github.com/MiriamFerrara</a></p>
-	</div>
+								m.ranieri@studenti.unisa.it<br>
+							
 </div>
 
 <div class="col">

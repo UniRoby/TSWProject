@@ -23,12 +23,11 @@ import dao.*;
 import model.*;
 
 
-@WebServlet("/Signin")
-public class SigninServlet extends HttpServlet {
+@WebServlet("/ForgetPass")
+public class ForgetPassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	//private static Model<UtenteBean, DataSource> utenteModel = new UtenteDao();
-	
 	private static UtenteDao utenteModel = new UtenteDao();
+	
 	
 	
 
@@ -38,7 +37,7 @@ public class SigninServlet extends HttpServlet {
 		
 	}
 	
-    public SigninServlet() {
+    public ForgetPassword() {
         super();
         
     }
@@ -63,34 +62,19 @@ public class SigninServlet extends HttpServlet {
 		
 		
 		
-		String nome= request.getParameter("nome");
-		String cognome= request.getParameter("cognome");
-		Date birth=new Date();
-		try {
-			birth = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(request.getParameter("data"));
-		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+	
 		
-		System.out.println(request.getParameter("data"));
 		
-		String email= request.getParameter("email");
+		String email= (String) request.getSession().getAttribute("email");
 		
 		
 		
-		int ruolo= 0;
+		
 		PrintWriter out= response.getWriter();
-		ArrayList<String> value= new ArrayList<String>();
-		value.add(email);
-		value.add(newPassword);
-		UtenteBean newUtente= new UtenteBean(email,HashPassw,nome,cognome,birth,ruolo);
 		try {
 			
-			utenteModel.doSave(newUtente);
-			UtenteBean client = utenteModel.doRetrieveByKey(value);
-			request.getSession().setAttribute("auth", client);
-			out.print("Utente");
+			utenteModel.changePassword(email, HashPassw);
+			out.print("ok");
 		} catch (SQLException e) {
 			System.out.println ("Errore nella signin: " + e.getMessage());
 		}
