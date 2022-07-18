@@ -98,6 +98,7 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("descrizione");
 						<%=bean.getNameGlasses()%>
 					</p>
 			       <p> Categoria: <%=bean.getCategory()%> </p>
+			       <p> Colore: <%=bean.getColor()%> </p>
 
 					 					
 					
