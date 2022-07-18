@@ -39,11 +39,6 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
 			<div class="col-md-12">
 				<div class="content">
 					<h1 class="page-name">Rubrica Indirizzi</h1>
-					<ol class="breadcrumb">
-						<li><a href="index.jsp">Home</a></li>
-						<li class="active">My Account</li>
-					</ol>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -51,12 +46,12 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
 <section class="user-dashboard page-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <ul class="list-inline dashboard-menu text-center">
-          <li><a href="CronologiaOrdini">Ordini</a></li>
-          <li><a class="active" href="Indirizzo?page='ok'">Indirizzi</a></li>
-          <li><a href="profile-details.jsp">Dettagli Profilo</a></li>
-        </ul>
+		<div class="col-md-12">
+			<ul class="list-inline dashboard-menu text-center">
+				<li><a href="CronologiaOrdini">Ordini</a></li>
+				<li><a class="active" href="Indirizzo?page=ok">Indirizzi</a></li>										
+				<li><a  href="profile_details.jsp">Dettagli Profilo</a></li>	
+			</ul> 
         <div class="dashboard-wrapper user-dashboard">
           <div class="table-responsive">
             <table class="table">

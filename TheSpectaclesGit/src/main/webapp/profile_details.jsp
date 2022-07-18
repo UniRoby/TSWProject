@@ -45,12 +45,12 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
 <section class="user-dashboard page-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <ul class="list-inline dashboard-menu text-center">
-     	 <li><a href="CronologiaOrdini">Ordini</a></li>
-          <li><a href="Indirizzo?page='ok'">Indirizzi</a></li>
-          <li><a class="active" href="profile_details.jsp">Dettagli Profilo</a></li>
-        </ul>
+		<div class="col-md-12">
+			<ul class="list-inline dashboard-menu text-center">
+				<li><a href="CronologiaOrdini">Ordini</a></li>
+				<li><a href="Indirizzo?page=ok">Indirizzi</a></li>										
+				<li><a class="active" href="profile_details.jsp">Dettagli Profilo</a></li>	
+			</ul> 
         <div class="dashboard-wrapper dashboard-user-profile">
           <div class="media">
             <div class="media-body">
@@ -58,8 +58,7 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
                 <li><span>Nome:</span><%= auth.getFirstName() %></li>
                 <li><span>Cognome:</span><%= auth.getLastName() %></li>
                 <li><span>Email:</span><%= auth.getEmail()%></li>
-                <li><span>Cellulare:</span> <%= 3 %></li>
-                <li><span>Data di nascita:</span><%= auth.getBirthday() %></li>
+               <!--  <li><span>Data di nascita:</span><%= auth.getBirthday() %></li> -->
               </ul>
             </div>
           </div>
@@ -68,78 +67,9 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
     </div>
   </div>
 </section>
-<footer class="footer section text-center">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<ul class="social-media">
-					<li>
-						<a href="https://www.facebook.com/themefisher">
-							<i class="tf-ion-social-facebook"></i>
-						</a>
-					</li>
-					<li>
-						<a href="https://www.instagram.com/themefisher">
-							<i class="tf-ion-social-instagram"></i>
-						</a>
-					</li>
-					<li>
-						<a href="https://www.twitter.com/themefisher">
-							<i class="tf-ion-social-twitter"></i>
-						</a>
-					</li>
-					<li>
-						<a href="https://www.pinterest.com/themefisher/">
-							<i class="tf-ion-social-pinterest"></i>
-						</a>
-					</li>
-				</ul>
-				<ul class="footer-menu text-uppercase">
-					<li>
-						<a href="contact.html">CONTACT</a>
-					</li>
-					<li>
-						<a href="shop.html">SHOP</a>
-					</li>
-					<li>
-						<a href="pricing.html">Pricing</a>
-					</li>
-					<li>
-						<a href="contact.html">PRIVACY POLICY</a>
-					</li>
-				</ul>
-				<p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by UnisaStudents</p>
-			</div>
-		</div>
-	</div>
-</footer>
-    <!-- 
-    Essential Scripts
-    =====================================-->
-    
-    <!-- Main jQuery -->
-    <script src="plugins/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap 3.1 -->
-    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Bootstrap Touchpin -->
-    <script src="plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-    <!-- Instagram Feed Js -->
-    <script src="plugins/instafeed/instafeed.min.js"></script>
-    <!-- Video Lightbox Plugin -->
-    <script src="plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
-    <!-- Count Down Js -->
-    <script src="plugins/syo-timer/build/jquery.syotimer.min.js"></script>
 
-    <!-- slick Carousel -->
-    <script src="plugins/slick/slick.min.js"></script>
-    <script src="plugins/slick/slick-animation.min.js"></script>
-
-    <!-- Google Mapl -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-    <script type="text/javascript" src="plugins/google-map/gmap.js"></script>
-
-    <!-- Main Js File -->
-    <script src="js/script.js"></script>
+ <%@ include file="footer.html"%>
+ <%@ include file="script.html"%>
     
 
 

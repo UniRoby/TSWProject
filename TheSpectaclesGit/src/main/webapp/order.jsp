@@ -42,12 +42,12 @@ ArrayList<OrdineBean> ordini = (ArrayList<OrdineBean>) request.getAttribute("ord
 <section class="user-dashboard page-wrapper">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
-				<ul class="list-inline dashboard-menu text-center">
-					 <li><a href="order.jsp">Ordini</a></li>
-			          <li><a class="active" href="Indirizzo?page='ok'">Indirizzi</a></li>
-			          <li><a href="profile-details.jsp">Dettagli Profilo</a></li>
-				</ul>
+		<div class="col-md-12">
+			<ul class="list-inline dashboard-menu text-center">
+				<li><a class="active" href="CronologiaOrdini">Ordini</a></li>
+				<li><a href="Indirizzo?page=ok">Indirizzi</a></li>										
+				<li><a href="profile_details.jsp">Dettagli Profilo</a></li>	
+			</ul> 
 				<div class="dashboard-wrapper user-dashboard">
 					<div class="table-responsive">
 						<table class="table">
