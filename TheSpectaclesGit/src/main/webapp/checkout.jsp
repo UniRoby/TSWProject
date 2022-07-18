@@ -7,11 +7,11 @@
 
 <%
 if(request.getSession().getAttribute("auth") == null) {
-response.sendRedirect(getServletContext().getContextPath() +
-"/login.jsp"); } 
-UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
-IndirizziBean attivo= (IndirizziBean) request.getAttribute("attivo");
-Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
+	response.sendRedirect(getServletContext().getContextPath() +
+	"/login.jsp"); } 
+	UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
+	IndirizziBean attivo= (IndirizziBean) request.getAttribute("attivo");
+	Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
 %>
 
 <!DOCTYPE html>
@@ -44,6 +44,7 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
 
  <form  class="checkout-form" action="Checkout" method="get">
 <div class="page-wrapper">
+<div class="col-md-8">
    <div class="checkout shopping">
       <div class="container">
          <div class="row">
@@ -141,6 +142,7 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
                   </div>
                </div>
             </div>
+           </div>
         </form>  <!-- fine form -->
           
             <div class="col-md-4">
@@ -165,12 +167,12 @@ Collection<?> indirizzi = (Collection<?>) request.getAttribute("indirizzi");
                            <span class="remove" >Remove</span>
                         </div>
                      </div>
-                      <%
-                          subtotal+=car.getCarrello().get(i).getTotPrezzo();
+                      <%                      
                     	  iva+=(car.getCarrello().get(i).getTotPrezzo()*22)/100;
-                    	  total+=subtotal+iva;
+                    	  total+=car.getCarrello().get(i).getTotPrezzo();
+                    	  
 	   			 				}
-                
+				   		   subtotal = total - iva;
                   
   						%>
                      <!--  

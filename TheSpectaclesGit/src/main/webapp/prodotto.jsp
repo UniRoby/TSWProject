@@ -91,8 +91,8 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("descrizione");
 				<div class="single-product-details">
 					<h2><%=bean.getBrand()%></h2>
 
-					<p class="product-price"><%=bean.getPrice()%> &euro;</p>
-
+					<p class="product-price"> Prezzo IVA inclusa : <%=bean.getPrice()%> &euro;</p>
+					<p class="product-price">IVA : <%=bean.getPrice()*22/100%> &euro;</p>
 					
 					<p class="product-description mt-20">
 						<%=bean.getNameGlasses()%>
