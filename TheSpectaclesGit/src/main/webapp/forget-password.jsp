@@ -30,7 +30,7 @@
           </a>
           <h2 class="text-center">Welcome Back</h2>
           <form method="post" class="text-left clearfix">
-            <p>Please enter the email address for your account</p>
+            <p>per favore inserisci la mail del tuo account</p>
             <div class="form-group">
               <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Account email address" required">
             </div>

@@ -14,7 +14,7 @@ import model.*;
 
 
 
-	 public class UtenteDao implements Model<UtenteBean, DataSource> {
+	 public class UtenteDao {
 
 	 	private static final String TABLE_NAME = "utente";
 

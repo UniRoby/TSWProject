@@ -44,7 +44,7 @@ import model.*;
 	            	bean.setBrand(rs.getString("marca"));
 	            	bean.setPrice(rs.getInt("prezzo"));
 	            	bean.setAvailability(rs.getInt("disponibilita"));
-	            	bean.setType(rs.getString("tipo").charAt(0));
+	            	bean.setType(rs.getString("tipo"));
 	            	bean.setColor(rs.getString("colore"));
 	            	bean.setCategory(rs.getString("categoria"));
 	            	bean.setImage(rs.getString("img"));
@@ -95,7 +95,7 @@ import model.*;
 	            	bean.setBrand(rs.getString("marca"));
 	            	bean.setPrice(rs.getInt("prezzo"));
 	            	bean.setAvailability(rs.getInt("disponibilita"));
-	            	bean.setType(rs.getString("tipo").charAt(0));
+	            	bean.setType(rs.getString("tipo"));
 	            	bean.setColor(rs.getString("colore"));
 	            	bean.setCategory(rs.getString("categoria"));
 	            	bean.setImage(rs.getString("img"));
@@ -145,7 +145,7 @@ public OcchialeBean doRetrieveOcchiale (String id) throws SQLException {
 	            	bean.setBrand(rs.getString("marca"));
 	            	bean.setPrice(rs.getInt("prezzo"));
 	            	bean.setAvailability(rs.getInt("disponibilita"));
-	            	bean.setType(rs.getString("tipo").charAt(0));
+	            	bean.setType(rs.getString("tipo"));
 	            	bean.setColor(rs.getString("colore"));
 	            	bean.setCategory(rs.getString("categoria"));
 	            	bean.setImage(rs.getString("img"));
@@ -195,7 +195,7 @@ public OcchialeBean doRetrieveOcchiale (String id) throws SQLException {
 	            	bean.setBrand(rs.getString("marca"));
 	            	bean.setPrice(rs.getInt("prezzo"));
 	            	bean.setAvailability(rs.getInt("disponibilita"));
-	            	bean.setType(rs.getString("tipo").charAt(0));
+	            	bean.setType(rs.getString("tipo"));
 	            	bean.setColor(rs.getString("colore"));
 	            	bean.setCategory(rs.getString("categoria"));
 	            	bean.setImage(rs.getString("img"));
@@ -240,7 +240,7 @@ public OcchialeBean doRetrieveOcchiale (String id) throws SQLException {
 	            	bean.setBrand(rs.getString("marca"));
 	            	bean.setPrice(rs.getInt("prezzo"));
 	            	bean.setAvailability(rs.getInt("disponibilita"));
-	            	bean.setType(rs.getString("tipo").charAt(0));
+	            	bean.setType(rs.getString("tipo"));
 	            	bean.setColor(rs.getString("colore"));
 	            	bean.setCategory(rs.getString("categoria"));
 	            	bean.setImage(rs.getString("img"));   
@@ -285,7 +285,7 @@ public OcchialeBean doRetrieveOcchiale (String id) throws SQLException {
             	bean.setBrand(rs.getString("marca"));
             	bean.setPrice(rs.getInt("prezzo"));
             	bean.setAvailability(rs.getInt("disponibilita"));
-            	bean.setType(rs.getString("tipo").charAt(0));
+            	bean.setType(rs.getString("tipo"));
             	bean.setColor(rs.getString("colore"));
             	bean.setCategory(rs.getString("categoria"));
             	bean.setImage(rs.getString("img"));
@@ -376,7 +376,7 @@ public OcchialeBean doRetrieveOcchiale (String id) throws SQLException {
 			PreparedStatement prep = null;
 		
 			String insertSQL = "INSERT INTO " + OcchialeDao.TABLE_NAME
-					+ " (idOcchiale, nomeOcchiale, marca, prezzo,disponibilità,tipo,colore,idCategoria,img,img2,descrizione) VALUES (?, ?, ?, ?,?,?,?,?,?,?,?)";
+					+ " (idOcchiale, nomeOcchiale, marca, prezzo,disponibilita,tipo,colore,categoria,img,img2,descrizione) VALUES (?, ?, ?, ?,?,?,?,?,?,?,?)";
 			try {
 				con = ds.getConnection();
 				prep = con.prepareStatement(insertSQL);
@@ -386,7 +386,7 @@ public OcchialeBean doRetrieveOcchiale (String id) throws SQLException {
 				prep.setString(3, occhiale.getBrand());
 				prep.setInt(4, occhiale.getPrice());
 				prep.setInt(5, occhiale.getAvailability() );
-				//prep.setString(6, occhiale.getType());
+				prep.setString(6, occhiale.getType());
 				prep.setString(7, occhiale.getColor());
 				prep.setString(8, occhiale.getCategory());
 				prep.setString(9, occhiale.getImage());
@@ -394,8 +394,8 @@ public OcchialeBean doRetrieveOcchiale (String id) throws SQLException {
 				prep.setString(11, occhiale.getDescription());
 
 				prep.executeUpdate();
-				con.commit();
-
+				
+				
 			} finally {
 				prep.close();
 				con.close();

@@ -10,7 +10,7 @@ public class OcchialeBean implements Serializable  {
 	String brand;
 	int price;
 	int availability;
-	char type;
+	String type;
 	String color;
     String category;
 	String image;
@@ -24,7 +24,7 @@ public class OcchialeBean implements Serializable  {
 		totalPrice=0;
 	}
 
-	public OcchialeBean(String idGlasses, String nameGlasses, String brand, int price, int availability, char type,
+	public OcchialeBean(String idGlasses, String nameGlasses, String brand, int price, int availability, String type,
 			String color, String category, String image,String image2, String description) {
 		super();
 		this.idGlasses = idGlasses;
@@ -80,11 +80,11 @@ public class OcchialeBean implements Serializable  {
 		this.availability = availability;
 	}
 
-	public char getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(char type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 

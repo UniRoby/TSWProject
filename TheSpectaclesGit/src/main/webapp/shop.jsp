@@ -57,6 +57,7 @@ if(occhiali == null) {
 
 <%@ include file="header.jsp"%>
 <%@ include file="shopHeader.jsp" %>
+
 			<div class="col-md-9">		
 				<div class="row">				
 					<% 
@@ -94,6 +95,10 @@ if(occhiali == null) {
 							</div>
 						</div>
 					</div>
+					
+					
+					<img class="img-responsive" src="images/shop/products/<%=bean.getImage()%>" alt="product-img" />
+					
 					<%
 					}
 					} else {

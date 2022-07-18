@@ -28,6 +28,7 @@ public class ServletAggiungiProdAdmin extends HttpServlet {
 	static boolean isDataSource = true;
 	private OcchialeDao oDao= new OcchialeDao();
 	
+	static String UPLOAD_DIRECTORY="images\\shop\\products";
 	private String extractFileName (Part pa) {
 		String context= pa.getHeader("content-disposition");
 		String[] item= context.split(";");
@@ -51,19 +52,22 @@ public class ServletAggiungiProdAdmin extends HttpServlet {
 		
 		
 		System.out.println("Sono nella Servlet di aggiunta Occhiale");
+				
+		String uploadPath = getServletContext().getRealPath("") + UPLOAD_DIRECTORY;
+		System.out.println("\nUploadpath :"+uploadPath);
+		
+		File uploadDir = new File(uploadPath);
+		if (!uploadDir.exists()) uploadDir.mkdir();
+					
 		Part part= request.getPart("img1");
 		String fileName= extractFileName (part);
+		part.write(uploadPath + File.separator + fileName);
+		
+		
 		Part part2= request.getPart("img2");
-		String fileName2= extractFileName (part2);
+		String fileName2= extractFileName (part2);	
+		part2.write(uploadPath + File.separator + fileName2);
 		
-		System.out.println("\nimmagine 1: "+fileName);
-		System.out.println("\nimmagine 2: "+fileName2);
-		
-	
-		String savePath= "C:\\Users\\User\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\TheSpectaclesGit\\images\\shop\\products\\" + fileName;
-		String savePath2= "C:\\Users\\User\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\TheSpectaclesGit\\images\\shop\\products\\" + fileName2;
-		
-		part.write(savePath + File.separator);
 		
 		String idOcchiale= request.getParameter("id");
 		String nomeProd= request.getParameter("nome");
@@ -76,7 +80,7 @@ public class ServletAggiungiProdAdmin extends HttpServlet {
 		String desc= request.getParameter("desc");
 
 				
-		OcchialeBean prod= new OcchialeBean ();
+		OcchialeBean prod= new OcchialeBean();
 		
 		prod.setIdGlasses(idOcchiale);
 		prod.setNameGlasses(nomeProd);
@@ -85,7 +89,7 @@ public class ServletAggiungiProdAdmin extends HttpServlet {
 		prod.setAvailability(disp);
 		prod.setColor(colore);
 		prod.setCategory(categoria);
-		prod.setType(sex.charAt(0));
+		prod.setType(sex);
 		prod.setDescription(desc);
 		prod.setImage(fileName);
 		if(!fileName.equals(null))
@@ -96,13 +100,14 @@ public class ServletAggiungiProdAdmin extends HttpServlet {
 		try {
 			oDao.doSave(prod);
 			
-			RequestDispatcher dis= request.getRequestDispatcher("PageAmministratore.jsp");
-			dis.forward(request, response);
+
 		}
 		catch (SQLException e) {
 			System.out.println ("Errore nella ServletAggiungiProdAdmin: " + e.getMessage());
 		}
 		
+		RequestDispatcher dis= request.getRequestDispatcher("PageAmministratore.jsp");
+		dis.forward(request, response);
 	}
 
 }
