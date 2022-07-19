@@ -311,7 +311,7 @@ public OcchialeBean doRetrieveOcchiale (String id) throws SQLException {
 		public void doUpdate(OcchialeBean occhiale) throws SQLException {
 			Connection con = null;
 			PreparedStatement prep = null;
-			String sql = "UPDATE occhiale SET  nomeOcchiale=?, prezzo=?, disponibilità=?, descrizione=?";
+			String sql = "UPDATE occhiale SET  nomeOcchiale=?, prezzo=?, disponibilita=?, descrizione=? WHERE idOcchiale = ?";
 
 			try {
 				con = ds.getConnection();
@@ -322,6 +322,9 @@ public OcchialeBean doRetrieveOcchiale (String id) throws SQLException {
 				prep.setInt(2, occhiale.getPrice());
 				prep.setInt(3, occhiale.getAvailability());
 				prep.setString(4, occhiale.getDescription());
+				prep.setString(5, occhiale.getIdGlasses());
+				
+				System.out.println("\nquery : "+prep);
 				
 				prep.executeUpdate();
 

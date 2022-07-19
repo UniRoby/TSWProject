@@ -58,7 +58,7 @@ if(occhiali == null) {
 			<div class="col-md-6">
 			 
 				<div class="category-box">
-					<a href="#!">
+					<a href="Categoria?sex=D">
 						<img src="images/index/woman/donna1.jpg" alt="" />
 						 
 						 <!-- 
@@ -81,7 +81,7 @@ if(occhiali == null) {
 					</a>
 				</div>
 				<div class="category-box">
-					<a href="#!">
+					<a href="Categoria?sex=U">
 						<img src="images/index/man/uomo2.jpg" alt="" />
 						<div class="content">
 							<h3>Occhiali Uomo</h3>
@@ -91,7 +91,7 @@ if(occhiali == null) {
 			</div>
 			<div class="col-md-6">
 				<div class="category-box category-box-2">
-					<a href="#!">
+					<a href="shop.jsp">
 						<img src="images/index/man/uomo1.jpg" alt="" />
 						<div class="content">
 							<h3>Tutti gli Occhiali</h3>
@@ -126,12 +126,7 @@ if(occhiali == null) {
 						<div class="preview-meta">
 							<ul>
 								<li>
-									<span  data-toggle="modal" data-target="#product-modal">
 										<i class="tf-ion-ios-search-strong"></i>
-									</span>
-								</li>
-								<li>
-			                        <a href="#!" ><i class="tf-ion-ios-heart"></i></a>
 								</li>
 								<li>
 									<a href="#!"><i class="tf-ion-android-cart"></i></a>

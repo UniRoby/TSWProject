@@ -32,12 +32,6 @@ $(document).ready(function(){
 	
 	//eliminazione errori
 		
-	
-		
-	if (password.match(expEmail)){
-		errPassword= errPassword + 1;
-		$('#errorePassword').remove();
-	}
 		
 	if (ripPassword==password){
 		errRipPassword= errRipPassword + 1;

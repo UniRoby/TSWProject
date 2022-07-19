@@ -70,9 +70,7 @@ if(occhiali == null) {
 								<div class="preview-meta">
 									<ul>
 										<li>
-											<span  data-toggle="modal" data-target="#product-modal">
 												<a href="Prodotto?action=dettagli&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-ios-search-strong"></i></a>
-											</span>
 										</li>
 										<li>
 					                        <a href="#!" ><i class="tf-ion-ios-heart"></i></a>

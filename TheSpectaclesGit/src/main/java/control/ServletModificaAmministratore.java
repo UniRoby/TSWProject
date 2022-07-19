@@ -44,13 +44,14 @@ public class ServletModificaAmministratore extends HttpServlet {
 		int quantita = Integer.parseInt(request.getParameter("disp"));
 		int prezzo= Integer.parseInt(request.getParameter("prezzo"));
 		String id= request.getParameter("id");
-			System.out.println("id  "+ id);
+		System.out.println("id  "+ id);
 			
 			OcchialeBean occhiale= new OcchialeBean();
 			occhiale.setNameGlasses(nome);
 			occhiale.setAvailability(quantita);
 			occhiale.setPrice(prezzo);
 			occhiale.setDescription(descrizione);
+			occhiale.setIdGlasses(id);
 			
 			occhialeDao.doUpdate(occhiale);
 		}

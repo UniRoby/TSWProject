@@ -46,14 +46,12 @@ if(occhiali == null) {
 								<img class="img-responsive" src="images/shop/products/<%=bean.getImage()%>" alt="product-img" />
 								<div class="preview-meta">
 									<ul>
-										<li>
-											<span  data-toggle="modal" data-target="#product-modal">
-											
+										<li>										
 												<a href="Amministratore?action=dettagli&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-ios-search"></i></a>
-											</span>
+
 										</li>
 										<li>
-											<a href="Amministratore?action=modifica&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-ios-swap"></i></a>
+											<a href="Amministratore?action=modifica&id=<%= bean.getIdGlasses() %>"><i class="tf-ion-wrench"></i></a>
 					                       
 										</li>
 										<li>

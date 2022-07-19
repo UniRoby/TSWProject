@@ -14,7 +14,7 @@ import model.*;
 
 
 
-	 public class UtenteDao {
+	 public class UtenteDao implements Model<UtenteBean, DataSource>{
 
 	 	private static final String TABLE_NAME = "utente";
 
@@ -264,5 +264,11 @@ import model.*;
 				prep.close();
 				con.close();
 			}
+		}
+
+		@Override
+		public void doUpdate(UtenteBean bean) throws SQLException {
+			// TODO Auto-generated method stub
+			
 		}
 	 }

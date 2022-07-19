@@ -39,7 +39,7 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
                <div class="block billing-details">
                   <h4 class="widget-title">Modifica Prodotto</h4>
                   
-           
+           				
                      
                      
                         <div class="form-group">
@@ -56,7 +56,9 @@ UtenteBean auth = (UtenteBean) request.getSession().getAttribute("auth");
                         <label for="user_country">Quantità</label>
                         <input type="text" class="form-control" name="disp"   required>
                      </div>
-                   
+                      <div>
+                      	<input type="hidden" name="id" value="<%=occhiale.getIdGlasses()%>">
+                      </div>
                      
 
                      

@@ -1,4 +1,12 @@
 
+<style>
+div.log {
+  position: absolute;
+  right: 200px;
+  top: 40px;
+}
+</style>
+
 
 <!-- Start Top Header Bar -->
 <section class="top-header">

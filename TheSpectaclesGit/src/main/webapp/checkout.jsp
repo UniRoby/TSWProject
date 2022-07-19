@@ -44,14 +44,13 @@ if(request.getSession().getAttribute("auth") == null) {
 
  <form  class="checkout-form" action="Checkout" method="get">
 <div class="page-wrapper">
-<div class="col-md-8">
    <div class="checkout shopping">
       <div class="container">
          <div class="row">
             <div class="col-md-8">
                <div class="block billing-details">
                   <h4 class="widget-title">Indirizzo</h4>
-                  
+                   
                   <div class="table-responsive">
                      <table class="table">
                       <thead>
@@ -112,10 +111,8 @@ if(request.getSession().getAttribute("auth") == null) {
                        </table>
          			  </div>
                      </div>
-                    </div>
-                   </div>
-                  </div>
-                 </div>
+                   
+                
                <div class="block">
                   <h4 class="widget-title">Metodo Pagamento</h4>
                   <p>Credit Cart Details (Secure payment)</p>
@@ -138,12 +135,11 @@ if(request.getSession().getAttribute("auth") == null) {
                                <button  type="submit" class="btn btn-main mt-20" id="submit" value="Continua Checkout">Ordina</button>
                         
                         </div>
+                       </div>
                      </div>
                   </div>
                </div>
-            </div>
-           </div>
-        </form>  <!-- fine form -->
+           
           
             <div class="col-md-4">
                <div class="product-checkout-details">
@@ -175,11 +171,7 @@ if(request.getSession().getAttribute("auth") == null) {
 				   		   subtotal = total - iva;
                   
   						%>
-                     <!--  
-                     <div class="discount-code">
-                        <p>Have a discount ? <a data-toggle="modal" data-target="#coupon-modal" href="#!">enter it here</a></p>
-                     </div>
-                     -->
+                   
                     
                      <ul class="summary-prices">
                         <li>
@@ -206,23 +198,12 @@ if(request.getSession().getAttribute("auth") == null) {
                   </div>
                </div>
             </div>
- 
-   <!--  
-   <div class="modal fade" id="coupon-modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-         <div class="modal-content">
-            <div class="modal-body">
-               <form>
-                  <div class="form-group">
-                     <input class="form-control" type="text" placeholder="Enter Coupon Code">
-                  </div>
-                  <button type="submit" class="btn btn-main">Apply Coupon</button>
-               </form>
-            </div>
-         </div>
-      </div>
-   </div>
-   -->
+  				</div>
+       		 </div>
+        	</div>
+       	</div>
+        </form>  <!-- fine form -->
+
    
  <%@ include file="footer.html"%>
  <%@ include file="script.html"%>
