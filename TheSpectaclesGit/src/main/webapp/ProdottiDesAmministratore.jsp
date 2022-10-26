@@ -51,7 +51,7 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("des");
 									<img src='images/shop/products/<%=bean.getImage()%>' alt='' data-zoom-image="images/shop/single-products/product-1.jpg" />
 								</div>
 								<div class='item'>
-									<img src='images/shop/products/<%=bean.getImage()%>' alt='' data-zoom-image="images/shop/single-products/product-2.jpg" />
+									<img src='images/shop/products/<%=bean.getImage2()%>' alt='' data-zoom-image="images/shop/single-products/product-2.jpg" />
 								</div>
 							</div>
 							
@@ -70,7 +70,7 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("des");
 								<img src='images/shop/products/<%=bean.getImage()%>' alt='' />
 							</li>
 							<li data-target='#carousel-custom' data-slide-to='1'>
-								<img src='images/shop/products/<%=bean.getImage()%>' alt='' />
+								<img src='images/shop/products/<%=bean.getImage2()%>' alt='' />
 							</li>
 							
 						</ol>
@@ -95,9 +95,6 @@ OcchialeBean bean = (OcchialeBean) request.getAttribute("des");
 				
 					<div class="product-quantity">
 						<span>Quantità: <%=bean.getAvailability()%></span>
-						<div class="product-quantity-slider">
-							<input id="product-quantity" type="text" value="0" name="product-quantity">
-						</div>
 					</div>
 					
 					

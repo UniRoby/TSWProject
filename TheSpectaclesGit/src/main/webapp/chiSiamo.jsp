@@ -94,7 +94,7 @@ width: 100%;
 		</div>
 	</div>
 </section>
-<p class="p1"> 
+<p class="p1" align="center"> 
 The Spectacles nasce nel 2022 da un gruppo di studenti dell'Università degli Studi di Salerno che 
 hanno pensato di realizzare un e-commerce finalizzato alla vendita di occhiali per tutte le esigenze. 
 
@@ -102,66 +102,49 @@ hanno pensato di realizzare un e-commerce finalizzato alla vendita di occhiali p
 			<div class="title"><h2>Il Team</h2></div>
 		</div>
 
-<div class="row">
-<div class="col">
-	<div class="card">
+<div align="center">
+<div>
+	<div>
 		<div class="container">
-			<img src="images/team/team-1.jpg" class="imge"><br><br>
-			<div class="overlay">
-   				 <div class="imge1"><img src="./image/ChiSiamoMarilyn.jpeg" style="width:180px; height:180px; border-radius: 50%;">
-   				 </div>
-   			</div>
+			<img src="images/team/roberto.jpg" class="imge"><br><br>
    		</div>
 					<p><b>Roberto Piscopo</b><br>
-<<<<<<< HEAD
+
 						Student di Informatica all'Università degli Studi di Salerno.<br>
-=======
-						Studente di Informatica all'Università degli Studi di Salerno.<br>
->>>>>>> branch 'master' of https://github.com/UniRoby/TSWProject.git
+
 						</p>
 						<p>
 								<br>Contatti:<br>
 								r.piscopo8@studenti.unisa.it<br>
-<<<<<<< HEAD
+
 								
-=======
+
 								<a href="https://github.com/UniRoby">Github.com/UniRoby</a></p>
->>>>>>> branch 'master' of https://github.com/UniRoby/TSWProject.git
+
 	</div>
 </div>
 
-<div class="col">
-	<div class="card">
+<div align="center">
+	<div>
 		<div class="container">
-			<img src="images/team/team-1.jpg" class="imge"><br><br>
-			<div class="overlay">
-   				 <div class="imge1"><img src="./image/ChiSiamoMarilyn.jpeg" style="width:180px; height:180px; border-radius: 50%;">
-   				 </div>
-   			</div>
+			<img src="images/team/mario.jpg" class="imge"><br><br>
    		</div>
 					<p><b>Mario Ranieri</b><br>
 						Studente di Informatica all'Università degli Studi di Salerno.<br>
 						</p>
 						<p>
 								<br>Contatti:<br>
-<<<<<<< HEAD
-								m.ranieri@studenti.unisa.it<br>
-							
-=======
-								M.ranieri21@studenti.unisa.it<br>
+
+								m.ranieri@studenti.unisa.it<br>					
 								<a href="https://github.com/Mario3107">Github.com/Mario3107</a></p>
 	</div>
->>>>>>> branch 'master' of https://github.com/UniRoby/TSWProject.git
+
 </div>
 
-<div class="col">
-	<div class="card">
+<div align="center">
+	<div>
 		<div class="container">
 			<img src="images/team/Alessandro.jpg" class="imge"><br><br>
-			<div class="overlay">
-   				 <div class="imge1"><img src="./image/ChiSiamoMarilyn.jpeg" style="width:180px; height:180px; border-radius: 50%;">
-   				 </div>
-   			</div>
    		</div>
 					<p><b>Alessandro Satta</b><br>
 						Studente di Informatica all'Università degli Studi di Salerno.<br>					
